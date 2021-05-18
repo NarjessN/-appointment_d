@@ -51,7 +51,35 @@
                                     <th><input type="text" class="form-control" placeholder="Day" disabled></th>
                                 </tr>
                             </thead>
+                            <tbody>
+                               <tr>
+                                   <td></td>
+                                   <td></td>
+                                   <td></td>
+                                    <td></td>
+                                    <td></td>
+                                   <td></td>
+                                   <td></td>
+                                   <td></td>
+                                   <td></td>
+                                   <td></td>
+                                   <td></td>
+
+                                    <form method='POST'>
+                                    <td class='text-center'><span><button type="button" 
+                                    class="btn btn-success">accepte</button>
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span >
+                                    <button type="button" 
+                                    class="btn btn-danger">delete</button>
+                                    </span>
+                            </td>
+                            </form>   
                             
+                                </tr>
+                          </tbody> 
                             
                         <!-- panel content end -->
                         <!-- panel end -->

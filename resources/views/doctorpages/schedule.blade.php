@@ -179,6 +179,7 @@
                                     <th><input type="text" class="form-control" placeholder="startTime." disabled></th>
                                     <th><input type="text" class="form-control" placeholder="endTime" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="bookAvail" disabled></th>
+                                    
                                 </tr>
                             </thead>
                             
@@ -189,20 +190,28 @@
                                    <td></td>
                                     <td></td>
                                     <td></td>
-                                   <td></td>";
+                                   <td></td>
                                     <form method='POST'>
-                                    <td class='text-center'><a href='#' id='".$doctorschedule['scheduleId']."' class='delete'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></a>
+                                    <td class='text-center'><span><button type="button" 
+                                    class="btn btn-warning">edite</button>
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span >
+                                    <button type="button" 
+                                    class="btn btn-danger">delete</button>
+                                    </span>
                             </td>
-                               
+                            </form>   
                             
                                 </tr>
                           </tbody>
                        </table>
-                       <div class='panel panel-default'>
+                       <!-- <div class='panel panel-default'>
                        <div class='col-md-offset-3 pull-right'>
                        <button class='btn btn-primary' type='submit' value='Submit' name='submit'>Update</button>
                         </div>
-                        </div>
+                        </div> -->
                         
                         <!-- panel content end -->
                         <!-- panel end -->

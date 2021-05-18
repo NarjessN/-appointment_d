@@ -85,12 +85,12 @@
                     <table>
                     
                     <tr>
-                    <td><input type="checkbox" name="gender" value="F" style="display:inline;"></td>
+                    <td><input type="radio" name="gender" value="F" style="display:inline;"></td>
                     <td><label for="gender">Female </label></td>
                     </tr>
                     <tr>
-                    <td><input type="checkbox" name="gender" value="F" style="display:inline;"></td>
-                    <td><label for="gender">Female </label></td>
+                    <td><input type="radio" name="gender" value="F" style="display:inline;"></td>
+                    <td><label for="gender">male </label></td>
                     </tr>
                     </table>
                     
