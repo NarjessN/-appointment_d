@@ -21,4 +21,7 @@ class DoctorController extends Controller
     public function inbox(){
         return view ('/doctorpages/inbox');
     }
+    public function appoinment(){
+        return view ('/doctorpages/setappoinmnet');
+    }
 }

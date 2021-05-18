@@ -66,8 +66,12 @@
                                    <td></td>
 
                                     <form method='POST'>
-                                    <td class='text-center'><span><button type="button" 
-                                    class="btn btn-success">accepte</button>
+                                    <td class='text-center'><span>
+                                    
+                                    <button type="button" 
+                                    class="btn btn-success"
+                                    
+                                    >accepte</button>
                                     </span>
                                     </td>
                                     <td>
