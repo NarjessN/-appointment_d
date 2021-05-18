@@ -26,7 +26,7 @@
         <![endif]-->
     </head>
     <body>
-        <div id="wrapper">
+        <div id="">
             <!-- Navigation -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -40,31 +40,27 @@
                     <a class="navbar-brand" href="/patientprofile">Patient Name</a>
                 </div>
                 <!-- Top Menu Items -->
-                              <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-                <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                        <li>
-                            <a href="/finddoctor"><i class="fa fa-fw fa-edit"></i> booking appoinmnet</a>
-                        </li>
-                        <li>
-                            <a href="/request"><i class="fa fa-fw fa-table"></i> request </a>
-                        </li>
-                        <li>
-                            <a href="/responce"><i class="fa fa-fw fa-table"></i> responce </a>
-                        </li>
-                        
-                        
-                    </ul>
-                        </li>
-                        <li>
-                            <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-                        </li>
-                        <li>
-                            <a href="patientdashboard-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
+                <ul class="nav navbar-right top-nav">
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>  <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href=/finddoctor><i class="fa fa-fw fa-edit"></i>  booking</a>
+                            </li>
+                            <li>
+                                <a href="/responce"><i class="fa fa-fw fa-envelope"></i> inbox</a>
+                            </li>
+                            <li>
+                                <a href="/request"><i class="fa fa-fw fa-envelope"></i> request</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href=""><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>             
             </nav>
             <div id="page-wrapper">
                 <div class="container-fluid">

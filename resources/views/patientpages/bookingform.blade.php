@@ -60,20 +60,33 @@
 
                              <div class="row form-row">
                                 <div class="col-sm-6">
-                            <label for="appt">Start time  a time:</label>
+                                <label for="appt">day : </label>
+                                <label class="radio-inline"><input type="radio"
+                                 name="optradio" >sunday</label>
+                                 <label class="radio-inline"><input type="radio"
+                                 name="optradio" >monday</label>
+                                 <label class="radio-inline"><input type="radio"
+                                 name="optradio" >tusday</label>
+                                 <label class="radio-inline"><input type="radio"
+                                 name="optradio" >thurday</label>
+                                 <label class="radio-inline"><input type="radio"
+                                 name="optradio" >firday</label>
+                                 <label class="radio-inline"><input type="radio"
+                                 name="optradio" >satrday</label>
+                            <!-- <label for="appt">Start time  a time:</label>
                                 <input type="time" 
                                 id="time"
                                  name="time"  
                                 class="form-control"
                                 placeholder="start time"
                                 >
-                                </div>
-                                <div class="col-sm-6">
+                                </div> -->
+                                <!-- <div class="col-sm-6">
                                 <label for="appt">End time :</label>
                                 <input type="time"
                                  id="time"
                                   name="time"  placehlder = "end time" class="form-control">
-                                </div>
+                                </div> -->
                             </div>
                              <!-- <div class="row form-row">
                                 <div class="col-sm-6">
