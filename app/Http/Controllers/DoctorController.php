@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class DoctorController extends Controller
 {
+  
     public function singup(){
         return view ('/doctorpages/singup');
     }

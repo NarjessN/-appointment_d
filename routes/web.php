@@ -31,3 +31,10 @@ Route::get('/doctorprofile', 'DoctorController@profile')->name('DoctorProfile');
 Route::get('/doctorschedule', 'DoctorController@schedule')->name('DoctorSchedule');
 Route::get('/doctorinbox', 'DoctorController@inbox')->name('DoctorInbox');
 Route::get('/setappoinment', 'DoctorController@appoinment')->name('Appoinment');
+
+//testing 
+
+
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
