@@ -63,32 +63,38 @@
                                                 
                                                 
                                                 <tr>
-                                                    <td>Doctor ID</td>
-                                                    <td></td>
+                                                    <td>first name </td>
+                                                    <td>{{$doctor->fname}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>IC Number</td>
-                                                    <td></td>
+                                                    <td>last name </td>
+                                                    <td>{{$doctor->lname}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Address</td>
-                                                    <td></td>
+                                                    <td>birthday</td>
+                                                    <td>{{$doctor->addressclnic}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Contact Number</td>
+                                                    <td>gender</td>
                                                     <td>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Email</td>
+                                                    <td>spicilaization</td>
                                                     <td>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Birthdate</td>
+                                                    <td>clinic address</td>
                                                     <td>
                                                     </td>
                                                 </tr>
+                                                <tr>
+                                                    <td>email</td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                
                                             </tbody>
                                         </table>
                                     </div>

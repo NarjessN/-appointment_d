@@ -26,15 +26,14 @@ Route::get('/request', 'PatientController@request')->name('Request');
 Route::get('/responce', 'PatientController@responce')->name('Responce');
 // doctor route 
 Route::get('/doctorsingup', 'DoctorController@singup')->name('DoctorSingup');
+Route::post('/doctorsingup', 'DoctorController@register');
 Route::get('/doctorsingin', 'DoctorController@singin')->name('DoctorSingin');
-Route::get('/doctorprofile', 'DoctorController@profile')->name('DoctorProfile');
+// Route::get('/doctorprofile', 'DoctorController@profile')->name('DoctorProfile');
 Route::get('/doctorschedule', 'DoctorController@schedule')->name('DoctorSchedule');
 Route::get('/doctorinbox', 'DoctorController@inbox')->name('DoctorInbox');
 Route::get('/setappoinment', 'DoctorController@appoinment')->name('Appoinment');
 
-//testing 
-
-
 
 Auth::routes();
+
 Route::get('/home', 'HomeController@index')->name('home');

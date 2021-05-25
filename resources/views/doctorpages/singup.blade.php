@@ -54,29 +54,31 @@
 
 
         <div class="container" style="width:35%; height:80%; float:left; margin-left:120px; ">
-            <form method="POST" class="signup-form" id="signup-form" action="/newdoc">
+            <form method="POST" class="signup-form" id="signup-form" action="{{route('DoctorSingup')}}">
                 <h2>SIGNUP</h2>
-                <div class="form-group-1">
-
+                @csrf
+                <div class="">
+                    
                     <input type="text" name="fname" id="fname" placeholder="First Name" required />
                     <input type="text" name="lname" id="lname" placeholder="Last Name" required />
+                    <input type="date" name="birth" id="birth" placeholder="birthday" required />
                     <table>
                     <tr>
                         <td><input type="radio" name="gender" value="M" style="display:inline;"></td>
                         <td><label for="gender">Male</label></td>
                     </tr> 
                     <tr>
-                    <td><input type="radio" name="gender" value="F" style="display:inline;"></td>
+                    <td><input type="checkbox" name="gender" value="F" style="display:inline;"></td>
                     <td><label for="gender">Female </label></td>
                     </tr>
                     </table>
-                    <input type="text" name="spl" id="spl" placeholder="Specialization" required />
-                    <input type="text" name="d1" placeholder="Degree" required />
-                    <input type="text" name="exp" placeholder="Experience (Years)" required />
-                    <input type="number" name="fees" placeholder="Approx Fees" required />
-                    <input type="number" name="cid" placeholder="Clinic ID" required />
-                    <input type="email" name="demail" placeholder="Email ID" required />
+                    <!-- we should make it dropdown  -->
+                    <textarea class="form-control" name ="spicilization" rows="5" id="comment" placeholder="Specialization" required></textarea>
+                    <textarea  name ="addressclnic"class="form-control" rows="5" id="comment" placeholder="clininc address " required></textarea>
+                    <input type="file" name="image" placeholder="image" required />
+                    <input type="email" name="email" placeholder="Email ID" required />
                     <input type="password" name="pswd" placeholder="Password" required />
+                    <input type="password" name="cpswd" placeholder="confirmpassword" required />
                     
                 </div>
                 
