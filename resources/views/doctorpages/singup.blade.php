@@ -54,7 +54,7 @@
 
 
         <div class="container" style="width:35%; height:80%; float:left; margin-left:120px; ">
-            <form method="POST" class="signup-form" id="signup-form" action="{{route('DoctorSingup')}}">
+            <form method="POST" class="signup-form" id="signup-form" action="{{route('Doctor-Singup')}}">
                 <h2>SIGNUP</h2>
                 @csrf
                 <div class="">

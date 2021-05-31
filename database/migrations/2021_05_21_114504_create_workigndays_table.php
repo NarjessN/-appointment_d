@@ -15,10 +15,17 @@ class CreateWorkigndaysTable extends Migration
     {
         Schema::create('workigndays', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->DateTime('startime')->nulllable();
-            $table->DateTime('endtime')->nulllable();
-            $table->enum('workingday',['SANDAY','MONDAY','TUESDAY','WENESDAY',
-            'THURSDAY','FRIDAY','SATURDAY'])->nulllable();
+            $table->string('startime')->nulllable();
+            $table->string('endtime')->nulllable();
+            // $table->enum('workingday',['SANDAY','MONDAY','TUESDAY','WENESDAY',
+            // 'THURSDAY','FRIDAY','SATURDAY'])->nulllable();
+            $table->boolean('SANDAY')->nulllable()->default(0);
+            $table->boolean('MONDAY')->nulllable();
+            $table->boolean('TUESDAY')->nulllable();
+            $table->boolean('WENESDAY')->nulllable();
+            $table->boolean('THURSDAY')->nulllable();
+            $table->boolean('FRIDAY')->nulllable();
+            $table->boolean('SATURDAY')->nulllable();
             $table->text('note')->nulllable();
             $table->bigInteger('doctorid')->unsigned();
             $table->foreign('doctorid')->references('id')->on('doctors')->onDelete('cascade');

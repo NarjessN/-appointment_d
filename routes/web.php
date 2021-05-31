@@ -25,12 +25,19 @@ Route::get('/bookingform', 'PatientController@booking')->name('Booking');
 Route::get('/request', 'PatientController@request')->name('Request');
 Route::get('/responce', 'PatientController@responce')->name('Responce');
 // doctor route 
-Route::get('/doctorsingup', 'DoctorController@singup')->name('DoctorSingup');
-Route::post('/doctorsingup', 'DoctorController@register');
-Route::get('/doctorsingin', 'DoctorController@singin')->name('DoctorSingin');
-// Route::get('/doctorprofile', 'DoctorController@profile')->name('DoctorProfile');
-Route::get('/doctorschedule', 'DoctorController@schedule')->name('DoctorSchedule');
-Route::get('/doctorinbox', 'DoctorController@inbox')->name('DoctorInbox');
+//  registration 
+Route::get('/doctorsingup', 'DoctorController@singup');
+Route::post('/doctorregister', 'DoctorController@register')->name('Doctor-Singup');
+Route::get('/doctorsingin', 'DoctorController@singin')->name('Doctor-Singin');
+//  profile 
+Route::get('/doctorprofile/{id}', 'DoctorController@profile');
+Route::post('/editeprofile/{id}/{request}', 'DoctorController@editeprofile');
+// shecdula
+Route::get('/doctorschedule', 'DoctorController@schedule')->name('Doctor-Schedule');
+Route::post('/doctorschedule/{id}/{request}', 'DoctorController@addschedule');
+//testing route for the workng day
+Route::get('/doctorschedule/{id}', 'DoctorController@getschedule');
+Route::get('/doctorinbox', 'DoctorController@inbox')->name('Doctor-Inbox');
 Route::get('/setappoinment', 'DoctorController@appoinment')->name('Appoinment');
 
 

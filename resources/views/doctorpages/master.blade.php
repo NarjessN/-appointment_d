@@ -8,13 +8,13 @@
         <meta name="author" content="">
         <title>Welcome Dr  </title>
         <!-- Bootstrap Core CSS -->
-        <link href="doctor/assets/css/bootstrap.css" rel="stylesheet">
-        <link href="doctor/assets/css/material.css" rel="stylesheet">
+        <link href="{{asset('doctor/assets/css/bootstrap.css')}}" rel="stylesheet">
+        <link href="{{asset('doctor/assets/css/material.css')}}" rel="stylesheet">
         <!-- Custom CSS -->
-        <link href="doctor/assets/css/sb-admin.css" rel="stylesheet">
-        <link href="doctor/assets/css/time/bootstrap-clockpicker.css" rel="stylesheet">
-        <link href="doctor/assets/css/style.css" rel="stylesheet">
-        <link href="doctor/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+        <link href="{{asset('doctor/assets/css/sb-admin.css')}}" rel="stylesheet">
+        <link href="{{asset('doctor/assets/css/time/bootstrap-clockpicker.css')}}" rel="stylesheet">
+        <link href="{{asset('doctor/assets/css/style.css')}}" rel="stylesheet">
+        <link href="{{asset('doctor/assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
         <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
         <!-- Custom Fonts -->
     </head>
@@ -75,11 +75,11 @@
         <!-- Page Heading end-->
         @yield('content')
          <!-- jQuery -->
-         <script src="assets/js/jquery.js"></script>
+         <script src="{{asset('assets/js/jquery.js')}}"></script>
         
         <!-- Bootstrap Core JavaScript -->
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/bootstrap-clockpicker.js"></script>
+        <script src="{{asset('doctor/assets/js/bootstrap.min.js')}}"></script>
+        <script src="{{asset('doctor/assets/js/bootstrap-clockpicker.js')}}"></script>
         <!-- Latest compiled and minified JavaScript -->
          <!-- script for jquery datatable start-->
         <!-- Include Date Range Picker -->

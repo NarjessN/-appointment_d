@@ -33,24 +33,11 @@
                              <div class="container-fluid">
                               <div class="row">
                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                <form class="form-horizontal" method="post">
-                                 <div class="form-group form-group-lg">
-                                  <label class="control-label col-sm-2 requiredField" for="date">
-                                   Date
-                                   <span class="asteriskField">
-                                    *
-                                   </span>
-                                  </label>
-                                  <div class="col-sm-10">
-                                   <div class="input-group">
-                                    <div class="input-group-addon">
-                                     <i class="fa fa-calendar">
-                                     </i>
-                                    </div>
-                                    <input class="form-control" id="date" name="date" type="date" required/>
-                                   </div>
-                                  </div>
-                                 </div>
+                                <form class="form-horizontal" method="post"
+                                action="/doctorschedule/1/{request}"
+                                >
+                                @csrf
+                                 
                                  <div class="form-group form-group-lg">
                                   <label class="control-label col-sm-2 requiredField" for="scheduleday">
                                    Day
@@ -59,31 +46,31 @@
                                    </span>
                                   </label>
                                   <div class="col-sm-10">
-                                   <select class="select form-control" id="scheduleday" name="scheduleday" required>
-                                    <option value="Monday">
-                                     Monday
-                                    </option>
-                                    <option value="Tuesday">
-                                     Tuesday
-                                    </option>
-                                    <option value="Wednesday">
-                                     Wednesday
-                                    </option>
-                                    <option value="Thursday">
-                                     Thursday
-                                    </option>
-                                    <option value="Friday">
-                                     Friday
-                                    </option>
-                                    <option value="Saturday">
-                                     Saturday
-                                    </option>
-                                    <option value="Sunday">
-                                     Sunday
-                                    </option>
-                                   </select>
+                                  
+                                  <label class="checkbox-inline">
+                                <input type="checkbox" name ="SANDAY" value="1">SANDAY
+                                </label>
+                                <label class="checkbox-inline">
+                                <input type="checkbox" name ="MONDAY" value="1">MONDAY
+                                </label>
+                                <label class="checkbox-inline">
+                                <input type="checkbox"  name ="TUESDAY"value="1">TUESDAY
+                                </label>
+                                <label class="checkbox-inline">
+                                <input type="checkbox" name ="WENESDAY" value="1">WENESDAY
+                                </label>
+                                <label class="checkbox-inline">
+                                <input type="checkbox" name ="THURSDAY" value="1">THURSDAY
+                                </label>
+                                <label class="checkbox-inline">
+                                <input type="checkbox"  name ="FRIDAY"value="1">FRIDAY
+                                </label>
+                                <label class="checkbox-inline">
+                                <input type="checkbox"  name =" SATURDAY"value="1">SATURDAY
+                                </label>
                                   </div>
                                  </div>
+                                
                                  <div class="form-group form-group-lg">
                                   <label class="control-label col-sm-2 requiredField" for="starttime">
                                    Start Time
@@ -120,26 +107,27 @@
                                   </div>
                                  </div>
                                  <div class="form-group form-group-lg">
-                                  <label class="control-label col-sm-2 requiredField" for="bookavail">
-                                   Availabilty
+                                  <label class="control-label col-sm-2 requiredField" for="starttime">
+                                   Doctor Note
                                    <span class="asteriskField">
                                     *
                                    </span>
                                   </label>
+
                                   <div class="col-sm-10">
-                                   <select class="select form-control" id="bookavail" name="bookavail" required>
-                                    <option value="available">
-                                     available
-                                    </option>
-                                    <option value="notavail">
-                                     notavail
-                                    </option>
-                                   </select>
+                                   <div class="input-group clockpicker"  data-align="top" data-autoclose="true">
+                                   
+                                   <textarea class="form-control" rows="5" id="comment" name="note" require></textarea>
+                                   </div>
                                   </div>
                                  </div>
+                                 </div> 
+                                 
                                  <div class="form-group">
                                   <div class="col-sm-10 col-sm-offset-2">
-                                   <button class="btn btn-primary " name="submit" type="submit">
+                                   <button class="btn btn-primary " name="submit" type="submit"
+                                   
+                                   >
                                     Submit
                                    </button>
                                   </div>
