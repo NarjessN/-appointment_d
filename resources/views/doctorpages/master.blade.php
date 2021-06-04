@@ -41,7 +41,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <b class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li>
-                    <a href="/doctorschedule"><i class="fa fa-fw fa-table"></i> DoctorSchedule</a>
+                    <a href="/doctorschedule/1"><i class="fa fa-fw fa-table"></i> DoctorSchedule</a>
                 </li>
                 <li>
                     <a href="/doctorinbox"><i class="fa fa-fw fa-edit"></i> inbox</a>

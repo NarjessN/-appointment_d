@@ -83,7 +83,7 @@ class DoctorController extends Controller
         
         return view ('/doctorpages/schedule');
     }
-    public function addschedule($id , Request $request ){
+    public function addworkingday($id , Request $request ){
 // return $request->all();
 $newworkigday= new Workignday();
 $newworkigday->startime=$request->starttime;
@@ -142,12 +142,84 @@ else{
 $newworkigday->doctorid = $id;
 $newworkigday->save();
 
+return redirect('doctorschedule/'.$id);
+
     }
+    
 public function  getschedule($id)
 {
-     
-}
+ 
+$workingdaylist =Workignday::where ('doctorid','=',$id)->get();
+return  view('/doctorpages/schedule',compact('workingdaylist'));
 
+}
+ public function editeworkingday($idworkingday )
+{
+    $workingday=Workignday::where ('id','=',$idworkingday)->first();
+    return view ('/doctorpages/editeschedule', compact('workingday'));
+}
+ public function storeworkingday($idworkingday , Request $request )
+ {
+
+ $workingday=Workignday::where ('id','=',$idworkingday)->first();
+
+$workingday->startime=$request->starttime;
+$workingday->endtime = $request->endtime;
+$workingday->note = $request->note;
+
+if($request->has('SANDAY')) {
+    $workingday->SANDAY=$request->SANDAY;
+
+}
+else{
+    $workingday->SANDAY=0;  
+}
+if($request->has('MONDAY')) {
+    $workingday->MONDAY=$request->MONDAY;
+
+}
+else{
+    $workingday->MONDAY=0;  
+}
+if($request->has('TUESDAY')) {
+    $workingday->TUESDAY=$request->TUESDAY;
+
+}
+else{
+    $workingday->TUESDAY=0;  
+}
+if($request->has('WENESDAY')) {
+    $workingday->WENESDAY=$request->WENESDAY;
+
+}
+else{
+    $workingday->WENESDAY=0;  
+}
+if($request->has('THURSDAY')) {
+    $workingday->THURSDAY=$request->THURSDAY;
+
+}
+else{
+    $workingday->THURSDAY=0;  
+}
+if($request->has('FRIDAY')) {
+    $workingday->FRIDAY=$request->FRIDAY;
+
+}
+else{
+    $workingday->FRIDAY=0;  
+}
+if($request->has('SATURDAY')) {
+    $workingday->SATURDAY=$request->SATURDAY;
+
+}
+else{
+    $workingday->SATURDAY=0;  
+}
+$workingday->save();
+return redirect('doctorschedule/'.$workingday->doctorid);
+
+ }
     public function inbox(){
         return view ('/doctorpages/inbox');
     }

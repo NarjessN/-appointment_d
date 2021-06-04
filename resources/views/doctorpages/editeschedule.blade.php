@@ -34,7 +34,7 @@
                               <div class="row">
                                <div class="col-md-12 col-sm-12 col-xs-12">
                                 <form class="form-horizontal" method="post"
-                                action="/doctorschedule/1/{request}"
+                                action="/edite/{{$workingday->id}}/{request}"
                                 >
                                 @csrf
                                  
@@ -48,25 +48,54 @@
                                   <div class="col-sm-10">
                                   
                                   <label class="checkbox-inline">
-                                <input type="checkbox" name ="SANDAY" value="1">SANDAY
+                                 
+                                <input type="checkbox" name ="SANDAY" value="1"
+                                @if($workingday->SANDAY =='1')
+                                checked 
+                                @endif
+                                >SANDAY
                                 </label>
                                 <label class="checkbox-inline">
-                                <input type="checkbox" name ="MONDAY" value="1">MONDAY
+                                <input type="checkbox" name ="MONDAY" value="1"
+                                @if($workingday->MONDAY =='1')
+                                checked 
+                                @endif
+                                >MONDAY
                                 </label>
                                 <label class="checkbox-inline">
-                                <input type="checkbox"  name ="TUESDAY"value="1">TUESDAY
+                                <input type="checkbox"  name ="TUESDAY"value="1"
+                                @if($workingday->TUESDAY =='1')
+                                checked 
+                                @endif
+                                >TUESDAY
                                 </label>
                                 <label class="checkbox-inline">
-                                <input type="checkbox" name ="WENESDAY" value="1">WENESDAY
+                                <input type="checkbox" name ="WENESDAY" value="1"
+                                @if($workingday->WENESDAY =='1')
+                                checked 
+                                @endif
+                                >WENESDAY
                                 </label>
                                 <label class="checkbox-inline">
-                                <input type="checkbox" name ="THURSDAY" value="1">THURSDAY
+                                <input type="checkbox" name ="THURSDAY" value="1"
+                                @if($workingday->THURSDAY =='1')
+                                checked 
+                                @endif
+                                >THURSDAY
                                 </label>
                                 <label class="checkbox-inline">
-                                <input type="checkbox"  name ="FRIDAY"value="1">FRIDAY
+                                <input type="checkbox"  name ="FRIDAY"value="1"
+                                @if($workingday->FRIDAY =='1')
+                                checked 
+                                @endif
+                                >FRIDAY
                                 </label>
                                 <label class="checkbox-inline">
-                                <input type="checkbox"  name =" SATURDAY"value="1">SATURDAY
+                                <input type="checkbox"  name =" SATURDAY"value="1"
+                                @if($workingday->SATURDAY =='1')
+                                checked 
+                                @endif
+                                >SATURDAY
                                 </label>
                                   </div>
                                  </div>
@@ -85,7 +114,9 @@
                                      <i class="fa fa-clock-o">
                                      </i>
                                     </div>
-                                    <input class="form-control" id="starttime" name="starttime" type="time" required/>
+                                    <input class="form-control" id="starttime" name="starttime" type="time" required
+                                   value="{{$workingday->startime}}"
+                                    />
                                    </div>
                                   </div>
                                  </div>
@@ -102,7 +133,9 @@
                                      <i class="fa fa-clock-o">
                                      </i>
                                     </div>
-                                    <input class="form-control" id="endtime" name="endtime" type="time" required/>
+                                    <input class="form-control" id="endtime" name="endtime" type="time"
+                                    value="{{$workingday->endtime}}"
+                                     required/>
                                    </div>
                                   </div>
                                  </div>
@@ -117,7 +150,11 @@
                                   <div class="col-sm-10">
                                    <div class="input-group clockpicker"  data-align="top" data-autoclose="true">
                                    
-                                   <textarea class="form-control" rows="5" id="comment" name="note" require></textarea>
+                                   <textarea class="form-control" rows="5" id="comment" name="note"
+                                   value="fewefhoi"
+                                    
+                                   
+                                    >{{$workingday->note}}</textarea>
                                    </div>
                                   </div>
                                  </div>
@@ -143,101 +180,4 @@
                     </div>
                     <!-- panel start -->
 
-                     <!-- panel start -->
-                    <div class="panel panel-primary filterable">
-
-                        <!-- panel heading starat -->
-                        <div class="panel-heading">
-                            <h3 class="panel-title">List of workingday</h3>
-                            <div class="pull-right">
-                            <button class="btn btn-default btn-xs btn-filter"><span class="fa fa-filter"></span> Filter</button>
-                        </div>
-                        </div>
-                        <!-- panel heading end -->
-
-                        <div class="panel-body">
-                        <!-- panel content start -->
-                           <!-- Table -->
-                        <table class="table table-hover table-bordered">
-                            <thead>
-                                <tr class="filters">
-                                    <th><input type="text" class="form-control" placeholder="starttime" disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="edtime" disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="days." disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="note" disabled></th>
-                                    
-                                 
-                                    
-                                </tr>
-                            </thead>
-                            
-                               <tbody>
-                               @foreach($workingdaylist as $workingday)
-                               <tr>
-                             
-                                   <td>{{$workingday->startime}}</td>
-                                   <td>{{$workingday->endtime}}</td>
-                                   
-                                   <td>
-                                   @if($workingday->SANDAY =='1')
-                                   SANDAY-
-                                   @endif
-                                   @if($workingday->MONDAY =='1')
-                                   MONDAY-
-                                   @endif
-                                   @if($workingday->TUESDAY =='1')
-                                   TUESDAY-
-                                   @endif
-                                   @if($workingday->WENESDAY =='1')
-                                   WENESDAY-
-                                   @endif
-                                   @if($workingday->THURSDAY =='1')
-                                   THURSDAY-
-                                   @endif
-                                   @if($workingday->FRIDAY =='1')
-                                   FRIDAY-
-                                   @endif
-                                   @if($workingday->SATURDAY =='1')
-                                   SATURDAY-
-                                   @endif
-                                   
-                                   </td>
-                                  
-                                   <td>{{$workingday->note}}</td>
-                                   
-                                    
-                                    <td class='text-center'><span>
-                                    <a href="/workingday/{{$workingday->id}}" 
-                                    class="btn btn-warning">edite</a>
-                                    </span>
-                                    </td>
-
-            
-                                    <td class='text-center'><span>
-                                    <a 
-                                    class="btn btn-danger">delete</a>
-                                    </span>
-                                    </td>
-                             
-                            
-                                </tr>
-                                @endforeach
-                          </tbody>
-                       </table>
-                       <!-- <div class='panel panel-default'>
-                       <div class='col-md-offset-3 pull-right'>
-                       <button class='btn btn-primary' type='submit' value='Submit' name='submit'>Update</button>
-                        </div>
-                        </div> -->
-                        
-                        <!-- panel content end -->
-                        <!-- panel end -->
-                        </div>
-                    </div>
-                    <!-- panel start -->
-                </div>
-            </div>
-        <!-- /#wrapper -->
-
-        @endsection  
-  
+                    @endsection  
