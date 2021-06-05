@@ -100,6 +100,7 @@
                   <option>3</option>
                   <option>4</option>
                 </select>
+                
                 <div class="input-group-btn">
                   <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                 </div>

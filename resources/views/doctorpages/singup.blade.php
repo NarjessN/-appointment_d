@@ -10,6 +10,7 @@
     <!-- Main css -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/js/bootstrap.min.js">
     <style>
     .container {
         padding-bottom:0px;
@@ -62,18 +63,80 @@
                     <input type="text" name="fname" id="fname" placeholder="First Name" required />
                     <input type="text" name="lname" id="lname" placeholder="Last Name" required />
                     <input type="date" name="birth" id="birth" placeholder="birthday" required />
+                    <!-- <label>Gender : </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="patientGender" value="male" required/>Male
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="patientGender" value="male" required/>FMale
+                    </label> -->
+                   
+                    <!-- <label >Male
+                    <span><input
+                    nam="gender" 
+                    vale="male" 
+                     type="radio" 
+                     style="display:inline;"
+                     />
+        </span>
+                    </label>
+          
+                    <label >FMale
+                    <span><input 
+                    name="gender"
+                    value="fmale" 
+                     type="radio"
+                     style="display:inline;" 
+                     />
+        </span>
+                    </label> -->
                     <table>
+                    
                     <tr>
-                        <td><input type="radio" name="gender" value="M" style="display:inline;"></td>
-                        <td><label for="gender">Male</label></td>
-                    </tr> 
+                   
+                    <td><label for="gender">F </label>
+                    <input type="radio" name="gender" value="FM" style="display:inline;">
+                    </td>
+                    </tr>
                     <tr>
-                    <td><input type="checkbox" name="gender" value="F" style="display:inline;"></td>
-                    <td><label for="gender">Female </label></td>
+                    
+                    <td><label for="gender">male </label>
+                    <input type="radio" name="gender" value="M" style="display:inline;">
+                    </td>
                     </tr>
                     </table>
+                 
                     <!-- we should make it dropdown  -->
-                    <textarea class="form-control" name ="spicilization" rows="5" id="comment" placeholder="Specialization" required></textarea>
+                    <!-- <textarea class="form-control" name ="spicilization" rows="5" id="comment" placeholder="Specialization" required></textarea> -->
+                    <div class="input-group">
+                        <select class="form-control"
+                        name="spicilization"
+                        
+                         >
+                        <option
+                        
+                       
+                        value="Endodontictreatment"
+                       
+                       >Endodontictreatment</option>
+                        <option
+                        value="bridges"
+                       
+                        
+                         >bridges</option>
+                        <option
+                        value="jawsurgery"
+                      
+                        
+                        >jawsurgery</option>
+                        <option
+                        value="orthodontics"
+                       
+                       
+                        >orthodontics</option>
+                    </select>
+                    </div>
+                          
                     <textarea  name ="addressclnic"class="form-control" rows="5" id="comment" placeholder="clininc address " required></textarea>
                     <input type="file" name="image" placeholder="image" required />
                     <input type="email" name="email" placeholder="Email ID" required />

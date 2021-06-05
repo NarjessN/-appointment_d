@@ -18,10 +18,10 @@ class CreateDoctorsTable extends Migration
             $table->String('fname')->nulllable();
             $table->String('lname')->nulllable();
             $table->text('addressclnic')->nulllable();
-            $table->String('spicilization')->nulllable();
+            $table->enum('spicilization',['Endodontictreatment','bridges','jawsurgery','orthodontics'])->nulllable();
             $table->DateTime('birth')->nulllable();
             $table->String('image')->nulllable();
-            // $table->enum('gender',['FM','M'])->nulllable();
+            $table->enum('gender',['FM','M'])->nulllable();
             $table->String('email')->nulllable();
             $table->String('password')->nulllable();
 

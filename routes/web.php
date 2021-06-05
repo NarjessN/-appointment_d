@@ -39,6 +39,7 @@ Route::get('/doctorschedule/{id}', 'DoctorController@getschedule');
 Route::post('/doctorschedule/{id}/{request}', 'DoctorController@addworkingday');
 Route::get('/workingday/{id}', 'DoctorController@editeworkingday');
 Route::post('/edite/{id}/{request}', 'DoctorController@storeworkingday');
+Route::get('/delete/{id}', 'DoctorController@deletworkingday');
 // redirect to view all schedule 
 //shecdula end
 Route::get('/doctorinbox', 'DoctorController@inbox')->name('Doctor-Inbox');

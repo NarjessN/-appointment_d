@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Doctor;
 use App\Workignday;
+use DB;
 class DoctorController extends Controller
 {
 //  registration function start 
     public function singup(){
+        
+       
         return view ('/doctorpages/singup');
+        
     }
     public function register(Request $request ){
         $doctor = new Doctor ();        
@@ -18,7 +22,8 @@ class DoctorController extends Controller
          $doctor->addressclnic = $request->addressclnic;
          $doctor->spicilization= $request->spicilization;
          $doctor->image = $request->image;
-        //  $doctor->gender = $request->gender;
+         
+         $doctor->gender = $request->gender;
          $doctor->birth= $request->birth;
          $doctor->email= $request->email;
          $doctor->password= $request->pswd; 
@@ -40,6 +45,7 @@ class DoctorController extends Controller
 
 
         // ]);   
+      
 
     }
     // public function validation ($request)
@@ -150,13 +156,15 @@ public function  getschedule($id)
 {
  
 $workingdaylist =Workignday::where ('doctorid','=',$id)->get();
-return  view('/doctorpages/schedule',compact('workingdaylist'));
+$doctor= Doctor ::where ('id','=',$id)->first();
+return  view('/doctorpages/schedule',compact('workingdaylist', 'id' , 'doctor'));
 
 }
  public function editeworkingday($idworkingday )
 {
     $workingday=Workignday::where ('id','=',$idworkingday)->first();
-    return view ('/doctorpages/editeschedule', compact('workingday'));
+    $doctor = Doctor ::where ('id','=',$workingday->doctorid)->first();
+    return view ('/doctorpages/editeschedule', compact('workingday', 'doctor' ));
 }
  public function storeworkingday($idworkingday , Request $request )
  {
@@ -218,8 +226,12 @@ else{
 }
 $workingday->save();
 return redirect('doctorschedule/'.$workingday->doctorid);
-
- }
+}
+public function deletworkingday($workingdayid){
+$workingday=Workignday::where ('id','=',$workingdayid)->first();
+$workingday->delete();
+return redirect('doctorschedule/'.$workingday->doctorid);
+} 
     public function inbox(){
         return view ('/doctorpages/inbox');
     }
