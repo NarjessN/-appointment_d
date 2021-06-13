@@ -44,7 +44,7 @@
                     <a href="/doctorschedule/{{$id}}"><i class="fa fa-fw fa-table"></i> DoctorSchedule</a>
                 </li>
                 <li>
-                    <a href="/doctorinbox"><i class="fa fa-fw fa-edit"></i> inbox</a>
+                    <a href="/doctorinbox/{{$id}}"><i class="fa fa-fw fa-edit"></i> inbox</a>
                 </li>
                 <li class="divider"></li>
                 <li>

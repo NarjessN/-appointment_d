@@ -15,13 +15,23 @@
 // start page route 
 Route::get('/', 'HomePageController@index')->name('StartPage');
 // patient route 
+// registration start 
 Route::get('/patientsingup', 'PatientController@singup')->name('PatientSingup');
+Route::post('/patientregiste', 'PatientController@register');
+//  registration end 
 Route::get('/patientsingin', 'PatientController@singin')->name('PatientSingin');
-Route::get('/patientprofile', 'PatientController@profile')->name('PatientProfile');
+//  profile start 
+Route::get('/patientprofile/{id}', 'PatientController@profile')->name('PatientProfile');
 Route::get('/patientediteprofile', 'PatientController@edite')->name('PatientEdite');
+// profile end 
+// find doctor and booking  start 
 Route::get('/finddoctor', 'PatientController@find')->name('FindDoctor');
 Route::get('/filteringresult', 'PatientController@filtering')->name('Filtering');
-Route::get('/bookingform', 'PatientController@booking')->name('Booking');
+// we should pass doctor id 
+Route::get('/bookingform/{id}', 'PatientController@booking');
+Route::post('/storebooking/{id}', 'PatientController@store');
+
+// find doctor and booking  end 
 Route::get('/request', 'PatientController@request')->name('Request');
 Route::get('/responce', 'PatientController@responce')->name('Responce');
 // doctor route 
@@ -42,9 +52,13 @@ Route::post('/edite/{id}/{request}', 'DoctorController@storeworkingday');
 Route::get('/delete/{id}', 'DoctorController@deletworkingday');
 // redirect to view all schedule 
 //shecdula end
-Route::get('/doctorinbox', 'DoctorController@inbox')->name('Doctor-Inbox');
-Route::get('/setappoinment', 'DoctorController@appoinment')->name('Appoinment');
-
+// inbox start 
+Route::get('/doctorinbox/{id}', 'DoctorController@inbox');
+// inbox end 
+//setappoinment start 
+Route::get('/setappoinment/{requestid}', 'DoctorController@appoinment');
+Route::post('/sendappoinment/{requestid}', 'DoctorController@setappoinment');
+//setappoinment end 
 
 Auth::routes();
 

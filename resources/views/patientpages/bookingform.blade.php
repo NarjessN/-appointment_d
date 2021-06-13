@@ -4,9 +4,9 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="asset_bookingform/css/bootstrap.min.css">
-    <link rel="stylesheet" href="asset_bookingform/css/datepicker.css">
-    <link rel="stylesheet" href="asset_bookingform/css/style.css">
+    <link rel="stylesheet" href="{{asset('asset_bookingform/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('asset_bookingform/css/datepicker.css')}}">
+    <link rel="stylesheet" href="{{asset('asset_bookingform/css/style.css')}}">
   </head>
 
     <body>
@@ -39,11 +39,20 @@
                             <h2>Book Appointemnt</h2>
                         </div>
                         <div class="form-body">
+                        <form  action ="/storebooking/{{$patient->id}}" method="post">
+                        @csrf
                             <div class="row form-row">
-                              <input type="text" placeholder="Enter Full name" class="form-control">
+                              <input type="text"  class="form-control"
+                              value="{{$patient->fname}}"
+                              name="fname"
+                              
+                              >
                             </div>
                             <div class="row form-row">
-                              <input type="text" placeholder="Enter Mobile Number" class="form-control">
+                              <input type="text" 
+                              value="{{$patient->telephonenumbers}}"
+                              name="telephonenumbers"
+                               class="form-control">
                             </div>
                              <!-- <div class="row form-row">
                               <input type="text" placeholder="Enter Email Adreess" class="form-control">
@@ -52,7 +61,9 @@
                               <input id="dat" type="text" placeholder="Appointment Date" class="form-control">
                             </div> -->
                                <div class="row form-row">
-                              <textarea type="text" placeholder="description" class="form-control">
+                              <textarea type="text" placeholder="description" class="form-control"
+                              name="description"
+                              >
                                 </textarea>
                             </div>
                             
@@ -87,16 +98,20 @@
                             <br>
                              <div class="row form-row">
                              <label for="appt">Appoinmnet date :</label>
-                              <input id="dat" type="date" placeholder="Appointment Date" class="form-control">
+                              <input id="dat" type="date" placeholder="Appointment Date" class="form-control"
+                              name="day"
+                              >
                             </div>
                                 <br>
                              <div class="row form-row">
-                               <button class="btn btn-success btn-appointment">
+                               <button class="btn btn-success btn-appointment"
+                               type="submit"
+                               >
                                  Book Appointment
                                </button>
-                               
+                             
                             </div>
-
+</form>
                         </div>
                     </div>
                 </div>
@@ -108,10 +123,10 @@
   
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="asset_bookingform/js/jquery-3.3.1.min.js"></script>
-    <script src="asset_bookingform/js/popper.min.js"></script>
-    <script src="asset_bookingform/js/bootstrap.min.js"></script>
-    <script src="asset_bookingform/js/bootstrap-datepicker.js"></script>
+    <script src="{{asset('asset_bookingform/js/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{asset('asset_bookingform/js/popper.min.js')}}"></script>
+    <script src="{{asset('asset_bookingform/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('asset_bookingform/js/bootstrap-datepicker.js')}}"></script>
 
     <!-- <script>
       $(document).ready(function(){

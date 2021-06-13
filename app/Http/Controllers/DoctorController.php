@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Doctor;
 use App\Workignday;
+use App\Appoinment;
+use App\Patient;
 use DB;
 class DoctorController extends Controller
 {
@@ -232,10 +234,28 @@ $workingday=Workignday::where ('id','=',$workingdayid)->first();
 $workingday->delete();
 return redirect('doctorschedule/'.$workingday->doctorid);
 } 
-    public function inbox(){
-        return view ('/doctorpages/inbox');
+    public function inbox($id){
+        
+        $inbox = Appoinment::where ('doctorid','=',$id)->get(); 
+    $patients = Patient::join('appoinments','patients.id','=','appoinments.pateintid')
+    ->get(['patients.fname','patients.lname','patients.telephonenumbers','patients.id']);
+
+        return view ('/doctorpages/inbox',compact ('inbox','patients'));
+       
     }
-    public function appoinment(){
-        return view ('/doctorpages/setappoinmnet');
+    public function appoinment($requestid  ){
+        $request = Appoinment :: where ('id','=',$requestid)->first();     
+        $patient= Patient::where ('id' ,'=',$request->pateintid)->first();
+        // $doctor= Doctor::where ('id' ,'=',$request->doctorid)->first();
+        return view ('/doctorpages/setappoinmnet',compact('patient','request'));
+        
+    }
+    public function setappoinment( Request $request ,$id){
+        $appoinment= Appoinment:: where ('id','=',$id)->first();
+       $appoinment->day=$request->day;
+       $appoinment->time=$request->time;
+       $appoinment->save();
+       //redirect .....
+
     }
 }

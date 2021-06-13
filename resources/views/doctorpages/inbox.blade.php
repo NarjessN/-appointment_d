@@ -8,13 +8,9 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h2 class="page-header">
-                            Patient List
+                            inbox
                             </h2>
-                            <ol class="breadcrumb">
-                                <li class="active">
-                                    <i class="fa fa-calendar"></i> Patient List
-                                </li>
-                            </ol>
+                           
                         </div>
                     </div>
                     <!-- Page Heading end-->
@@ -24,7 +20,7 @@
 
                         <!-- panel heading starat -->
                         <div class="panel-heading">
-                            <h3 class="panel-title">List of Patients</h3>
+                            <h3 class="panel-title">List of appoinment request</h3>
                             <div class="pull-right">
                             <button class="btn btn-default btn-xs btn-filter"><span class="fa fa-filter"></span> Filter</button>
                         </div>
@@ -37,41 +33,42 @@
                         <table class="table table-hover table-bordered">
                             <thead>
                                 <tr class="filters">
-                                    <th><input type="text" class="form-control" placeholder="patient Ic" disabled></th>
+                                    <!-- <th><input type="text" class="form-control" placeholder="patient Ic" disabled></th> -->
                                     <th><input type="text" class="form-control" placeholder=" patientFName" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="patientLName" disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="Number" disabled></th>
+                                    <th><input type="text" class="form-control" placeholder="telephoneNumber" disabled></th>
                                     <!-- <th><input type="text" class="form-control" placeholder="Email" disabled></th> -->
-                                    <th><input type="text" class="form-control" placeholder="Gender" disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="Status" disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="Birthdate" disabled></th>
+                                    <!-- <th><input type="text" class="form-control" placeholder="Gender" disabled></th> -->
+                                    <!-- <th><input type="text" class="form-control" placeholder="Status" disabled></th> -->
+                                    <!-- <th><input type="text" class="form-control" placeholder="Birthdate" disabled></th> -->
                                     <th><input type="text" class="form-control" placeholder="Description" disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="Starttime" disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="Endtime" disabled></th>
+                                    <!-- <th><input type="text" class="form-control" placeholder="Starttime" disabled></th>
+                                    <th><input type="text" class="form-control" placeholder="Endtime" disabled></th> -->
                                     <th><input type="text" class="form-control" placeholder="Day" disabled></th>
                                 </tr>
                             </thead>
                             <tbody>
+                            @foreach($inbox as $request)
+                            
+                            
+                            @foreach($patients as $patient)
+                            @if($patient->id == $request->pateintid )
                                <tr>
-                                   <td></td>
-                                   <td></td>
-                                   <td></td>
-                                    <td></td>
-                                    <td></td>
-                                   <td></td>
-                                   <td></td>
-                                   <td></td>
-                                   <td></td>
-                                   <td></td>
-                                   <td></td>
+                             
+                                   <td>{{$patient->fname}}</td>                                
+                                   <td>{{$patient->lname}}</td>
+                                   <td>{{$patient->telephonenumbers}}</td>
+                                  
+                                    <td>{{$request->description}}</td>
+                                    <td>{{$request->day}}</td>
+                                   
 
-                                    <form method='POST'>
+                                    
                                     <td class='text-center'><span>
                                     
-                                    <button type="button" 
-                                    class="btn btn-success"
-                                    
-                                    >accepte</button>
+                                    <a href ="/setappoinment/{{$request->id}}" class ="btn btn-success">
+                                    accepte
+                                    </a>
                                     </span>
                                     </td>
                                     <td>
@@ -80,9 +77,13 @@
                                     class="btn btn-danger">delete</button>
                                     </span>
                             </td>
-                            </form>   
+                             
                             
                                 </tr>
+                                @endif
+                                @endforeach 
+                                @endforeach
+
                           </tbody> 
                             
                         <!-- panel content end -->

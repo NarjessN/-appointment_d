@@ -15,11 +15,11 @@ class CreateAppoinmentsTable extends Migration
     {
         Schema::create('appoinments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->DateTime('time')->nulllable();
+            $table->String('time')->nulllable()->default('time');
             $table->String('day')->nulllable();
-            $table->text('doctornote')->nulllable();
+            $table->text('doctornote')->nulllable()->default('no-notes');
             $table->text('description')->nulllable();
-            $table->enum('appoinmentstatus',['accept','reject'])->nulllable();
+            $table->enum('appoinmentstatus',['accept','reject'])->nulllable()->default('accept');
             $table->bigInteger('doctorid')->unsigned();
             $table->bigInteger('pateintid')->unsigned();
             $table->foreign('doctorid')->references('id')->on('doctors')->onDelete('cascade');

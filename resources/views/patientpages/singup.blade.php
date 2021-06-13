@@ -75,33 +75,23 @@
                       </nav>
 
         <div class="container" style="width:35%; height:80%; float:left; margin-left:120px; ">
-            <form method="POST" class="signup-form" action="/newdoc">
+            <form method="POST" class="signup-form" action="/patientregiste">
                 <h2>SIGNUP</h2>
+                @csrf
                 <div class="form-group-1">
 
                     <input type="text" name="fname" id="fname" placeholder="First Name" required />
 
                     <input type="text" name="lname" id="lname" placeholder="Last Name" required />
-                    <table>
-                    
-                    <tr>
-                    <td><input type="radio" name="gender" value="F" style="display:inline;"></td>
-                    <td><label for="gender">Female </label></td>
-                    </tr>
-                    <tr>
-                    <td><input type="radio" name="gender" value="F" style="display:inline;"></td>
-                    <td><label for="gender">male </label></td>
-                    </tr>
-                    </table>
-                    
-                    <input type="number" name="age" placeholder="Age" required />
+               
+                    <input type="file" name="image" placeholder="image" required />
 
-                    <input type="number" name="phn" placeholder="Phone Number" required />
+                    <input type="number" name="telephonenumbers" placeholder="Phone Number" required />
 
-                    <input type="email" name="pemail" placeholder="Email ID" required />
+                    <input type="email" name="email" placeholder="Email ID" required />
 
-                    <input type="password" name="pswd" placeholder="Enter Password" required />
-                    
+                    <input type="password" name="password" placeholder="Enter Password" required />
+                    <input type="password" name="pswd" placeholder="confirm password " required />
                 </div>
                 
                 <div class="form-submit">

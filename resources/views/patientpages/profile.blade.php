@@ -9,14 +9,14 @@
         <meta name="author" content="">
         <title>Patient Dashboard</title>
         <!-- Bootstrap Core CSS -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
         
         <link href="asset_filtering/css/style.css" rel="stylesheet">
-        <link href="assets/css/material.css" rel="stylesheet">
+        <link href="{{asset('assets/css/material.css')}}" rel="stylesheet">
         <!-- Custom CSS -->
-        <link href="assets/css/sb-admin.css" rel="stylesheet">
+        <link href="{{asset('assets/css/sb-admin.css')}}" rel="stylesheet">
         <!-- Custom Fonts -->
-        <link href="assets/font-awesome/css/font-awesome.min.css"
+        <link href="{{asset('assets/font-awesome/css/font-awesome.min.css')}}"
          rel="stylesheet" type="text/css">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -210,9 +210,9 @@
             </div>
             <!-- /#wrapper -->
              <!-- jQuery -->
-            <script src="assets/js/jquery.js"></script>
+            <script src="{{asset('assets/js/jquery.js')}}"></script>
             <!-- Bootstrap Core JavaScript -->
-            <script src="assets/js/bootstrap.min.js"></script>
+            <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
           
         </body>
     </html>

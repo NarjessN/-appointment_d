@@ -18,9 +18,9 @@ class CreatePatientsTable extends Migration
             $table->String('fname')->nulllable();
             $table->String('lname')->nulllable();
             $table->String('image')->nulllable();
-            $table->enum('gender',['FM','M'])->nulllable();
+           
             $table->String('telephonenumbers')->nulllable();
-            $table->DateTime('birth')->nulllable();
+         
             $table->String('email')->nulllable();
             $table->String('password')->nulllable();
 
