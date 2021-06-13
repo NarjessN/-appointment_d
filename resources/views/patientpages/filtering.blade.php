@@ -8,14 +8,14 @@
         <meta name="author" content="">
         <title>Patient Dashboard</title>
         <!-- Bootstrap Core CSS -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-        <link href="asset_filtering/css/style.css" rel="stylesheet">
-        <link href="assets/css/style.css" rel="stylesheet">
-        <link href="assets/css/material.css" rel="stylesheet">
+        <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
+        <link href="{{asset('asset_filtering/css/style.css')}}" rel="stylesheet">
+        <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
+        <link href="{{asset('assets/css/material.css')}}" rel="stylesheet">
         <!-- Custom CSS -->
-        <link href="assets/css/sb-admin.css" rel="stylesheet">
+        <link href="{{asset('assets/css/sb-admin.css')}}" rel="stylesheet">
         <!-- Custom Fonts -->
-        <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="{{asset('assets/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -88,18 +88,40 @@
                     <!-- filtering from start  -->
   
             <div class="container-fluid">
-            <h1>Input Group Button</h1>
-            <p>The .input-group class is a container to enhance an input by adding an icon, text or a button in front or behind it as a "help text".</p>
-            <p>The .input-group-btn class attaches a button next to an input field. This is often used as a search bar:</p>
+            <h1>Filtering Button</h1>
+            <p></p>
+            <p>to make an appoinmnet search for the docotr according to specilaization :</p>
             <br>
-            <form action="/action_page.php">
+            <form action="/filteringdoctor/{{$patient->id}}"
+            method=get
+            >
               <div class="input-group">
-              <select class="form-control" >
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                </select>
+              <select class="form-control"
+                        name="spicilization"
+                        
+                         >
+                        <option
+                        
+                       
+                        value="Endodontictreatment"
+                       
+                       >Endodontictreatment</option>
+                        <option
+                        value="bridges"
+                       
+                        
+                         >bridges</option>
+                        <option
+                        value="jawsurgery"
+                      
+                        
+                        >jawsurgery</option>
+                        <option
+                        value="orthodontics"
+                       
+                       
+                        >orthodontics</option>
+                    </select>
                 
                 <div class="input-group-btn">
                   <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
@@ -111,9 +133,9 @@
           </div>
        <!-- end warpper  -->
       
-          <script src="assets/js/jquery.js"></script>
+          <script src="{{asset('assets/js/jquery.js')}}"></script>
             <!-- Bootstrap Core JavaScript -->
-            <script src="assets/js/bootstrap.min.js"></script>   
+            <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>   
         </body>
     </html>
 

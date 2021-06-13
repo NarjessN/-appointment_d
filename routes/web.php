@@ -26,10 +26,10 @@ Route::get('/patientediteprofile', 'PatientController@edite')->name('PatientEdit
 // profile end 
 // find doctor and booking  start 
 Route::get('/finddoctor', 'PatientController@find')->name('FindDoctor');
-Route::get('/filteringresult', 'PatientController@filtering')->name('Filtering');
+// Route::get('/filteringresult', 'PatientController@filtering')->name('Filtering');
 // we should pass doctor id 
-Route::get('/bookingform/{id}', 'PatientController@booking');
-Route::post('/storebooking/{id}', 'PatientController@store');
+Route::get('/bookingform/{idpatient}/{iddocotr}', 'PatientController@booking');
+Route::post('/storebooking/{idpatient}/{iddocotr}', 'PatientController@store');
 
 // find doctor and booking  end 
 Route::get('/request', 'PatientController@request')->name('Request');
@@ -66,4 +66,9 @@ Route::post('/sendappoinment/{requestid}', 'DoctorController@setappoinment');
 // inbox start
 Route::get('/responce/{id}', 'PatientController@responce')->name('Responce'); 
 // inbox end 
+//start filtering
+Route::get('/finddoctor/{id}', 'PatientController@find');
+Route::get ('/filteringdoctor/{id}','PatientController@filtering');
+// Route::get('/filteringresult/{id}', 'PatientController@filtering')->name('Filtering');
+//end filtering 
 Route::get('/home', 'HomeController@index')->name('home');

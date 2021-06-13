@@ -94,16 +94,18 @@
 				</tr>
 				@foreach($responces as $responce)
 				@foreach($docotrs as $doctor)
-				<tr>
 				@if($doctor->id == $responce->doctorid)
-				<th>{{$doctor->fname}} </th>
-				<th>{{$doctor->lname}} </th>
-				@endif
-				<th>{{$responce->day}} </th>
-				<th>{{$responce->time}} </th>
-				<th>{{$responce->description}} </th>
-				<th>{{$responce->doctornote}} </th>
+				<tr>
+				
+				<td>{{$doctor->fname}} </td>
+				<td>{{$doctor->lname}} </td>
+				
+				<td>{{$responce->day}} </td>
+				<td>{{$responce->time}} </td>
+				<td>{{$responce->description}} </td>
+				<td>{{$responce->doctornote}} </td>
 				</tr>
+				@endif
 				@endforeach
 				@endforeach
 				</thead>

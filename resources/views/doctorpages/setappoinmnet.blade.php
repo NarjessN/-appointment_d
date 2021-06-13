@@ -70,7 +70,7 @@
 												
 												 required
 												 value=
-												>{{$request->description}}</textarea>
+												></textarea>
 											</div>
 											</div>
 											

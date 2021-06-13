@@ -7,23 +7,23 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <title>Patient Dashboard</title>
-        <link rel="shortcut icon" href="asset_filtering/images/fav.jpg">
+        <link rel="shortcut icon" href="{{asset('asset_filtering/images/fav.jpg')}}">
         <!-- -->
-        <link rel="stylesheet" href="asset_filtering/css/fontawsom-all.min.css">
-        <link rel="stylesheet" href="asset_filtering/css/animate.css">
-        <link rel="stylesheet" type="text/css" href="asset_filtering/css/style.css" />
-        <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+        <link rel="stylesheet" href="{{asset('asset_filtering/css/fontawsom-all.min.css')}}">
+        <link rel="stylesheet" href="{{asset('asset_filtering/css/animate.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('asset_filtering/css/style.css')}}" />
+        <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}" />
         <!-- Bootstrap Core CSS -->
         
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
         
         <!-- <link href="assets/css/style.css" rel="stylesheet"> -->
-        <link href="assets/css/material.css" rel="stylesheet">
+        <link href="{{asset('assets/css/material.css')}}" rel="stylesheet">
         <!-- Custom CSS -->
-        <link href="assets/css/sb-admin.css" rel="stylesheet">
+        <link href="{{asset('assets/css/sb-admin.css')}}" rel="stylesheet">
        
         <!-- Custom Fonts -->
-        <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="{{asset('assets/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -170,17 +170,19 @@
             <div class="inner-title">
                 <h2>Filtering result
                 </h2>
-                <p>Take a look at our innovative and experiance team</p>
+                <p>Take a look at our Filtering </p>
             </div>
             <div class="row team-member">
+            <!-- sart row  -->
+            @foreach($docotrs as $doctor)
                 <div class="col-md-3 col-sm-6">
                     <div class="user-card">
                         <div class="userar">
-                            <img class="teammempic" alt="" src="asset_filtering/images/team/team-memb1.jpg">
+                            <img class="teammempic" alt="" src="{{asset('asset_filtering/images/team/team-memb1.jpg')}}">
                         </div>
                         <div class="detfs">
-                            <p>Mark Frances<i> - dentisc</i></p>
-                            <a href="/bookingform"  type="button" class="btn btn-primary"
+                            <p>{{$doctor->fname}} {{$doctor->lname}}<i> - {{$doctor->spicilization}}</i></p>
+                            <a href="/bookingform/{{$patient->id}}/{{$doctor->id}}"  type="button" class="btn btn-primary"
                             >
                             booking
                             </a>
@@ -191,7 +193,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
+                @endforeach
+                <!-- end column  -->
+                <!-- <div class="col-md-3 col-sm-6">
                     <div class="user-card">
                         <div class="userar">
                             <img class="teammempic" alt="" src="asset_filtering/images/team/team-memb2.jpg">
@@ -210,9 +214,9 @@
 
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- start column  -->
-                <div class="col-md-3 col-sm-6">
+                <!-- <div class="col-md-3 col-sm-6">
                     <div class="user-card">
                         <div class="userar">
                             <img class="teammempic" alt="" src="asset_filtering/images/team/team-memb3.jpg">
@@ -232,10 +236,10 @@
                         </div>
                     </div>
 
-                </div>
+                </div> -->
                 <!-- end column  -->
               <!-- start column  -->
-              <div class="col-md-3 col-sm-6">
+              <!-- <div class="col-md-3 col-sm-6">
                     <div class="user-card">
                         <div class="userar">
                             <img class="teammempic" alt="" src="asset_filtering/images/team/team-memb3.jpg">
@@ -255,13 +259,13 @@
                         </div>
                     </div>
 
-                </div>
+                </div> -->
                 <!-- end column  -->
                  <!-- start column  -->
-                 <div class="col-md-3 col-sm-6">
+                 <!-- <div class="col-md-3 col-sm-6">
                     <div class="user-card">
                         <div class="userar">
-                            <img class="teammempic" alt="" src="asset_filtering/images/team/team-memb3.jpg">
+                            <img class="teammempic" alt="" src="{{asset('asset_filtering/images/team/team-memb3.jpg')}}">
                         </div>
                         <div class="detfs">
                             <p>Mark Frances<i> - MD</i></p>
@@ -278,7 +282,7 @@
                         </div>
                     </div>
 
-                </div>
+                </div> -->
                 <!-- end column  -->
             </div>
         </div>
@@ -287,14 +291,14 @@
           </div>
         </div>
        <!-- end warpper  -->
-          <script src="assets/js/jquery.js"></script>
+          <script src="{{asset('assets/js/jquery.js')}}"></script>
             <!-- Bootstrap Core JavaScript -->
-            <script src="assets/js/bootstrap.min.js"></script>  
-         <script src="asset_filtering/js/jquery-3.2.1.min.js"></script>
-        <script src="asset_filtering/js/popper.min.js"></script>
+            <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>  
+         <script src="{{asset('asset_filtering/js/jquery-3.2.1.min.js')}}"></script>
+        <script src="{{asset('asset_filtering/js/popper.min.js')}}"></script>
         <!-- <script src="assets/js/bootstrap.min.js"></script> -->
-        <script src="asset_filtering/plugins/scroll-fixed/jquery-scrolltofixed-min.js"></script>
-        <script src="asset_filtering/js/script.js"></script> 
+        <script src="{{asset('asset_filtering/plugins/scroll-fixed/jquery-scrolltofixed-min.js')}}"></script>
+        <script src="{{asset('asset_filtering/js/script.js')}}"></script> 
         </body>
     </html>
 

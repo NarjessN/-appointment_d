@@ -16,21 +16,45 @@
                 <div class="col-sm-7">
                     <div class="content">
                         <h1>Opening Hours </h1>
+                        @foreach($workingdays as $workingday)
                         <br>
+                        <h2> {{$workingday->startime}} - {{$workingday->endtime}}</h2>
+                        <h2>
+                        @if($workingday->SANDAY==1)
+                        SANDAY-
+                        @endif
+                        @if($workingday->MONDAY ==1)
+                        MONDAY-
+                        @endif
+                        @if($workingday->TUESDAY ==1 )
+                        TUESDAY-
+                        @endif
+                        @if($workingday->WENESDAY ==1)
+                        WENESDAY-
+                        @endif
+                        @if($workingday->THURSDAY ==1)
+                        THURSDAY-
+                        @endif
+                        @if($workingday->FRIDAY ==1)
+                        FRIDAY
+                        @endif
+                        @if($workingday->SATURDAY ==1)
+                        SATURDAY
+                        @endif
+                        </h2>
+                        <h3> Note : {{$workingday->note}} </h3>
+                       <br>
+                       @endforeach
+                       <!-- <br>
                         <h2> 10:00 - 12:00</h2>
                         <h2> sunday - monday - tusday</h2>
                         <h3> Note : somthing is happing </h3>
-                       <br>
-                       <br>
+                       <br> -->
+                       <!-- <br>
                         <h2> 10:00 - 12:00</h2>
                         <h2> sunday - monday - tusday</h2>
                         <h3> Note : somthing is happing </h3>
-                       <br>
-                       <br>
-                        <h2> 10:00 - 12:00</h2>
-                        <h2> sunday - monday - tusday</h2>
-                        <h3> Note : somthing is happing </h3>
-                       <br>
+                       <br> -->
                     </div>
                 </div>
                 <div class="col-sm-5">
@@ -39,7 +63,7 @@
                             <h2>Book Appointemnt</h2>
                         </div>
                         <div class="form-body">
-                        <form  action ="/storebooking/{{$patient->id}}" method="post">
+                        <form  action ="/storebooking/{{$patient->id}}/{{$iddocotr}}" method="post">
                         @csrf
                             <div class="row form-row">
                               <input type="text"  class="form-control"

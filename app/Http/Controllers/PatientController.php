@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Patient;
 use App\Appoinment;
 use App\Doctor;
+use App\Workignday;
 class PatientController extends Controller
 {
    public function singup(){
@@ -31,28 +32,31 @@ class PatientController extends Controller
    public function edite(){
        return view ('/patientpages/editeprofile');
    }
-   public function find(){
-       return view ('/patientpages/filtering');
+   public function find($id){
+       $patient = Patient :: where ('id','=',$id)->first();
+       return view ('/patientpages/filtering',compact('patient'));
    }
-   public function filtering(){
-       return view ('/patientpages/filteringresult');
+//    public function filtering(){
+//        return view ('/patientpages/filteringresult');
+//    }
+   public function booking($idpatient,$iddocotr){
+       $workingdays= Workignday :: where ('doctorid','=',$iddocotr)->get();
+       
+       $patient =  Patient::where('id','=',$idpatient)->first();
+       return view ('/patientpages/bookingform', compact('patient','workingdays','iddocotr'));
    }
-   public function booking($id){
-       // we should pass doctor id 
-       $patient =  Patient::where('id','=',$id)->first();
-       return view ('/patientpages/bookingform', compact('patient'));
-   }
-   public function store(Request $request , $id ){
+   public function store(Request $request , $idpatient,   $iddoctor){
 $appoinmnet = new Appoinment();
 
 $appoinmnet->day=$request->day;
 
 $appoinmnet->description = $request->description;
 
-// we should make it changable 
-$appoinmnet->doctorid=1;
-$appoinmnet->pateintid=$id;
+
+$appoinmnet->doctorid=$iddoctor;
+$appoinmnet->pateintid=$idpatient;
 $appoinmnet->save();
+
    }
    public function request(){
        return view ('/patientpages/request');
@@ -63,5 +67,11 @@ public function responce($id){
  $docotrs = Doctor::all();
     return view ('/patientpages/responce', compact('responces','docotrs'));
 
+}
+public function filtering($id , Request $request)
+{
+$docotrs = Doctor :: where ('spicilization','=',$request->spicilization)->get();
+$patient = Patient :: where ('id','=',$id)->first();
+return   view ('/patientpages/filteringresult', compact('docotrs','patient'));
 }
 }
