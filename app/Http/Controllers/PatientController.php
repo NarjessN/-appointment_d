@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Patient;
 use App\Appoinment;
+use App\Doctor;
 class PatientController extends Controller
 {
    public function singup(){
@@ -57,7 +58,10 @@ $appoinmnet->save();
        return view ('/patientpages/request');
    }
 
-public function responce(){
-    return view ('/patientpages/responce');
+public function responce($id){
+    $responces = Appoinment :: where ('pateintid','=',$id)->get(); 
+ $docotrs = Doctor::all();
+    return view ('/patientpages/responce', compact('responces','docotrs'));
+
 }
 }

@@ -6,16 +6,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 		<title>Make Appoinment</title>
-		<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
 		<!-- <link href="asset_filtering/css/style.css" rel="stylesheet"> -->
-		<link href="assets/css/material.css" rel="stylesheet">
-		<link href="assets/css/default/style.css" rel="stylesheet">
-		<link href="assets/css/default/blocks.css" rcel="stylesheet">
-		<link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css" />
+		<link href="{{asset('assets/css/material.css')}}" rel="stylesheet">
+		<link href="{{asset('assets/css/default/style.css')}}" rel="stylesheet">
+		<link href="{{asset('ssets/css/default/blocks.css')}}" rcel="stylesheet">
+		<link rel="stylesheet" href="{{asset('assets/font-awesome/css/font-awesome.min.css')}}" />
 		<!-- Custom CSS -->
-        <link href="assets/css/sb-admin.css" rel="stylesheet">
+        <link href="{{asset('assets/css/sb-admin.css')}}" rel="stylesheet">
         <!-- Custom Fonts -->
-        <link href="assets/font-awesome/css/font-awesome.min.css"
+        <link href="{{asset('assets/font-awesome/css/font-awesome.min.css')}}"
          rel="stylesheet" type="text/css">
 	</head>
 	<body>
@@ -103,7 +103,7 @@
                    
         	 		
 
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
+<script src="{{asset('assets/js/jquery.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
 </body>
 </html>

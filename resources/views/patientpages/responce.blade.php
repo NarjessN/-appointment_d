@@ -6,16 +6,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 		<title>Make Appoinment</title>
-		<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
 		<!-- <link href="asset_filtering/css/style.css" rel="stylesheet"> -->
-		<link href="assets/css/material.css" rel="stylesheet">
-		<link href="assets/css/default/style.css" rel="stylesheet">
-		<link href="assets/css/default/blocks.css" rcel="stylesheet">
+		<link href="{{asset('assets/css/material.css')}}" rel="stylesheet">
+		<link href="{{asset('assets/css/default/style.css')}}" rel="stylesheet">
+		<link href="{{asset('assets/css/default/blocks.css')}}" rcel="stylesheet">
 		<link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css" />
 		<!-- Custom CSS -->
-        <link href="assets/css/sb-admin.css" rel="stylesheet">
+        <link href="{{asset('assets/css/sb-admin.css')}}" rel="stylesheet">
         <!-- Custom Fonts -->
-        <link href="assets/font-awesome/css/font-awesome.min.css"
+        <link href="{{asset('assets/font-awesome/css/font-awesome.min.css')}}"
          rel="stylesheet" type="text/css">
 	</head>
 	<body>
@@ -74,22 +74,38 @@
 				<div class='container'>
 				<div class='row'>
 				<div class='page-header'>
-				<h1>Your appointment list. </h1>
+				<h1>Your inbox </h1>
 				</div>
 				<div class='panel panel-primary'>
-				<div class='panel-heading'>List of Appointment</div>
+				<div class='panel-heading'>List of Appointment responce </div>
 				<div class='panel-body'>
 				<table class='table table-hover'>
 				<thead>
 				<tr>
-				<th>App Id</th>
+				<!-- <th>App Id</th>
 				<th>Doctorfullname </th>
-				<th>Specialization</th>
+				<th>Specialization</th> -->
+				<th> Doctorfirstname  </th>
+				<th> Doctorlastname  </th>
 				<th>Day </th>
 				<th>Time </th>
 				<th>Description </th>
                 <th>Doctor Notes </th>
 				</tr>
+				@foreach($responces as $responce)
+				@foreach($docotrs as $doctor)
+				<tr>
+				@if($doctor->id == $responce->doctorid)
+				<th>{{$doctor->fname}} </th>
+				<th>{{$doctor->lname}} </th>
+				@endif
+				<th>{{$responce->day}} </th>
+				<th>{{$responce->time}} </th>
+				<th>{{$responce->description}} </th>
+				<th>{{$responce->doctornote}} </th>
+				</tr>
+				@endforeach
+				@endforeach
 				</thead>
 
 				</table> 
@@ -104,7 +120,7 @@
                    
         	 		
 
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
+<script src="{{asset('assets/js/jquery.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
 </body>
 </html>

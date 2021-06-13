@@ -52,6 +52,10 @@ Route::post('/edite/{id}/{request}', 'DoctorController@storeworkingday');
 Route::get('/delete/{id}', 'DoctorController@deletworkingday');
 // redirect to view all schedule 
 //shecdula end
+
+
+Auth::routes();
+//patient route 
 // inbox start 
 Route::get('/doctorinbox/{id}', 'DoctorController@inbox');
 // inbox end 
@@ -59,7 +63,7 @@ Route::get('/doctorinbox/{id}', 'DoctorController@inbox');
 Route::get('/setappoinment/{requestid}', 'DoctorController@appoinment');
 Route::post('/sendappoinment/{requestid}', 'DoctorController@setappoinment');
 //setappoinment end 
-
-Auth::routes();
-
+// inbox start
+Route::get('/responce/{id}', 'PatientController@responce')->name('Responce'); 
+// inbox end 
 Route::get('/home', 'HomeController@index')->name('home');
