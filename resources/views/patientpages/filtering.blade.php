@@ -32,26 +32,26 @@
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                     
-                    <a class="navbar-brand" href="/patientprofile">Patient Name</a>
+                    <a class="navbar-brand" href="/patientprofile/{{$patient->id}}">Patient Name</a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
-                   
+                    
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>  <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a  href="/finddoctor"><i class="fa fa-fw fa-edit"></i> booking </a>
+                                <a href="/finddoctor/{{$patient->id}}"><i class="fa fa-fw fa-edit"></i>  booking</a>
                             </li>
                             <li>
-                                <a href="/request"><i class="fa fa-fw fa-table"></i> request</a>
+                                <a href="/patientinbox/{{$patient->id}}"><i class="fa fa-fw fa-envelope"></i> inbox</a>
                             </li>
                             <li>
-                                <a href="/request"><i class="fa fa-fw fa-table"></i> responce</a>
+                                <a href="/yourrequest/{{$patient->id}}"><i class="fa fa-fw fa-envelope"></i> your request</a>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="patientlogout.php?logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                                <a href=""><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                             </li>
                         </ul>
                     </li>

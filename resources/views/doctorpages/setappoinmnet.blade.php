@@ -66,17 +66,17 @@
 											</div>
 											<div class="form-group">
 												<label for="message-text" class="control-label">doctor Note :</label>
-												<textarea class="form-control" name="comment"
+												<textarea class="form-control" name="notes"
 												
 												 required
-												 value=
+												
 												></textarea>
 											</div>
 											</div>
 											
 										
 											<div class="form-group">
-												<input type="submit" name="appointment" id="submit" class="btn btn-primary" value="Make Appointment">
+												<input type="submit" name="appointment" id="submit" class="btn btn-primary" value="accept">
 											</div>
 										</form>
 									</div>

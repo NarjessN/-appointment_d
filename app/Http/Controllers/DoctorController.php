@@ -237,10 +237,12 @@ return redirect('doctorschedule/'.$workingday->doctorid);
     public function inbox($id){
         
         $inbox = Appoinment::where ('doctorid','=',$id)->get(); 
-    $patients = Patient::join('appoinments','patients.id','=','appoinments.pateintid')
-    ->get(['patients.fname','patients.lname','patients.telephonenumbers','patients.id']);
-
-        return view ('/doctorpages/inbox',compact ('inbox','patients'));
+//     $patients = Patient::join('appoinments','patients.id','=','appoinments.pateintid')
+//     ->get(['patients.fname','patients.lname','patients.telephonenumbers','patients.id']);
+// return $patients;
+$patients = Patient ::all();
+$patients = Patient ::all();
+return view ('/doctorpages/inbox',compact ('inbox','patients'));
        
     }
     public function appoinment($requestid  ){
@@ -251,11 +253,12 @@ return redirect('doctorschedule/'.$workingday->doctorid);
         
     }
     public function setappoinment( Request $request ,$id){
-        $appoinment= Appoinment:: where ('id','=',$id)->first();
+       $appoinment= Appoinment:: where ('id','=',$id)->first();
        $appoinment->day=$request->day;
        $appoinment->time=$request->time;
+       $appoinment->appoinmentstatus=$request->appointment;
        $appoinment->save();
-       //redirect .....
+    // pateint list 
 
     }
 }

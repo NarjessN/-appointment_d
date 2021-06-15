@@ -49,10 +49,9 @@
                             </thead>
                             <tbody>
                             @foreach($inbox as $request)
-                            
-                            
                             @foreach($patients as $patient)
                             @if($patient->id == $request->pateintid )
+                            @if($request->appoinmentstatus =="non")
                                <tr>
                              
                                    <td>{{$patient->fname}}</td>                                
@@ -80,6 +79,7 @@
                              
                             
                                 </tr>
+                                @endif
                                 @endif
                                 @endforeach 
                                 @endforeach

@@ -26,8 +26,9 @@ class PatientController extends Controller
    public function singin(){
        return view ('/patientpages/singin');
    }
-   public function profile(){
-       return view ('/patientpages/profile');
+   public function profile($id){
+       $patient = Patient :: where ('id','=',$id)->first();
+       return view ('/patientpages/profile' , compact('patient'));
    }
    public function edite(){
        return view ('/patientpages/editeprofile');
@@ -56,16 +57,27 @@ $appoinmnet->description = $request->description;
 $appoinmnet->doctorid=$iddoctor;
 $appoinmnet->pateintid=$idpatient;
 $appoinmnet->save();
+return redirect('yourrequest/'.$idpatient);
+   }
+   public function request($id){
+    
+       $temprequests = Appoinment :: where ('pateintid','=',$id)->get(); 
+     
+       foreach($temprequests as $request )
+       {
+           $requests = Appoinment :: where ('appoinmentstatus','=','non')->get();
+       }
+    //    $patient = Appoinment :: where ('pateintid','=',$id)->first();
+       
+       $docotrs =Doctor ::all();
+       return view ('/patientpages/request', compact('id','requests','docotrs'));
+   }
 
-   }
-   public function request(){
-       return view ('/patientpages/request');
-   }
 
 public function responce($id){
-    $responces = Appoinment :: where ('pateintid','=',$id)->get(); 
+$responces = Appoinment :: where ('pateintid','=',$id)->get(); 
  $docotrs = Doctor::all();
-    return view ('/patientpages/responce', compact('responces','docotrs'));
+return view ('/patientpages/responce', compact('responces','docotrs','id'));
 
 }
 public function filtering($id , Request $request)

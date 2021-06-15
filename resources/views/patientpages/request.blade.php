@@ -39,13 +39,13 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>  <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href=/finddoctor><i class="fa fa-fw fa-edit"></i>  booking</a>
+                                <a href="/finddoctor/{{$id}}"><i class="fa fa-fw fa-edit"></i>  booking</a>
+                            </li>
+							<li>
+                                <a href="/patientinbox/{{$id}}"><i class="fa fa-fw fa-envelope"></i> inbox</a>
                             </li>
                             <li>
-                                <a href="/responce"><i class="fa fa-fw fa-envelope"></i> inbox</a>
-                            </li>
-                            <li>
-                                <a href="/request"><i class="fa fa-fw fa-envelope"></i> request</a>
+                                <a href="/yourrequest/{{$id}}"><i class="fa fa-fw fa-envelope"></i> your request</a>
                             </li>
                             <li class="divider"></li>
                             <li>
@@ -73,24 +73,32 @@
 				<div class='container'>
 				<div class='row'>
 				<div class='page-header'>
-				<h1>Your appointment list. </h1>
+				<h1> </h1>
 				</div>
 				<div class='panel panel-primary'>
-				<div class='panel-heading'>List of Appointment</div>
+				<div class='panel-heading'>your request list</div>
 				<div class='panel-body'>
 				<table class='table table-hover'>
 				<thead>
 				<tr>
-				<th>App Id</th>
 				<th>doctorfullname </th>
 				<th>specialization</th>
 				<th>Day </th>
-				<th>startTime </th>
-				<th>endTime </th>
 				<th>description </th>
 				</tr>
 				</thead>
-
+				@foreach($requests as $request)
+				@foreach($docotrs as $doctor)
+				<tr>
+				@if($doctor->id == $request->doctorid)
+				<td>{{$doctor->fname}} - {{$doctor->lname}} </td>
+				<td>{{$doctor->spicilization}}</td>
+				<td>{{$request->day}} </td>
+				<td>{{$request->description}} </td>
+				@endif
+				</tr>
+				@endforeach
+				@endforeach
 				</table> 
 				</div>
 				</div>
