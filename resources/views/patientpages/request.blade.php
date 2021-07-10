@@ -78,6 +78,7 @@
 				<div class='panel panel-primary'>
 				<div class='panel-heading'>your request list</div>
 				<div class='panel-body'>
+				@if(count($temprequests)!=0)
 				<table class='table table-hover'>
 				<thead>
 				<tr>
@@ -87,7 +88,9 @@
 				<th>description </th>
 				</tr>
 				</thead>
-				@foreach($requests as $request)
+				
+				@foreach($temprequests as $request)
+				@if($request->appoinmentstatus=="non")
 				@foreach($docotrs as $doctor)
 				<tr>
 				@if($doctor->id == $request->doctorid)
@@ -98,8 +101,13 @@
 				@endif
 				</tr>
 				@endforeach
+				@endif
 				@endforeach
 				</table> 
+			
+  @else
+  <div> non date you have </div>
+  @endif
 				</div>
 				</div>
 				</div>

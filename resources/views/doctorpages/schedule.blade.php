@@ -227,6 +227,7 @@
                         <div class="panel-body">
                         <!-- panel content start -->
                            <!-- Table -->
+                           @if(count($workingdaylist)!=0)
                         <table class="table table-hover table-bordered">
                             <thead>
                                 <tr class="filters">
@@ -294,6 +295,11 @@
                                 @endforeach
                           </tbody>
                        </table>
+                       @else 
+                       <div>
+                       no working days have been set 
+                       </div>
+                       @endif
                        <!-- <div class='panel panel-default'>
                        <div class='col-md-offset-3 pull-right'>
                        <button class='btn btn-primary' type='submit' value='Submit' name='submit'>Update</button>

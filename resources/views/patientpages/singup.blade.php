@@ -75,22 +75,28 @@
                       </nav>
 
         <div class="container" style="width:35%; height:80%; float:left; margin-left:120px; ">
-            <form method="POST" class="signup-form" action="/patientregiste">
+            <form method="post" class="signup-form" action="/patientregiste">
                 <h2>SIGNUP</h2>
                 @csrf
                 <div class="form-group-1">
-
+                <span class="text-danger">@error('fname'){{$message}} @enderror
+                    </span>
                     <input type="text" name="fname" id="fname" placeholder="First Name" required />
-
+                    <span class="text-danger">@error('lname'){{$message}} @enderror
+                    </span>
                     <input type="text" name="lname" id="lname" placeholder="Last Name" required />
                
                     <input type="file" name="image" placeholder="image" required />
-
+                    <span class="text-danger">@error('telephonenumbers'){{$message}} @enderror
+                    </span>
                     <input type="number" name="telephonenumbers" placeholder="Phone Number" required />
 
                     <input type="email" name="email" placeholder="Email ID" required />
-
+                    <span class="text-danger">@error('email'){{$message}} @enderror
+                    </span>
                     <input type="password" name="password" placeholder="Enter Password" required />
+                    <span class="text-danger">@error('pswd'){{$message}} @enderror
+                    </span>
                     <input type="password" name="pswd" placeholder="confirm password " required />
                 </div>
                 

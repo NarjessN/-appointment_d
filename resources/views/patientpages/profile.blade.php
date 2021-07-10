@@ -37,7 +37,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/patientprofile/{{$patient->id}}">Patient Profile</a>
+                    <a class="navbar-brand" href="/patientprofile/{{$patient->id}}">welcome patient :{{$patient->fname}} </a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
@@ -56,52 +56,15 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href=""><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                                <a href="/changpassword/{{$patient->id}}"><i class="glyphicon glyphicon-cog"></i> Chang Password </a>
+                            </li>
+                            <li>
+                                <a href="/patientlogout/{{$patient->id}}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                             </li>
                         </ul>
                     </li>
                 </ul>
-                <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-                <!-- <div class="collapse navbar-collapse navbar-ex1-collapse">
-                    <ul class="nav navbar-nav side-nav">
-                        <li>
-                            <a href="patientdashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-                        </li>
-                        <li class="active">
-                            <a href="patientprofile.php"><i class="fa fa-fw fa-bar-chart-o"></i> Profile</a>
-                        </li>
-                        <li>
-                            <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
-                        </li>
-                        <li>
-                            <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
-                        </li>
-                        <li>
-                            <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
-                        </li>
-                        <li>
-                            <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
-                        </li>
-                        <li>
-                            <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-                            <ul id="demo" class="collapse">
-                                <li>
-                                    <a href="#">Dropdown Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Dropdown Item</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-                        </li>
-                        <li>
-                            <a href="patientdashboard-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
-                        </li>
-                    </ul>
-                </div> -->
-                <!-- /.navbar-collapse -->
+              
             </nav>
             <div id="page-wrapper">
                 <div class="container-fluid">
@@ -131,51 +94,37 @@
                                     </div>
                                     <div class="panel-body">
                                         <div class="row">
-                                            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="assets/img/1.jpg" class=" img-responsive"> </div>
+                                            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="{{asset('assets/img/1.jpg')}}" class=" img-responsive"> </div>
                                             
                                             <form action="" method="post" name="form1" id="form1">
                                                 <div class=" col-md-9 col-lg-9 ">
                                                     <table class="table table-user-information" align="center">
                                                         <tbody>
-                                                            <tr>
+                                                            <!-- <tr>
                                                                 <td>PatientId:</td>
-                                                                <td></td>
-                                                            </tr>
+                                                                <td>{{$patient->fname}}</td>
+                                                            </tr> -->
                                                             <tr>
                                                                 <td>PatientFirstName:</td>
-                                                                <td></td>
+                                                                <td>{{$patient->fname}}</td>
                                                             </tr>
                                                             <tr>
                                                                 <td>PatientLastName</td>
-                                                                <td></td>
+                                                                <td>{{$patient->lname}}</td>
                                                             </tr>
-                                                            
-                                                            
-                                                            <tr>
-                                                                <td>PatientMaritialStatus</td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>PatientDOB</td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>PatientGender</td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>PatientAddress</td>
-                                                                <td>
-                                                                </td>
-                                                            </tr>
+                                                           
+                                                            </tr> 
                                                             <tr>
                                                                 <td>PatientPhone</td>
                                                                 <td>
-                                                                </td>
+                                                                {{$patient->telephonenumbers}}</td>
+                                                               
+                                                             
                                                             </tr>
                                                             <tr>
                                                                 <td>PatientEmail</td>
                                                                 <td>
+                                                                {{$patient->email}}
                                                                 </td>
                                                             </tr>
                                                         </tbody>
@@ -190,7 +139,7 @@
                                             </div>
                                         </div>
                                         <div class="panel-footer">
-                                        <a href="/patientediteprofile" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                                        <a href="/patientediteprofile/{{$patient->id}}" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
                                             <!-- <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a> -->
                                             <span class="pull-right">
                                                 

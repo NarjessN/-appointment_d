@@ -37,7 +37,7 @@
 										
 									
 										<form class="form" role="form" method="POST"
-										action="/sendappoinment/{{$request->id}}"
+										action="/sendappoinment/{{$request->id}}/{{$doctor->id}}"
 										 accept-charset="UTF-8">
 											<div class="panel panel-default">
 												<div class="panel-heading">Patient Information</div>

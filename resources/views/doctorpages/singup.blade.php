@@ -56,40 +56,28 @@
 
         <div class="container" style="width:35%; height:80%; float:left; margin-left:120px; ">
             <form method="POST" class="signup-form" id="signup-form" action="{{route('Doctor-Singup')}}">
+            @if(Session::has('fail'))
+                <div class="alert alert-danger" role="alert">
+                {{Session::get('fail')}}
+                @endif
                 <h2>SIGNUP</h2>
+              
                 @csrf
                 <div class="">
                     
-                    <input type="text" name="fname" id="fname" placeholder="First Name" required />
-                    <input type="text" name="lname" id="lname" placeholder="Last Name" required />
-                    <input type="date" name="birth" id="birth" placeholder="birthday" required />
-                    <!-- <label>Gender : </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="patientGender" value="male" required/>Male
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="patientGender" value="male" required/>FMale
-                    </label> -->
-                   
-                    <!-- <label >Male
-                    <span><input
-                    nam="gender" 
-                    vale="male" 
-                     type="radio" 
-                     style="display:inline;"
-                     />
-        </span>
-                    </label>
-          
-                    <label >FMale
-                    <span><input 
-                    name="gender"
-                    value="fmale" 
-                     type="radio"
-                     style="display:inline;" 
-                     />
-        </span>
-                    </label> -->
+                    <input type="text" name="fname" id="fname" placeholder="First Name" value="{{old('fname')}}"
+                     required />
+                     <span class="text-danger">@error('fname'){{$message}} @enderror
+                    </span>
+                    <input type="text" name="lname" id="lname" placeholder="Last Name" 
+                    value="{{old('lname')}}"
+                    required />
+                    <span class="text-danger">@error('lname'){{$message}} @enderror
+                    </span>
+                    <input type="date" name="birth" id="birth" placeholder="birthday" 
+                    value="{{old('birth')}}"
+                    required />
+                 
                     <table>
                     
                     <tr>
@@ -111,37 +99,46 @@
                     <div class="input-group">
                         <select class="form-control"
                         name="spicilization"
-                        
+                        required
                          >
+                         <option disabled selected value> 
+                         -- select an spicilization -- </option>
                         <option
-                        
-                       
                         value="Endodontictreatment"
-                       
                        >Endodontictreatment</option>
                         <option
                         value="bridges"
-                       
-                        
                          >bridges</option>
                         <option
                         value="jawsurgery"
-                      
-                        
                         >jawsurgery</option>
                         <option
                         value="orthodontics"
-                       
-                       
                         >orthodontics</option>
                     </select>
                     </div>
                           
-                    <textarea  name ="addressclnic"class="form-control" rows="5" id="comment" placeholder="clininc address " required></textarea>
-                    <input type="file" name="image" placeholder="image" required />
-                    <input type="email" name="email" placeholder="Email ID" required />
+                    <textarea  name ="addressclnic"class="form-control" rows="5" id="comment"
+                     placeholder="clininc address " required
+                     
+                     ></textarea>
+                     <span class="text-danger">@error('clinicid'){{$message}} @enderror
+                    </span>
+                     <input type="text" name="clinicid" placeholder="clinic id"
+                     />
+                   
+                     <label for="img">Select image:</label>
+                    <input type="file" name="image" placeholder="image"
+                     />
+                     <span class="text-danger">@error('image'){{$message}} @enderror
+                    </span>
+                    <input type="email" name="email" placeholder="Email ID" required
+                    value="{{old('email')}}"
+                     />
                     <input type="password" name="pswd" placeholder="Password" required />
                     <input type="password" name="cpswd" placeholder="confirmpassword" required />
+                        <span class="text-danger">@error('cpswd'){{$message}} @enderror
+                        </span>
                     
                 </div>
                 
@@ -149,7 +146,7 @@
                     <input type="submit" name="submit" id="submit" class="submit" value="SIGN UP" style="margin:0 auto;"/>
                 </div>
 
-                <a href="/doclogin" style="margin-left:70px;">Already registered? Login!</a>
+                <a href="/doctorsingin" style="margin-left:70px;">Already registered? Login!</a>
             </form>
         </div>
 

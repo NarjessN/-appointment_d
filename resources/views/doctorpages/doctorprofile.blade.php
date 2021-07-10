@@ -31,7 +31,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         </button> -->
-        <a class="navbar-brand" href="/doctorprofile">Welcome Dr   {{$doctor->fname}} </a>
+        <a class="navbar-brand" href="/doctorprofile/{{$doctor->id}}">Welcome Dr   {{$doctor->fname}} </a>
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
@@ -44,12 +44,19 @@
                     <a href="/doctorschedule/{{$doctor->id}}"><i class="fa fa-fw fa-table"></i> DoctorSchedule</a>
                 </li>
                 <li>
-                    <a href="/doctorinbox"><i class="fa fa-fw fa-edit"></i> inbox</a>
+                    <a href="/patientlist/{{$doctor->id}}"><i class="fa fa-fw fa-table"></i> Patient List </a>
+                </li>
+                <li>
+                    <a href="/doctorinbox/{{$doctor->id}}"><i class="fa fa-fw fa-edit"></i> Inbox</a>
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="logout.php?logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                <a href="/changepssword/{{$doctor->id}}"><i class="glyphicon glyphicon-cog"></i> Change Password </a>
+            </li>
+                <li>
+                    <a href="/docotorlogout/{{$doctor->id}}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                 </li>
+              
             </ul>
         </li>
     </ul>
@@ -209,8 +216,8 @@
                                 </tr>
                              
                                 <tr>
-                                    <td>spicilaization</td>
-                                    <td><input type="text" class="form-control" name="spicilization" value="{{$doctor->spicilization}}"  /></td>
+                                    <td>Insurance companies</td>
+                                    <td><input type="text" class="form-control" name="spicilization" value="still working on it in the database"  /></td>
                                 </tr>
                                 <tr>
                                     <td>clinic address</td>

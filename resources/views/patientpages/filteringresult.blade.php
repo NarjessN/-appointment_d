@@ -174,6 +174,7 @@
             </div>
             <div class="row team-member">
             <!-- sart row  -->
+            @if(count($docotrs)!=0)
             @foreach($docotrs as $doctor)
                 <div class="col-md-3 col-sm-6">
                     <div class="user-card">
@@ -194,96 +195,10 @@
                     </div>
                 </div>
                 @endforeach
-                <!-- end column  -->
-                <!-- <div class="col-md-3 col-sm-6">
-                    <div class="user-card">
-                        <div class="userar">
-                            <img class="teammempic" alt="" src="asset_filtering/images/team/team-memb2.jpg">
-                        </div>
-                        <div class="detfs">
-                            <p>Mark Frances<i> - MD</i></p>
-                            <ul>
-                                <li><a href="#"><i class="fab fa-facebook-f fa-lg"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter fa-lg"></i></a></li>
-                                <li><a href="#"><i class="fab fa-google-plus-g fa-lg"></i></a></li>
-                                <li><a href="#"><i class="fab fa-github fa-lg"></i></a></li>
-                                <li><a href="#"><i class="fab fa-pinterest-p fa-lg"></i></a></li>
-                            </ul>
-                             <br>
-                            <p >3+ Years of Experiance in PHP with good innovative Ideas</p>
-
-                        </div>
-                    </div>
-                </div> -->
-                <!-- start column  -->
-                <!-- <div class="col-md-3 col-sm-6">
-                    <div class="user-card">
-                        <div class="userar">
-                            <img class="teammempic" alt="" src="asset_filtering/images/team/team-memb3.jpg">
-                        </div>
-                        <div class="detfs">
-                            <p>Mark Frances<i> - MD</i></p>
-                            <ul>
-                                <li><a href="#"><i class="fab fa-facebook-f fa-lg"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter fa-lg"></i></a></li>
-                                <li><a href="#"><i class="fab fa-google-plus-g fa-lg"></i></a></li>
-                                <li><a href="#"><i class="fab fa-github fa-lg"></i></a></li>
-                                <li><a href="#"><i class="fab fa-pinterest-p fa-lg"></i></a></li>
-                            </ul>
-                              <br>   
-                            <p >3+ Years of Experiance in PHP with good innovative Ideas</p>
-
-                        </div>
-                    </div>
-
-                </div> -->
-                <!-- end column  -->
-              <!-- start column  -->
-              <!-- <div class="col-md-3 col-sm-6">
-                    <div class="user-card">
-                        <div class="userar">
-                            <img class="teammempic" alt="" src="asset_filtering/images/team/team-memb3.jpg">
-                        </div>
-                        <div class="detfs">
-                            <p>Mark Frances<i> - MD</i></p>
-                            <ul>
-                                <li><a href="#"><i class="fab fa-facebook-f fa-lg"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter fa-lg"></i></a></li>
-                                <li><a href="#"><i class="fab fa-google-plus-g fa-lg"></i></a></li>
-                                <li><a href="#"><i class="fab fa-github fa-lg"></i></a></li>
-                                <li><a href="#"><i class="fab fa-pinterest-p fa-lg"></i></a></li>
-                            </ul>
-                              <br>   
-                            <p >3+ Years of Experiance in PHP with good innovative Ideas</p>
-
-                        </div>
-                    </div>
-
-                </div> -->
-                <!-- end column  -->
-                 <!-- start column  -->
-                 <!-- <div class="col-md-3 col-sm-6">
-                    <div class="user-card">
-                        <div class="userar">
-                            <img class="teammempic" alt="" src="{{asset('asset_filtering/images/team/team-memb3.jpg')}}">
-                        </div>
-                        <div class="detfs">
-                            <p>Mark Frances<i> - MD</i></p>
-                            <ul>
-                                <li><a href="#"><i class="fab fa-facebook-f fa-lg"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter fa-lg"></i></a></li>
-                                <li><a href="#"><i class="fab fa-google-plus-g fa-lg"></i></a></li>
-                                <li><a href="#"><i class="fab fa-github fa-lg"></i></a></li>
-                                <li><a href="#"><i class="fab fa-pinterest-p fa-lg"></i></a></li>
-                            </ul>
-                              <br>   
-                            <p >3+ Years of Experiance in PHP with good innovative Ideas</p>
-
-                        </div>
-                    </div>
-
-                </div> -->
-                <!-- end column  -->
+@else <div>
+no result 
+</div>
+@endif
             </div>
         </div>
     </section>

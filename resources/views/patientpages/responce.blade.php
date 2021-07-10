@@ -91,14 +91,15 @@
 				<th>Time </th>
 				<th>Description </th>
                 <th>Doctor Notes </th>
+				<th>responce satus  </th>
 				</tr>
 
 				@foreach($responces as $responce)
-				@if($responce->appoinmentstatus =="accept")
+				@if($responce->appoinmentstatus !="non")
 				@foreach($docotrs as $doctor)
 				@if($doctor->id == $responce->doctorid)
 				<tr>
-				
+				@if($responce->appoinmentstatus =="accept")
 				<td>{{$doctor->fname}} </td>
 				<td>{{$doctor->lname}} </td>
 				
@@ -106,6 +107,18 @@
 				<td>{{$responce->time}} </td>
 				<td>{{$responce->description}} </td>
 				<td>{{$responce->doctornote}} </td>
+				<td>{{$responce->appoinmentstatus}} </td>
+				@endif
+				@if($responce->appoinmentstatus =="reject") 
+				<td>{{$doctor->fname}} </td>
+				<td>{{$doctor->lname}} </td>
+				
+				<td>{{$responce->day}} </td>
+				<td>--- </td>
+				<td>{{$responce->description}} </td>
+				<td>------ </td>
+				<td>{{$responce->appoinmentstatus}} </td>
+				@endif
 				</tr>
 				@endif
 				@endforeach

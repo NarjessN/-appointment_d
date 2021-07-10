@@ -16,11 +16,15 @@
 Route::get('/patientsingup', 'PatientController@singup')->name('PatientSingup');
 Route::post('/patientregiste', 'PatientController@register');
 Route::get('/patientsingin', 'PatientController@singin')->name('PatientSingin');
+Route::get('/logincheckd','PatientController@logincheckd');
+Route::get('/changpassword/{id}','PatientController@changpassword');
+Route::post('/storepatientpassword/{id}','PatientController@storepassword');
+Route::get('/patientlogout/{id}','PatientController@logout');
 //  registration end 
 
 //  profile start 
 Route::get('/patientprofile/{id}', 'PatientController@profile')->name('PatientProfile');
-Route::get('/patientediteprofile', 'PatientController@edite')->name('PatientEdite');
+Route::get('/patientediteprofile/{id}', 'PatientController@edite')->name('PatientEdite');
 // profile end 
 
 // find doctor and booking  start 
@@ -39,11 +43,21 @@ Route::get ('/filteringdoctor/{id}','PatientController@filtering');
 //  registration start  
 Route::get('/doctorsingup', 'DoctorController@singup');
 Route::post('/doctorregister', 'DoctorController@register')->name('Doctor-Singup');
-Route::get('/doctorsingin', 'DoctorController@singin')->name('Doctor-Singin');
 // registration end  
+//login start 
+Route::get('/doctorsingin', 'DoctorController@singin')->name('Doctor-Singin');
+Route::post('/logincheckd','DoctorController@logincheckd');
+// login end 
+// change password start
+Route:: get ('/changepssword/{id}','DoctorController@changepssword');
+Route::post('/storepassword/{id}','DoctorController@storepassword');
+// change password end 
+//logout start
+Route:: get('/docotorlogout/{id}','DoctorController@docotorlogout'); 
+//logout end 
 //  profile  start 
 Route::get('/doctorprofile/{id}', 'DoctorController@profile');
-Route::post('/editeprofile/{id}/{request}', 'DoctorController@editeprofile');
+Route::post('/editeprofile/{id}', 'DoctorController@editeprofile');
 //profile edite
 // shecdula start 
 Route::get('/doctorschedule/{id}', 'DoctorController@getschedule');
@@ -58,9 +72,12 @@ Route::get('/doctorinbox/{id}', 'DoctorController@inbox');
 // inbox end 
 //setappoinment start 
 Route::get('/setappoinment/{requestid}', 'DoctorController@appoinment');
-Route::post('/sendappoinment/{requestid}', 'DoctorController@setappoinment');
+Route::post('/sendappoinment/{requestid}/{doctorid}', 'DoctorController@setappoinment');
+Route:: get ('/rejectappoinmnet/{requestid}/{docotrid}','DoctorController@rejectappoinment');
 //setappoinment end 
-
+// patient list start 
+Route::get('/patientlist/{doctorid}', 'DoctorController@patientlist');
+// patient list end 
 // start page route 
 Route::get('/', 'HomePageController@index')->name('StartPage');
 Route::get('/home', 'HomeController@index')->name('home');

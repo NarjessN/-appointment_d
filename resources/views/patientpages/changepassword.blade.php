@@ -8,11 +8,11 @@
     <title>HelloDoc</title>
 
     <!-- Font Icon -->
-    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="{{asset('fonts/material-icon/css/material-design-iconic-font.min.css')}}">
 
     <!-- Main css -->
-    <link rel="stylesheet" href="css/patlogin.css">
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="{{asset('css/patlogin.css')}}">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
 
     <style>
@@ -82,33 +82,41 @@
                       </nav>
 
         <div class="container" style="width:35%; height:80%; float:left; margin-left:120px; margin-top:100px;">
-            <form method="get" class="login-form" action="/logincheckd">
-                        @if(Session::has('fail'))
+            <form method="post" class="login-form" action="/storepatientpassword/{{$id}}">
+            @if(Session::has('fail'))
                 <div class="alert alert-danger" role="alert">
                 {{Session::get('fail')}}
                 </div>
                 @endif
-                <h2>LOGIN</h2>
-    
+                @if(Session::has('success'))
+                <div class="alert alert-success" role="alert">
+                {{Session::get('success')}}
+                </div>
+                @endif
                 @csrf
+                <h3>chang password</h3>
                 <div class="form-group-1">
-
-                        <input type="text" name="fname" placeholder="Enter your first name "  required>
-                        <input type="password" name="password" placeholder="Enter Password" required>
+                <span class="text-danger">@error('oldpassword'){{$message}} @enderror
+                    </span>
+                        <input type="password" name="oldpassword" placeholder="Enter oldpassword  "  required>
+                        <input type="password" name="newpassword" placeholder="Enter new passsword" required>
+                        <span class="text-danger">@error('confirmpassword'){{$message}} @enderror
+                    </span>
+                        <input type="password" name="confirmpassword" placeholder="confirm password" required>
                         
                     
                 </div>
                 <div class="form-submit">
-                    <input type="submit" class="btn btn-primary" value="Login" />
+                    <input type="submit" class="btn btn-primary" value="submite" />
                 </div>
-                <a style="margin-left:60px;" href="/patientsingup">New User? Sign Up For Free!</a>
+
             </form>
         </div>
 
     </div>
 
     <!-- JS -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('js/main.js')}}"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

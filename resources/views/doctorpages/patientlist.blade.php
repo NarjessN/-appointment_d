@@ -76,7 +76,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h2 class="page-header">
-                            inbox
+                            your Patients
                             </h2>
                            
                         </div>
@@ -88,7 +88,7 @@
 
                         <!-- panel heading starat -->
                         <div class="panel-heading">
-                            <h3 class="panel-title">List of appoinment request</h3>
+                            <h3 class="panel-title">patient list </h3>
                             <div class="pull-right">
                             <!-- <button class="btn btn-default btn-xs btn-filter"><span class="fa fa-filter"></span> Filter</button> -->
                         </div>
@@ -98,29 +98,27 @@
                         <div class="panel-body">
                         <!-- panel content start -->
                            <!-- Table -->
-                           @if(count($inbox)!=0)
+                           @if(count($AcceptedRequests)!=0)
                         <table class="table table-hover table-bordered">
                             <thead>
                                 <tr class="filters">
-                                    <!-- <th><input type="text" class="form-control" placeholder="patient Ic" disabled></th> -->
+        
                                     <th><input type="text" class="form-control" placeholder=" patientFName" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="patientLName" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="telephoneNumber" disabled></th>
-                                    <!-- <th><input type="text" class="form-control" placeholder="Email" disabled></th> -->
-                                    <!-- <th><input type="text" class="form-control" placeholder="Gender" disabled></th> -->
-                                    <!-- <th><input type="text" class="form-control" placeholder="Status" disabled></th> -->
-                                    <!-- <th><input type="text" class="form-control" placeholder="Birthdate" disabled></th> -->
+              
                                     <th><input type="text" class="form-control" placeholder="Description" disabled></th>
-                                    <!-- <th><input type="text" class="form-control" placeholder="Starttime" disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="Endtime" disabled></th> -->
+                    
                                     <th><input type="text" class="form-control" placeholder="Day" disabled></th>
+                                    <th><input type="text" class="form-control" placeholder="doctornotes" disabled></th>
                                 </tr>
                             </thead>
+                           
                             <tbody>
-                            @foreach($inbox as $request)
+                            @foreach($AcceptedRequests as $request)
                             @foreach($patients as $patient)
                             @if($patient->id == $request->pateintid )
-                            @if($request->appoinmentstatus =="non")
+                            @if($request->appoinmentstatus =="accepte")
                                <tr>
                              
                                    <td>{{$patient->fname}}</td>                                
@@ -129,26 +127,8 @@
                                   
                                     <td>{{$request->description}}</td>
                                     <td>{{$request->day}}</td>
-                                   
-
-                                    
-                                    <td class='text-center'><span>
-                                    
-                                    <a href ="/setappoinment/{{$request->id}}" class ="btn btn-success">
-                                    accepte
-                                    </a>
-                                    </span>
-                                    </td>
-                                    <td>
-                                    <span >
-                                     <a href ="/rejectappoinmnet/{{$request->id}}/{{$doctor->id}}" class ="btn btn-danger">
-                                    reject
-                                    </a>
-                                
-                                    </span>
-                            </td>
-                             
-                            
+                                    <td>{{$request->doctornote}}</td>
+                                   <!-- doctor notes -->
                                 </tr>
                                 @endif
                                 @endif
@@ -156,9 +136,9 @@
                                 @endforeach
 
                           </tbody> 
-                           </table>
-                           @else 
-                           <div> no request received.</div>
+                            </table>
+                            @else
+                            <div> non patient you have .  </div>
                            @endif 
                         <!-- panel content end -->
                         <!-- panel end -->

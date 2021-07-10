@@ -9,15 +9,15 @@
         <meta name="author" content="">
         <title>Patient Dashboard</title>
         <!-- Bootstrap Core CSS -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-        <link href="asset_filtering/css/style.css" rel="stylesheet">
-        <link href="assets/css/material.css" rel="stylesheet">
+        <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
+        <link href="{{asset('asset_filtering/css/style.css')}}" rel="stylesheet">
+        <link href="{{asset('assets/css/material.css')}}" rel="stylesheet">
         <!-- Custom CSS -->
-        <link href="assets/css/sb-admin.css" rel="stylesheet">
-        <link href="assets/css/date/bootstrap-datepicker.css" rel="stylesheet">
-        <link href="assets/css/date/bootstrap-datepicker3.css" rel="stylesheet">
+        <link href="{{asset('assets/css/sb-admin.css')}}" rel="stylesheet">
+        <link href="{{asset('assets/css/date/bootstrap-datepicker.css')}}" rel="stylesheet">
+        <link href="{{asset('assets/css/date/bootstrap-datepicker3.css')}}" rel="stylesheet">
         <!-- Custom Fonts -->
-        <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="{{asset('assets/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -199,11 +199,11 @@
             </div>
             <!-- /#wrapper -->
             <!-- jQuery -->
-            <script src="assets/js/jquery.js"></script>
-            <script src="assets/js/date/bootstrap-datepicker.js"></script>
+            <script src="{{asset('assets/js/jquery.js')}}"></script>
+            <script src="{{asset('assets/js/date/bootstrap-datepicker.js')}}"></script>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
             <!-- Bootstrap Core JavaScript -->
-            <script src="assets/js/bootstrap.min.js"></script>
+            <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
             
             
         </body>
