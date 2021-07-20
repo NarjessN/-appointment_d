@@ -41,15 +41,22 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <b class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li>
-                    <a href="/doctorschedule/{{$id}}"><i class="fa fa-fw fa-table"></i> DoctorSchedule</a>
+                    <a href="/doctorschedule/{{$doctor->id}}"><i class="fa fa-fw fa-table"></i> DoctorSchedule</a>
                 </li>
                 <li>
-                    <a href="/doctorinbox/{{$id}}"><i class="fa fa-fw fa-edit"></i> inbox</a>
+                    <a href="/patientlist/{{$doctor->id}}"><i class="fa fa-fw fa-table"></i> Patient List </a>
+                </li>
+                <li>
+                    <a href="/doctorinbox/{{$doctor->id}}"><i class="fa fa-fw fa-edit"></i> Inbox</a>
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="logout.php?logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                <a href="/changepssword/{{$doctor->id}}"><i class="glyphicon glyphicon-cog"></i> Change Password </a>
+            </li>
+                <li>
+                    <a href="/docotorlogout/{{$doctor->id}}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                 </li>
+              
             </ul>
         </li>
     </ul>

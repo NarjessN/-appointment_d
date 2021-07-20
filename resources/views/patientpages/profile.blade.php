@@ -11,7 +11,7 @@
         <!-- Bootstrap Core CSS -->
         <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
         
-        <link href="asset_filtering/css/style.css" rel="stylesheet">
+        <link href="{{asset('asset_filtering/css/style.css')}}" rel="stylesheet">
         <link href="{{asset('assets/css/material.css')}}" rel="stylesheet">
         <!-- Custom CSS -->
         <link href="{{asset('assets/css/sb-admin.css')}}" rel="stylesheet">

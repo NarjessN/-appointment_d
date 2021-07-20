@@ -38,7 +38,7 @@
                     
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>  <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
+						<ul class="dropdown-menu">
                             <li>
                                 <a href="/finddoctor/{{$id}}"><i class="fa fa-fw fa-edit"></i>  booking</a>
                             </li>
@@ -46,11 +46,14 @@
                                 <a href="/patientinbox/{{$id}}"><i class="fa fa-fw fa-envelope"></i> inbox</a>
                             </li>
                             <li>
-                                <a href="/yourrequest/{{$id}}"><i class="fa fa-fw fa-envelope"></i> request</a>
+                                <a href="/yourrequest/{{$id}}"><i class="fa fa-fw fa-envelope"></i> your request</a>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href=""><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                                <a href="/changpassword/{{$id}}"><i class="glyphicon glyphicon-cog"></i> Chang Password </a>
+                            </li>
+                            <li>
+                                <a href="/patientlogout/{{$id}}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                             </li>
                         </ul>
                     </li>

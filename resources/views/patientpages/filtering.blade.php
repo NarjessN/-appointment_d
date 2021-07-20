@@ -32,7 +32,7 @@
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                     
-                    <a class="navbar-brand" href="/patientprofile/{{$patient->id}}">Patient Name</a>
+                    <a class="navbar-brand" href="/patientprofile/{{$patient->id}}"> welcome {{$patient->fname}}</a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
@@ -51,7 +51,10 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href=""><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                                <a href="/changpassword/{{$patient->id}}"><i class="glyphicon glyphicon-cog"></i> Chang Password </a>
+                            </li>
+                            <li>
+                                <a href="/patientlogout/{{$patient->id}}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                             </li>
                         </ul>
                     </li>

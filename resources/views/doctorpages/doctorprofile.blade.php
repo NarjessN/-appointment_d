@@ -10,6 +10,7 @@
         <!-- Bootstrap Core CSS -->
         <link href="{{asset('doctor/assets/css/bootstrap.css')}}" rel="stylesheet">
         <link href="{{asset('doctor/assets/css/material.css')}}" rel="stylesheet">
+        <link href="{{asset('assets/css/material.css')}}" rel="stylesheet">
         <!-- Custom CSS -->
         <link href="{{asset('doctor/assets/css/sb-admin.css')}}" rel="stylesheet">
         <link href="{{asset('doctor/assets/css/time/bootstrap-clockpicker.css')}}" rel="stylesheet">
