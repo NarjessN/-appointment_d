@@ -79,110 +79,57 @@
                                     </div>
                                     <div class="panel-body">
                                         <div class="row">
-                                            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://placehold.it/250x250" class="img-circle img-responsive"> </div>
+                                            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="{{asset('upload/'.$patient->image)}}" class="img-circle img-responsive"> </div>
                                             
                                             
                                             <div class=" col-md-9 col-lg-9 ">
-                                                <form action="" method="post" name="form1" id="form1">
-                                                    <table class="table table-user-information">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>PatientId:</td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>PatientFirstName:</td>
-                                                                <td><input type="text" class="form-control" name="patientFirstName" value=""  /></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>PatientLastName</td>
-                                                                <td><input type="text" class="form-control" name="patientLastName" value=""  /></td>
-                                                            </tr>
-                                                            
-                                                            <!-- radio button -->
-                                                            <tr>
-                                                                <td>PatientMaritialStatus:</td>
-                                                                <td>
-                                                                    <div class="radio">
-                                                                        <label><input type="radio" name="patientMaritialStatus" value="single" >Single</label>
-                                                                    </div>
-                                                                    <div class="radio">
-                                                                        <label><input type="radio" name="patientMaritialStatus" value="married" >Married</label>
-                                                                    </div>
-                                                                    <div class="radio">
-                                                                        <label><input type="radio" name="patientMaritialStatus" value="separated" >Separated</label>
-                                                                    </div>
-                                                                    <div class="radio">
-                                                                        <label><input type="radio" name="patientMaritialStatus" value="divorced" >Divorced</label>
-                                                                    </div>
-                                                                    <div class="radio">
-                                                                        <label><input type="radio" name="patientMaritialStatus" value="widowed" >Widowed</label>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <!-- radio button end -->
-                                                            <tr>
-                                                                <td>PatientDOB</td>
-                                                                <!-- <td><input type="text" class="form-control" name="patientDOB" value=""  /></td> -->
-                                                                <td>
-                                                                    <div class="form-group ">
-                                                                        
-                                                                        <div class="input-group">
-                                                                            <div class="input-group-addon">
-                                                                                <i class="fa fa-calendar">
-                                                                                </i>
-                                                                            </div>
-                                                                            <input class="form-control" id="patientDOB" name="patientDOB" placeholder="MM/DD/YYYY" type="text" value=""/>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                      
-                                                            </tr>
-                                                            <!-- radio button -->
-                                                            <tr>
-                                                                <td>Gender:</td>
-                                                                <td>
-                                                                    <div class="radio">
-                                                                        <label><input type="radio" name="patientGender" value="male" >Male</label>
-                                                                    </div>
-                                                                    <div class="radio">
-                                                                        <label><input type="radio" name="patientGender" value="female" >Female</label>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <!-- radio button end -->
-                                                            <tr>
-                                                                <td>PatientAddress</td>
-                                                                <td><input type="text" class="form-control" name="patientAddress" value=""  /></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>PatientPhone</td>
-                                                                <td><input type="text" class="form-control" name="patientPhone" value=""  /></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>PatientEmail</td>
-                                                                <td><input type="text" class="form-control" name="patientEmail" value=""  /></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <input type="submit"
-                                                                     name="submit"
-                                                                      class="btn btn-info"
-                                                                       value="Update Info"
-                                                                       herf=
-                                                                       ></td>
-                                                                </tr>
-                                                            </tbody>
-                                                            
-                                                        </table>
-                                                        
-                                                        
-                                                        
-                                                    </form>
-                                                    
-                                                    
-                                                    
-                                                </div>
+                                            <div class="modal-body">
+                    <!-- form start -->
+                    <form action="/updateprofile/{{$patient->id}}" 
+                    enctype="multipart/form-data"
+                    method="post">
+                        <table class="table table-user-information">
+                        @csrf
+                            <tbody>
+                       
+                                 <tr>
+                                    <td>description </td>
+                                    <td>
+                                    <textarea name ="description" >
+                                    still working on it 
+                                    </textarea>
+                                    </td>
+                                </tr> 
+                                <tr>
+                                    <td>phone number </td>
+                                    <td><input 
+                                   
+                                    type="text"  name="phonenumber" value="{{$patient->telephonenumbers}}"  /></td>
+                                </tr>
+                                <tr>
+                                    <td>profile picture</td>
+                                    <td><input class="form-control" name="image"   type ="file" value ="" /></td>
+                                </tr>
+                              
+                             
+                                <tr>
+                           
+
+                                    <td>
+                                        <input
+                                            type="submit" name="submit" class="btn btn-info"
+                                            value="Update Info"></td>
+                                    </tr>
+                                </tbody>
+                                
+                            </table>
+                            
+                            
+                            
+                        </form>
+                        <!-- form end -->
+                    </div>
+                
                                             </div>
                                         </div>
                                       

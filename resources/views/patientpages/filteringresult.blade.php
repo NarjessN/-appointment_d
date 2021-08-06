@@ -179,15 +179,18 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="user-card">
                         <div class="userar">
-                            <img class="teammempic" alt="" src="{{asset('asset_filtering/images/team/team-memb1.jpg')}}">
+                            <img class="teammempic" alt="" class="responsive" src="{{asset('upload/'.$doctor->image)}}">
                         </div>
                         <div class="detfs">
-                            <p>{{$doctor->fname}} {{$doctor->lname}}<i> - {{$doctor->spicilization}}</i></p>
+                            <p>{{$doctor->fname}} {{$doctor->lname}} <i> - {{$doctor->spicilization}}</i></p>
                             <a href="/bookingform/{{$patient->id}}/{{$doctor->id}}"  type="button" class="btn btn-primary"
                             >
                             booking
                             </a>
-                                 
+                            <a href="/viewdoctorprofile/{{$patient->id}}/{{$doctor->id}}"  type="button" class="btn btn-primary"
+                            >
+                            view profile
+                            </a> 
                             <br>
                            
 

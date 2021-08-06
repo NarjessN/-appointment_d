@@ -115,10 +115,10 @@
     <div class="col-md-3 col-sm-3">
         
         <div class="user-wrapper">
-            <img src=" {{asset('assets/img/1.jpg')}}" class="img-responsive" />
+            <img src=" {{asset('upload/'.$doctor->image)}}" class="img-responsive" />
             <div class="description">
                 <h4> Dr.{{$doctor->fname}} {{$doctor->lname}} </h4>
-                <!-- <h5> <strong> Doctor </strong></h5> -->
+                <h5> <strong> I am a member of the Dental Association</strong></h5>
                 
                 <hr />
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Update Profile</button>
@@ -140,7 +140,8 @@
                             
                             
                             <tr>
-                                <td>first name </td>
+                                <td >first name </td>
+                               
                                 <td>{{$doctor->fname}}</td>
                             </tr>
                             <tr>
@@ -163,6 +164,12 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td>description</td>
+                                <td>
+                                {{$doctor->description}}
+                                </td>
+                            </tr>
+                            <tr>
                                 <td>clinic address</td>
                                 <td>
                                 {{$doctor->addressclnic}}
@@ -174,7 +181,7 @@
                                 {{$doctor->email}}
                                 </td>
                             </tr>
-                            
+                          
                         </tbody>
                     </table>
                 </div>
@@ -199,36 +206,56 @@
                 </div>
                 <div class="modal-body">
                     <!-- form start -->
-                    <form action="/editeprofile/{{$doctor->id}}/{{$doctor}}" method="post" >
+                    <form action="/editeprofile/{{$doctor->id}}" 
+                    enctype="multipart/form-data"
+                    method="post" >
                         <table class="table table-user-information">
                         @csrf
                             <tbody>
                                 
                                 <tr>
                                     <td>First Name:</td>
-                                    <td><input type="text" class="form-control" name="FirstName" value="{{$doctor->fname}}"  />
+                                    @error('fname'){{$message}} @enderror
+                                    <td><input type="text" class="form-control" name="FirstName" value="{{$doctor->fname}}" 
+                                    required
+                                     />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Last Name</td>
-                                    <td><input type="text" class="form-control" name="LastName" value="{{$doctor->lname}}"  />
+                                    <td><input type="text" class="form-control" name="LastName" value="{{$doctor->lname}}" 
+                                    required
+                                     />
                                     
                                     </td>
                                 </tr>
                              
                                 <tr>
-                                    <td>Insurance companies</td>
-                                    <td><input type="text" class="form-control" name="spicilization" value="still working on it in the database"  /></td>
+                                    <td>description </td>
+                                    <td><input type="text" class="form-control" name="description" 
+                                    required
+                                    value="{{$doctor->description}}"  /></td>
                                 </tr>
                                 <tr>
                                     <td>clinic address</td>
-                                    <td><input type="text" class="form-control" name="addressclnic" value="{{$doctor->addressclnic}}"  /></td>
+                                    <td><input 
+                                    required
+                                    type="text" class="form-control" name="addressclnic" value="{{$doctor->addressclnic}}"  /></td>
+                                </tr>
+                                <tr>
+                                    <td>profile picture</td>
+                                    <td><input class="form-control" name="image"   type ="file" value ="{{$doctor->image}}" /></td>
                                 </tr>
                                 <tr>
                                     <td>Email</td>
-                                    <td><input class="form-control" name="email"  value="{{$doctor->email}}" /></td>
+                                    <td><input class="form-control" name="email"
+                                    required
+                                      value="{{$doctor->email}}" /></td>
                                 </tr>
+                             
                                 <tr>
+                           
+
                                     <td>
                                         <input
                                             type="submit" name="submit" class="btn btn-info"

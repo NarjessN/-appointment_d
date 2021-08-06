@@ -15,12 +15,11 @@ class PatientController extends Controller
        return view('/patientpages/singup');
    }
    public function register(Request $request ){
+   
     $request->validate([
         'fname'=>'required|unique:patients' ,
         'lname'=>'required|regex:/^[a-zA-Z ]+$/',
         'telephonenumbers'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/|digits:10',
-        //if male or femal 
-        // for the image 
         'email'=>'required|email',
         'password'=>'required|min:5|max:12' ,  
         'pswd'=>'required|same:password' 
@@ -30,11 +29,18 @@ class PatientController extends Controller
     $patient->fname = $request->fname;
     $patient->lname = $request->lname;
     $patient->telephonenumbers = $request->telephonenumbers;
-    $patient->image = $request->image;
+    if (isset($request->image)) {
+           
+        $imagename=  $patient->fname. "." . $request->image->getClientOriginalExtension();
+      
+        $patient->image=$imagename;
+     $request->image->move('upload',$imagename);
+     } 
     $patient->password= Hash::make($request->password);
     $patient->email=$request->email;
     $res=$patient->save();
 if($res){
+    $request->session()->put('loginId'.$patient->id,$patient->id); 
     return redirect('patientprofile/'.$patient->id);
 }
    }
@@ -73,6 +79,7 @@ if($res){
     {
         
         Session::pull('loginId'.$id); 
+      
         return redirect('/patientsingin');
     }
   }
@@ -103,8 +110,9 @@ public function profile($id){
        $patient = Patient :: where ('id','=',$id)->first();
        return view ('/patientpages/profile' , compact('patient'));
    }
-   public function edite(){
-       return view ('/patientpages/editeprofile');
+   public function edite($id){
+    $patient = Patient :: where ('id','=',$id)->first();
+       return view ('/patientpages/editeprofile', compact('patient'));
    }
    public function find($id){
        $patient = Patient :: where ('id','=',$id)->first();
@@ -159,4 +167,29 @@ $docotrs = Doctor :: where ('spicilization','=',$request->spicilization)->get();
 $patient = Patient :: where ('id','=',$id)->first();
 return   view ('/patientpages/filteringresult', compact('docotrs','patient'));
 }
+public function editing($id, Request $request ){
+    $patient = Patient :: where ('id','=',$id)->first();
+    //$patient->description= $request->description; here we should it to the data base
+    $patient->telephonenumbers=$request->phonenumber;
+    if (isset($request->image)) {
+           
+        $imagename=  $patient->fname. "." . $request->image->getClientOriginalExtension();
+      
+        $patient->image=$imagename;
+        $request->image->move('upload',$imagename);
+    
+}
+$res=$patient->save();
+if($res)
+{
+ return redirect('patientprofile/'.$patient->id);
+}
+// else return error massage
+}
+public function viewdoctorprofile($idpateint , $iddoctor){
+    $doctor = Doctor :: where ('id','=',$iddoctor)->first();
+    $patient= Patient :: where ('id','=',$idpateint)->first();
+return view ('/patientpages/doctorprofile',compact('doctor','patient'));
+}
+
 }

@@ -26,6 +26,7 @@ class DoctorController extends Controller
             'lname'=>'required|regex:/^[a-zA-Z ]+$/',
             'addressclnic'=>'required',
             'spicilization'=>'required',
+            'services'=>'required',
             'clinicid'=>'required|min:2|max:3|regex:/^[0-9]+$/|unique:doctors',
             'gender'=>'required',
             'birth'=>'required',
@@ -38,37 +39,51 @@ class DoctorController extends Controller
          $doctor->lname = $request->lname;
          $doctor->addressclnic = $request->addressclnic;
          $doctor->spicilization= $request->spicilization;
-         // if gender femail ---> put image 
-         // if gender male ---> put image 
-         // else store the image 
+         $doctor->description = $request->services;
          $doctor->clinicid=$request->clinicid;
-         $doctor->image = $request->image; 
+       
+        if (isset($request->image)) {
+           
+            $imagename= $doctor->clinicid. "." . $request->image->getClientOriginalExtension();
+          
+         $doctor->image=$imagename;
+         $request->image->move('upload',$imagename);
+         } 
          $doctor->gender = $request->gender;
          $doctor->birth= $request->birth;
          $doctor->email= $request->email;
+         $doctor->association = $request->Association;
          $doctor->password= Hash::make($request->pswd); 
-         $res= $doctor->save();  
+         $res= $doctor->save(); 
+        
 if($res)
-        {return redirect('doctorprofile/'.$doctor->id);}
+        {
+            $request->session()->put('loginId'.$doctor->id,$doctor->id);  
+            return redirect('doctorprofile/'.$doctor->id);
+        }
+
         else  if(!res){
-return back()->with('fail','somthing wrong');
+            return 0;
+// return back()->with('fail','somthing wrong');
         }
     }
 public function changepssword($id){
-    if(Session::has('loginId'.$id))
+    $id = Session::get('loginId'.$id); 
+    $user = Doctor::find($id);
+    if($user)
     {
       
         // $id = Session::get('loginId');
 return view('/doctorpages/changepassword', compact('id'));
     }
     else {
-        // return singup....
+        return redirect('/doctorsingin');
     }
 }
 public function storepassword(Request $request , $id){
-if(Session::has('loginId'))
-{
-    $id = Session::get('loginId'.$id);
+// if(Session::has('loginId'))
+// {
+//     $id = Session::get('loginId'.$id);
     $request->validate([
             'oldpassword'=>'required|min:5|max:12' ,  
             'newpassword'=>'required|min:5|max:12',
@@ -87,7 +102,7 @@ if(Session::has('loginId'))
             return back()->with('fail','wrong password.'); 
         }
         
-}
+
 }
     public function profile($id){
         if(Session::has('loginId'.$id))
@@ -99,17 +114,29 @@ if(Session::has('loginId'))
         }
     }
     public function editeprofile(  $id  , Request $request  ){
+    
+       $request->validate([
+        'fname'=>'regex:/^[a-zA-Z ]+$/' ,
+        'lname'=>'regex:/^[a-zA-Z ]+$/',
+        'email'=>'email',
+         
+    ]);
     $doctor=Doctor::find($id);
     $doctor->fname=$request->FirstName;
     $doctor->lname=$request->LastName;
     $doctor->addressclnic = $request->addressclnic;
-    $doctor->spicilization= $request->spicilization;
-    // $doctor->image = $request->image;
+    $doctor->description= $request->description;
+    if (isset($request->image)) {
+        
+        $imagename= rand() . "." . $request->image->getClientOriginalExtension();
+     $doctor->image=$imagename;
+     $request->image->move('upload',$imagename);
+     } 
     $doctor->email= $request->email;
     $doctor->save();
     return redirect('doctorprofile/'.$doctor->id);
     }
-    //end doctor profule function   
+     
     public function singin(){
         return view ('/doctorpages/singin');
     }
@@ -146,10 +173,10 @@ if(Session::has('loginId'))
            return redirect('/doctorsingin');
        }
    }
-    public function schedule(){
+    // public function schedule(){
         
-        return view ('/doctorpages/schedule');
-    }
+    //     return view ('/doctorpages/schedule');
+    // }
     public function addworkingday($id , Request $request ){
 // return $request->all();
 $newworkigday= new Workignday();
@@ -215,10 +242,16 @@ return redirect('doctorschedule/'.$id);
     
 public function  getschedule($id)
 {
- 
-$workingdaylist =Workignday::where ('doctorid','=',$id)->get();
-$doctor= Doctor ::where ('id','=',$id)->first();
-return  view('/doctorpages/schedule',compact('workingdaylist', 'id' , 'doctor'));
+    if(Session::has('loginId'.$id))
+    {
+        $workingdaylist =Workignday::where ('doctorid','=',$id)->get();
+        $doctor= Doctor ::where ('id','=',$id)->first();
+        return  view('/doctorpages/schedule',compact('workingdaylist', 'id' , 'doctor'));
+    }
+    else {
+        return redirect('/doctorsingin');
+    }
+
 
 }
  public function editeworkingday($idworkingday )
@@ -294,19 +327,32 @@ $workingday->delete();
 return redirect('doctorschedule/'.$workingday->doctorid);
 } 
 public function inbox($id){
+    if(Session::has('loginId'.$id))
+    {
         $doctor= Doctor::where ('id','=',$id)->first();
         $inbox = Appoinment::where ('doctorid','=',$id)->get(); 
 // //     $patients = Patient::join('appoinments','patients.id','=','appoinments.pateintid')
 // //     ->get(['patients.fname','patients.lname','patients.telephonenumbers','patients.id']);
 // // return $patients;
         $patients = Patient ::all();
-        return view ('/doctorpages/inbox',compact ('inbox','patients','doctor'));    
+        return view ('/doctorpages/inbox',compact ('inbox','patients','doctor')); 
+    }
+    else {
+         return redirect('/doctorsingin');
+    }
+     
     }
     public function appoinment($requestid  ){
-        $request = Appoinment :: where ('id','=',$requestid)->first();     
-        $patient= Patient::where ('id' ,'=',$request->pateintid)->first();
-        $doctor= Doctor::where ('id' ,'=',$request->doctorid)->first();
-        return view ('/doctorpages/setappoinmnet',compact('patient','request','doctor'));
+        if(Session::has('loginId'.$id))
+        {
+            $request = Appoinment :: where ('id','=',$requestid)->first();     
+            $patient= Patient::where ('id' ,'=',$request->pateintid)->first();
+            $doctor= Doctor::where ('id' ,'=',$request->doctorid)->first();
+            return view ('/doctorpages/setappoinmnet',compact('patient','request','doctor'));
+    }
+ else {
+    return redirect('/doctorsingin');
+ }
         
     }
     public function setappoinment( Request $request ,$id,$doctorid){
@@ -331,9 +377,17 @@ public function inbox($id){
          return view ('/doctorpages/inbox',compact ('inbox','patients','doctor'));  
      }
     public function patientlist($id){
-    $doctor= Doctor::find($id);
-    $AcceptedRequests= Appoinment :: where ('id','=',$id)->get();
-    $patients = Patient :: all();
-    return view('/doctorpages/patientlist', compact('AcceptedRequests','patients','doctor'));
+        if(Session::has('loginId'.$id))
+        {
+            $doctor= Doctor::find($id);
+            $AcceptedRequests= Appoinment :: where ('id','=',$id)->get();
+            $patients = Patient :: all();
+            return view('/doctorpages/patientlist', compact('AcceptedRequests','patients','doctor'));
+    }
+    else {
+        return redirect('/doctorsingin');
+
+    }
+  
     }
 }

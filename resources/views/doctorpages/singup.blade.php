@@ -55,10 +55,13 @@
 
 
         <div class="container" style="width:35%; height:80%; float:left; margin-left:120px; ">
-            <form method="POST" class="signup-form" id="signup-form" action="{{route('Doctor-Singup')}}">
-            @if(Session::has('fail'))
+            <form method="POST" class="signup-form" id="signup-form"
+            enctype="multipart/form-data"
+             action="{{route('Doctor-Singup')}}">
+             @if(Session::has('fail'))
                 <div class="alert alert-danger" role="alert">
                 {{Session::get('fail')}}
+                </div>
                 @endif
                 <h2>SIGNUP</h2>
               
@@ -77,23 +80,29 @@
                     <input type="date" name="birth" id="birth" placeholder="birthday" 
                     value="{{old('birth')}}"
                     required />
-                 
-                    <table>
-                    
+                     <table>
                     <tr>
-                   
+                    <td><label for="gender">Female</label>
+                    <input type="radio" name="gender" value="FM" style="display:inline;">
+                   <td> <label for="gender">Male </label>
+                    <input type="radio" name="gender" value="M" style="display:inline;">
+                     </td>
+                    </td>
+                    </tr>
+                    </table>
+                    <!-- <table>
+                    <tr>
                     <td><label for="gender">F </label>
                     <input type="radio" name="gender" value="FM" style="display:inline;">
                     </td>
                     </tr>
                     <tr>
-                    
                     <td><label for="gender">male </label>
                     <input type="radio" name="gender" value="M" style="display:inline;">
                     </td>
                     </tr>
                     </table>
-                 
+                  -->
                     <!-- we should make it dropdown  -->
                     <!-- <textarea class="form-control" name ="spicilization" rows="5" id="comment" placeholder="Specialization" required></textarea> -->
                     <div class="input-group">
@@ -117,14 +126,21 @@
                         >orthodontics</option>
                     </select>
                     </div>
-                          
+                    <textarea  name ="services"class="form-control" rows="5" id="comment"
+                     placeholder="The doctor talks about himself and the services he provides " required
+                     
+                     ></textarea> 
+                     <span class="text-danger">@error('services'){{$message}} @enderror
+                    </span>         
                     <textarea  name ="addressclnic"class="form-control" rows="5" id="comment"
                      placeholder="clininc address " required
                      
-                     ></textarea>
+                     ></textarea>      
+                   
                      <span class="text-danger">@error('clinicid'){{$message}} @enderror
                     </span>
                      <input type="text" name="clinicid" placeholder="clinic id"
+                     required
                      />
                    
                      <label for="img">Select image:</label>
@@ -139,9 +155,16 @@
                     <input type="password" name="cpswd" placeholder="confirmpassword" required />
                         <span class="text-danger">@error('cpswd'){{$message}} @enderror
                         </span>
-                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <label for="vehicle1"> I have a bike</label>
-                    
+                        <!-- <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <label for="vehicle1"> I have a bike</label> -->
+                    <table>
+                    <tr>
+                    <td>
+                    <input type="checkbox" name="Association" value="true" style="display:inline;">
+                    <label for="gender" >I am a member of the Dental Association</label>   
+                    </td>
+                    </tr>
+                    </table> 
                 </div>
                 
                 <div class="form-submit">

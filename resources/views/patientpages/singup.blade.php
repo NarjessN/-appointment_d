@@ -75,7 +75,9 @@
                       </nav>
 
         <div class="container" style="width:35%; height:80%; float:left; margin-left:120px; ">
-            <form method="post" class="signup-form" action="/patientregiste">
+            <form method="post" class="signup-form"
+            enctype="multipart/form-data"
+             action="/patientregiste">
                 <h2>SIGNUP</h2>
                 @csrf
                 <div class="form-group-1">

@@ -71,13 +71,13 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                            Dashboard
+                            Profile Page
                             </h1>
                             <ol class="breadcrumb">
                                 <li class="active">
-                                    <a href="patientdashboard.php"><i class="fa fa-file"> Dashboard</a></i> 
+                                    <a href="patientdashboard.php"><i class="fa fa-file"> Filtering result </a></i> 
                                 </li>
-                                <li class="active"> Profile</li>
+                                <li class="active">  Doctor Profile</li>
                             </ol>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                                     </div>
                                     <div class="panel-body">
                                         <div class="row">
-                                            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="{{asset('upload/'.$patient->image)}}" class=" img-responsive"> </div>
+                                            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="{{asset('upload/'.$doctor->image)}}" class=" img-responsive"> </div>
                                             
                                             <form action="" method="post" name="form1" id="form1">
                                                 <div class=" col-md-9 col-lg-9 ">
@@ -105,33 +105,32 @@
                                                                 <td>{{$patient->fname}}</td>
                                                             </tr> -->
                                                             <tr>
-                                                                <td>PatientFirstName:</td>
-                                                                <td>{{$patient->fname}}</td>
+                                                                <td>DoctorFirstName:</td>
+                                                                <td>{{$doctor->fname}}</td>
                                                             </tr>
                                                             <tr>
-                                                                <td>PatientLastName</td>
-                                                                <td>{{$patient->lname}}</td>
+                                                                <td>DoctorLastName</td>
+                                                                <td>{{$doctor->lname}}</td>
                                                             </tr>
                                                            
                                                             </tr> 
                                                             <tr>
-                                                                <td>PatientPhone</td>
+                                                                <td>Description</td>
                                                                 <td>
-                                                                {{$patient->telephonenumbers}}</td>
+                                                                {{$doctor->description}}</td>
                                                                
                                                              
                                                             </tr>
                                                             <tr>
-                                                                <td>description</td>
+                                                                <td>ClinicAddress</td>
                                                                 <td>
-                                                               this is still want to store it in the data base  and workign on it </td>
-                                                               
-                                                             
+                                                                {{$doctor->addressclnic}}
+                                                              </td>
                                                             </tr>
                                                             <tr>
-                                                                <td>PatientEmail</td>
+                                                                <td>DoctorEmail</td>
                                                                 <td>
-                                                                {{$patient->email}}
+                                                                {{$doctor->email}}
                                                                 </td>
                                                             </tr>
                                                         </tbody>
@@ -146,12 +145,10 @@
                                             </div>
                                         </div>
                                         <div class="panel-footer">
-                                        <a href="/patientediteprofile/{{$patient->id}}" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-                                            <!-- <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a> -->
-                                            <span class="pull-right">
-                                                
-                                                <!-- <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a> -->
-                                            </span>
+                                        <a href="/bookingform/{{$patient->id}}/{{$doctor->id}}"  type="button" class="btn btn-primary">
+                                            booking
+                                            </a>
+                                           
                                         </div>
                                         
                                     </div>

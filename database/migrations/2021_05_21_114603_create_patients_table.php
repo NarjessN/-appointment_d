@@ -15,14 +15,14 @@ class CreatePatientsTable extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->String('fname')->nulllable();
-            $table->String('lname')->nulllable();
-            $table->String('image')->nulllable();
+            $table->string('fname')->nulllable();
+            $table->string('lname')->nulllable();
+            $table->string('image')->nulllable();
            
-            $table->String('telephonenumbers')->nulllable();
+            $table->string('telephonenumbers')->nulllable();
          
-            $table->String('email')->nulllable();
-            $table->String('password')->nulllable();
+            $table->string('email')->nulllable();
+            $table->string('password')->nulllable();
 
             $table->timestamps();
         });

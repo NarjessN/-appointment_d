@@ -48,7 +48,10 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="logout.php?logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                <a href="/changepssword/{{$doctor->id}}"><i class="glyphicon glyphicon-cog"></i> Change Password </a>
+            </li>
+                <li>
+                    <a href="/docotorlogout/{{$doctor->id}}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                 </li>
             </ul>
         </li>

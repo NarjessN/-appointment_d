@@ -25,12 +25,15 @@ Route::get('/patientlogout/{id}','PatientController@logout');
 //  profile start 
 Route::get('/patientprofile/{id}', 'PatientController@profile')->name('PatientProfile');
 Route::get('/patientediteprofile/{id}', 'PatientController@edite')->name('PatientEdite');
+// Route::post('/editeprofile/{id}','PatientController@editing');
+Route::post ('/updateprofile/{id}','PatientController@editing');
 // profile end 
 
 // find doctor and booking  start 
 Route::get('/finddoctor/{id}', 'PatientController@find')->name('FindDoctor');
 Route::get('/bookingform/{idpatient}/{iddocotr}', 'PatientController@booking');
 Route::post('/storebooking/{idpatient}/{iddocotr}', 'PatientController@store');
+Route::get ('/viewdoctorprofile/{idpatient}/{iddocotr}','PatientController@viewdoctorprofile');
 Route::get('/yourrequest/{id}', 'PatientController@request')->name('Request');
 
 Route::get('/patientinbox/{id}', 'PatientController@responce')->name('Responce'); 
