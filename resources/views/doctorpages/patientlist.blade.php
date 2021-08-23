@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Welcome Dr  </title>
+        <title>Patient List  </title>
         <!-- Bootstrap Core CSS -->
         <link href="{{asset('doctor/assets/css/bootstrap.css')}}" rel="stylesheet">
         <link href="{{asset('doctor/assets/css/material.css')}}" rel="stylesheet">
@@ -35,24 +35,26 @@
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
-        
-        
-        <li class="dropdown">
+    <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <b class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li>
                     <a href="/doctorschedule/{{$doctor->id}}"><i class="fa fa-fw fa-table"></i> DoctorSchedule</a>
                 </li>
                 <li>
-                    <a href="/doctorinbox/{{$doctor->id}}"><i class="fa fa-fw fa-edit"></i> inbox</a>
+                    <a href="/patientlist/{{$doctor->id}}"><i class="fa fa-fw fa-table"></i> Patient List </a>
+                </li>
+                <li>
+                    <a href="/doctorinbox/{{$doctor->id}}"><i class="fa fa-fw fa-edit"></i> Inbox</a>
                 </li>
                 <li class="divider"></li>
                 <li>
-                <a href="/changepssword/{{$doctor->id}}"><i class="glyphicon glyphicon-cog"></i> Change Password </a>
+                <a href="/changepssword/{{$doctor->id}}"><i class="glyphicon glyphicon-cog"></i>  Change Password </a>
             </li>
                 <li>
                     <a href="/docotorlogout/{{$doctor->id}}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                 </li>
+              
             </ul>
         </li>
     </ul>
@@ -109,10 +111,11 @@
                                     <th><input type="text" class="form-control" placeholder=" patientFName" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="patientLName" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="telephoneNumber" disabled></th>
-              
+                                    <th><input type="text" class="form-control" placeholder="chronic diseases" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="Description" disabled></th>
                     
                                     <th><input type="text" class="form-control" placeholder="Day" disabled></th>
+                                    <th><input type="text" class="form-control" placeholder="Time" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="doctornotes" disabled></th>
                                 </tr>
                             </thead>
@@ -121,15 +124,16 @@
                             @foreach($AcceptedRequests as $request)
                             @foreach($patients as $patient)
                             @if($patient->id == $request->pateintid )
-                            @if($request->appoinmentstatus =="accepte")
+                            @if($request->appoinmentstatus =="accept")
                                <tr>
                              
                                    <td>{{$patient->fname}}</td>                                
                                    <td>{{$patient->lname}}</td>
                                    <td>{{$patient->telephonenumbers}}</td>
-                                  
-                                    <td>{{$request->description}}</td>
+                                   <td>{{$patient->diseases}}</td>
+                                   <td>{{$request->description}}</td>
                                     <td>{{$request->day}}</td>
+                                    <td>{{$request->time}}</td>
                                     <td>{{$request->doctornote}}</td>
                                    <!-- doctor notes -->
                                 </tr>

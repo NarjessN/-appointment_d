@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Welcome Dr  </title>
+        <title>Schedule </title>
         <!-- Bootstrap Core CSS -->
         <link href="{{asset('doctor/assets/css/bootstrap.css')}}" rel="stylesheet">
         <link href="{{asset('doctor/assets/css/material.css')}}" rel="stylesheet">
@@ -85,11 +85,7 @@
                             <h2 class="page-header">
                             Doctor Schedule
                             </h2>
-                            <ol class="breadcrumb">
-                                <li class="active">
-                                    <i class="fa fa-calendar"></i> Schedule
-                                </li>
-                            </ol>
+                           
                         </div>
                     </div>
                     <!-- Page Heading end-->
@@ -124,7 +120,9 @@
                                   <div class="col-sm-10">
                                   
                                   <label class="checkbox-inline">
-                                <input type="checkbox" name ="SANDAY" value="1">SANDAY
+                                <input type="checkbox" name ="SANDAY" value="1"
+                            
+                                >SANDAY
                                 </label>
                                 <label class="checkbox-inline">
                                 <input type="checkbox" name ="MONDAY" value="1">MONDAY
@@ -148,7 +146,9 @@
                                  </div>
                                 
                                  <div class="form-group form-group-lg">
-                                  <label class="control-label col-sm-2 requiredField" for="starttime">
+                                  <label class="control-label col-sm-2 requiredField" 
+                                  required
+                                  for="starttime">
                                    Start Time
                                    <span class="asteriskField">
                                     *
@@ -166,7 +166,9 @@
                                   </div>
                                  </div>
                                  <div class="form-group form-group-lg">
-                                  <label class="control-label col-sm-2 requiredField" for="endtime">
+                                  <label class="control-label col-sm-2 requiredField" 
+                                  required
+                                  for="endtime">
                                    End Time
                                    <span class="asteriskField">
                                     *
@@ -193,7 +195,7 @@
                                   <div class="col-sm-10">
                                    <div class="input-group clockpicker"  data-align="top" data-autoclose="true">
                                    
-                                   <textarea class="form-control" rows="5" id="comment" name="note" require></textarea>
+                                   <textarea class="form-control" rows="5" id="comment" name="note" required></textarea>
                                    </div>
                                   </div>
                                  </div>
@@ -226,7 +228,7 @@
                         <div class="panel-heading">
                             <h3 class="panel-title">List of workingday</h3>
                             <div class="pull-right">
-                            <button class="btn btn-default btn-xs btn-filter"><span class="fa fa-filter"></span> Filter</button>
+                   
                         </div>
                         </div>
                         <!-- panel heading end -->

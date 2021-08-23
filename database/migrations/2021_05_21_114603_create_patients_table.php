@@ -18,12 +18,10 @@ class CreatePatientsTable extends Migration
             $table->string('fname')->nulllable();
             $table->string('lname')->nulllable();
             $table->string('image')->nulllable();
-           
             $table->string('telephonenumbers')->nulllable();
-         
+            $table->string('diseases')->nulllable();
             $table->string('email')->nulllable();
             $table->string('password')->nulllable();
-
             $table->timestamps();
         });
     }

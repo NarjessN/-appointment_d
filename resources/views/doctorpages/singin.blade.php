@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HelloDoc</title>
+    <title>Singin</title>
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
@@ -57,7 +57,7 @@
             <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
                     <div style="margin-left:120px;">
                         <a href="#" ><img src="images/hdoc2.png" style="margin-right:10px; margin-left:5px;"></a>
-                        <a class="navbar-brand" href="/">HelloDoc</a>
+                        <a class="navbar-brand" href="/">EAbooking</a>
                     </div>
                       </nav>
 
@@ -66,9 +66,11 @@
             @if(Session::has('fail'))
                 <div class="alert alert-danger" role="alert">
                 {{Session::get('fail')}}
+                </div>
                 @endif
-            @csrf
+           
                 <h2>LOGIN</h2>
+                @csrf
                 <div class="form-group-1">
 
                         <input type="text" name="clinicid" value ="{{old('clinicid')}}" 

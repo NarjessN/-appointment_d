@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Welcome Dr  </title>
+        <title>Doctor Profile  </title>
         <!-- Bootstrap Core CSS -->
         <link href="{{asset('doctor/assets/css/bootstrap.css')}}" rel="stylesheet">
         <link href="{{asset('doctor/assets/css/material.css')}}" rel="stylesheet">
@@ -16,6 +16,7 @@
         <link href="{{asset('doctor/assets/css/time/bootstrap-clockpicker.css')}}" rel="stylesheet">
         <link href="{{asset('doctor/assets/css/style.css')}}" rel="stylesheet">
         <link href="{{asset('doctor/assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
+        
         <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
         <!-- Custom Fonts -->
     </head>
@@ -25,18 +26,15 @@
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
+
     <div class="navbar-header">
-        <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        </button> -->
-        <a class="navbar-brand" href="/doctorprofile/{{$doctor->id}}">Welcome Dr   {{$doctor->fname}} </a>
+    <div class="navbar-brand" id="hellodoc"> EAbooking</div>
+    <!-- <div class="navbar-brand" ><img src="{{asset('images/hdoc2.png')}}"></div> -->
+    <a class="navbar-brand" href="/doctorprofile/{{$doctor->id}}">Welcome Dr   {{$doctor->fname}} </a>
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
-        
+
         
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <b class="caret"></b></a>
@@ -52,7 +50,7 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                <a href="/changepssword/{{$doctor->id}}"><i class="glyphicon glyphicon-cog"></i> Change Password </a>
+                <a href="/changepssword/{{$doctor->id}}"><i class="glyphicon glyphicon-cog"></i>  Change Password </a>
             </li>
                 <li>
                     <a href="/docotorlogout/{{$doctor->id}}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
@@ -60,6 +58,7 @@
               
             </ul>
         </li>
+       
     </ul>
     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
     <!-- <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -160,19 +159,21 @@
                             <tr>
                                 <td>spicilaization</td>
                                 <td>
+                                
                                 {{$doctor->spicilization}}
                                 </td>
                             </tr>
                             <tr>
                                 <td>description</td>
-                                <td>
-                                {{$doctor->description}}
+                                <td >
+                              
+                            <h6>{{$doctor->description}}</h6>
                                 </td>
                             </tr>
                             <tr>
                                 <td>clinic address</td>
                                 <td>
-                                {{$doctor->addressclnic}}
+                                <h6>{{$doctor->addressclnic}}</h6>
                                 </td>
                             </tr>
                             <tr>
@@ -230,17 +231,18 @@
                                     </td>
                                 </tr>
                              
+                               
                                 <tr>
                                     <td>description </td>
-                                    <td><input type="text" class="form-control" name="description" 
+                                    <td><textarea type="text" class="form-control" name="description" 
                                     required
-                                    value="{{$doctor->description}}"  /></td>
+                                    value=""  >{{$doctor->description}}</textarea></td>
                                 </tr>
                                 <tr>
                                     <td>clinic address</td>
-                                    <td><input 
+                                    <td><textarea
                                     required
-                                    type="text" class="form-control" name="addressclnic" value="{{$doctor->addressclnic}}"  /></td>
+                                    type="text" class="form-control" name="addressclnic" value="" >{{$doctor->addressclnic}}</textarea></td>
                                 </tr>
                                 <tr>
                                     <td>profile picture</td>

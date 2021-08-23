@@ -3,7 +3,7 @@
 
 >
     <head>
-        <title>{{config('app.name','HelloDoc')}}</title>
+        <title>home page </title>
         <style>
             #heading {
     color: #343b48;
@@ -100,8 +100,16 @@ a {
         <div id="heading">
             <div class="toptitle" id="welcome">Welcome To  </div>
             <div class="toptitle"><img src="images/hdoc2.png" alt="HelloDoc"></div>
-            <div class="toptitle" id="hellodoc"> HelloDoc</div>
+            <div class="toptitle" id="hellodoc"> EAbooking</div>
         </div>
+        <!-- <div>
+        Our team at LocalMed started off with an idea of how 
+        to make an old process of medical scheduling be easy 
+        and enjoyable for both patients and dentists. 
+        We are proud of what we have built so far and continue to push ourselves to 
+        build the best and most forward thinking 
+        scheduling and communications software on the market today.
+        </div> -->
         <div id="cntr">
             <div id="patlog" class="home">
                 <img src="images/pat.png" alt="Patient">
@@ -118,6 +126,8 @@ a {
                 <h2>and build loyalty</h2>
                 <a href= "/doctorsingup"class="hbtn">Learn More</a>
             </div>
+      
         </div>
+ 
     </body>
 </html>

@@ -46,7 +46,9 @@
 													Patient Name: {{$patient->fname}} - {{$patient->lname}} <br>
 													
 													Contact Number: {{$patient->telephonenumbers}} <br>
+													chronic diseases:{{$patient->diseases}}<br>
 													description: {{$request->description}}
+													
 												</div>
 											</div>
 											<div class="panel panel-default">
@@ -57,15 +59,22 @@
 													Time: - <br>
 												</div> -->
                                                 <div class="form-group">
-												<label for="recipient-name" class="control-label">Day:</label>
-												<input id="dat" type="date" placeholder="Appointment Date" class="form-control"
+												<label for="recipient-name" class="control-label"
+												>Day:</label>
+												<input id="dat" type="date" placeholder="Appointment Date"
+												required
+												 class="form-control"
                            						   name="day"
                             						  >
-                                            <label for="recipient-name" class="control-label">Time:</label>
+                                            <label for="recipient-name" class="control-label"
+											required
+											>Time:</label>
                                             <input type="time" id="appt" name="time">
 											</div>
 											<div class="form-group">
-												<label for="message-text" class="control-label">doctor Note :</label>
+												<label for="message-text" 
+												required
+												class="control-label">doctor Note :</label>
 												<textarea class="form-control" name="notes"
 												
 												 required

@@ -73,12 +73,7 @@
                             <h1 class="page-header">
                             Dashboard
                             </h1>
-                            <ol class="breadcrumb">
-                                <li class="active">
-                                    <a href="patientdashboard.php"><i class="fa fa-file"> Dashboard</a></i> 
-                                </li>
-                                <li class="active"> Profile</li>
-                            </ol>
+                           
                         </div>
                     </div>
                     <!-- /.row -->
@@ -122,9 +117,10 @@
                                                              
                                                             </tr>
                                                             <tr>
-                                                                <td>description</td>
+                                                                <td>Chronic diseases</td>
                                                                 <td>
-                                                               this is still want to store it in the data base  and workign on it </td>
+                                                              {{$patient->diseases}}
+                                                               </td>
                                                                
                                                              
                                                             </tr>

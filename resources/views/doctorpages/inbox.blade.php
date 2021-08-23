@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Welcome Dr  </title>
+        <title>Inbox </title>
         <!-- Bootstrap Core CSS -->
         <link href="{{asset('doctor/assets/css/bootstrap.css')}}" rel="stylesheet">
         <link href="{{asset('doctor/assets/css/material.css')}}" rel="stylesheet">
@@ -31,6 +31,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         </button> -->
+        <div class="navbar-brand" id="hellodoc"> EAbooking</div>
         <a class="navbar-brand" href="/doctorprofile/{{$doctor->id}}">Welcome Dr   {{$doctor->fname}} </a>
     </div>
     <!-- Top Menu Items -->
@@ -113,6 +114,7 @@
                                     <th><input type="text" class="form-control" placeholder=" patientFName" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="patientLName" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="telephoneNumber" disabled></th>
+                                    <th><input type="text" class="form-control" placeholder="chronic diseases" disabled></th>
                                     <!-- <th><input type="text" class="form-control" placeholder="Email" disabled></th> -->
                                     <!-- <th><input type="text" class="form-control" placeholder="Gender" disabled></th> -->
                                     <!-- <th><input type="text" class="form-control" placeholder="Status" disabled></th> -->
@@ -133,6 +135,7 @@
                                    <td>{{$patient->fname}}</td>                                
                                    <td>{{$patient->lname}}</td>
                                    <td>{{$patient->telephonenumbers}}</td>
+                                   <td>{{$patient->diseases}}</td>
                                   
                                     <td>{{$request->description}}</td>
                                     <td>{{$request->day}}</td>

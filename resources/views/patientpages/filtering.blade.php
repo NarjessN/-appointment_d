@@ -32,7 +32,7 @@
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                     
-                    <a class="navbar-brand" href="/patientprofile/{{$patient->id}}"> welcome {{$patient->fname}}</a>
+                    <a class="navbar-brand" href="/patientprofile/{{$patient->id}}"> welcome patient :{{$patient->fname}}</a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
@@ -59,23 +59,7 @@
                         </ul>
                     </li>
                 </ul>
-                <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-                <!-- <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                        <li>
-                            <a href="/finddoctor"><i class="fa fa-fw fa-edit"></i> booking </a>
-                        </li>
-                        <li>
-                            <a href="/request"><i class="fa fa-fw fa-table"></i> request </a>
-                        </li>
-                        <li>
-                            <a href="/responce"><i class="fa fa-fw fa-table"></i> responce </a>
-                        </li>
-                        
-                        
-                    </ul>
-                </div> -->
-                <!-- /.navbar-collapse -->
+              
             </nav>
             
             <div id="page-wrapper">
@@ -93,7 +77,7 @@
             <div class="container-fluid">
             <h1>Filtering Button</h1>
             <p></p>
-            <p>to make an appoinmnet search for the docotr according to specilaization :</p>
+            <p>to make an appoinmnet search for the doctor according to specilaization:</p>
             <br>
             <form action="/filteringdoctor/{{$patient->id}}"
             method=get
@@ -144,36 +128,3 @@
 
 
 
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-  
-<div class="container">
-  <h1>Input Group Button</h1>
-  <p>The .input-group class is a container to enhance an input by adding an icon, text or a button in front or behind it as a "help text".</p>
-  <p>The .input-group-btn class attaches a button next to an input field. This is often used as a search bar:</p>
-  <form action="/action_page.php">
-    <div class="input-group">
-    <select class="form-control" id="sel1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-      </select>
-      <div class="input-group-btn">
-        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-      </div>
-    </div>
-  </form>
-</div>
-
-</body>
-</html> -->

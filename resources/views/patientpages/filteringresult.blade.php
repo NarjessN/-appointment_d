@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <title>Patient Dashboard</title>
-        <link rel="shortcut icon" href="{{asset('asset_filtering/images/fav.jpg')}}">
+        <link rel="shortcut icon" href="{{asset('images/hdoc2.png')}}">
         <!-- -->
         <link rel="stylesheet" href="{{asset('asset_filtering/css/fontawsom-all.min.css')}}">
         <link rel="stylesheet" href="{{asset('asset_filtering/css/animate.css')}}">
@@ -44,113 +44,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/patientprofile">Patient Name</a>
+                    <a class="navbar-brand" href="/patientprofile/{{$patient->id}}">welcome patient :{{$patient->fname}} </a>
                 </div>
-                <!-- Top Menu Items -->
-                <!-- <ul class="nav navbar-right top-nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-                        <ul class="dropdown-menu message-dropdown">
-                            <li class="message-preview">
-                                <a href="#">
-                                    <div class="media">
-                                        <span class="pull-left">
-                                            <img class="media-object" src="http://www.readingfc.co.uk/images/common/bg_player_profile_default_big.png" alt="">
-                                        </span>
-                                        <div class="media-body">
-                                            <h5 class="media-heading">
-                                            <strong></strong>
-                                            </h5>
-                                            <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                            <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="message-preview">
-                                <a href="#">
-                                    <div class="media">
-                                        <span class="pull-left">
-                                            <img class="media-object" src="http://www.readingfc.co.uk/images/common/bg_player_profile_default_big.png" alt="">
-                                        </span>
-                                        <div class="media-body">
-                                            <h5 class="media-heading">
-                                            <strong></strong>
-                                            </h5>
-                                            <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                            <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="message-preview">
-                                <a href="#">
-                                    <div class="media">
-                                        <span class="pull-left">
-                                            <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                        </span>
-                                        <div class="media-body">
-                                            <h5 class="media-heading">
-                                            <strong></strong>
-                                            </h5>
-                                            <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                            <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="message-footer">
-                                <a href="#">Read All New Messages</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-                        <ul class="dropdown-menu alert-dropdown">
-                            <li>
-                                <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">View All</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>  <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a ><i class="fa fa-fw fa-user"></i> Update Profile</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="patientlogout.php?logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul> -->
-           
+               
             </nav>
             <div id="page-wrapper">
                 <div class="container-fluid">
@@ -170,7 +66,7 @@
             <div class="inner-title">
                 <h2>Filtering result
                 </h2>
-                <p>Take a look at our Filtering </p>
+                <p>Take a look at result and start booking </p>
             </div>
             <div class="row team-member">
             <!-- sart row  -->
@@ -199,7 +95,9 @@
                 </div>
                 @endforeach
 @else <div>
-no result 
+<div class="alert alert-danger">
+no result!!
+</div>
 </div>
 @endif
             </div>

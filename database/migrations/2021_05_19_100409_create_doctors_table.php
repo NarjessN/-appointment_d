@@ -27,6 +27,7 @@ class CreateDoctorsTable extends Migration
             $table->string('email')->nulllable();
             $table->String('password')->nulllable();
             $table->String('association')->nulllable();
+            $table->String('insurancecompanies')->nulllable();
             $table->timestamps();
         });
     }

@@ -30,33 +30,34 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/patientprofile/{{$id}}">Patient Name</a>
+					<a class="navbar-brand" href="/patientprofile/{{$patient->id}}">  welcome patient: {{$patient->fname}} </a>
                 </div>
                
                   <!-- Top Menu Items -->
 				  <ul class="nav navbar-right top-nav">
                     
-                    <li class="dropdown">
+				  <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>  <b class="caret"></b></a>
-						<ul class="dropdown-menu">
+                        <ul class="dropdown-menu">
                             <li>
-                                <a href="/finddoctor/{{$id}}"><i class="fa fa-fw fa-edit"></i>  booking</a>
+                                <a href="/finddoctor/{{$patient->id}}"><i class="fa fa-fw fa-edit"></i>  booking</a>
                             </li>
                             <li>
-                                <a href="/patientinbox/{{$id}}"><i class="fa fa-fw fa-envelope"></i> inbox</a>
+                                <a href="/patientinbox/{{$patient->id}}"><i class="fa fa-fw fa-envelope"></i> inbox</a>
                             </li>
                             <li>
-                                <a href="/yourrequest/{{$id}}"><i class="fa fa-fw fa-envelope"></i> your request</a>
+                                <a href="/yourrequest/{{$patient->id}}"><i class="fa fa-fw fa-envelope"></i> your request</a>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="/changpassword/{{$id}}"><i class="glyphicon glyphicon-cog"></i> Chang Password </a>
+                                <a href="/changpassword/{{$patient->id}}"><i class="glyphicon glyphicon-cog"></i> Chang Password </a>
                             </li>
                             <li>
-                                <a href="/patientlogout/{{$id}}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                                <a href="/patientlogout/{{$patient->id}}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                             </li>
                         </ul>
                     </li>
+
                 </ul>
                 <!-- /.navbar-collapse -->
             </nav>

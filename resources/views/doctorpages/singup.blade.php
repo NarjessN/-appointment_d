@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HelloDoc</title>
+    <title>singup</title>
 
     
     <!-- Main css -->
@@ -49,7 +49,7 @@
             <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
                     <div style="margin-left:120px;">
                         <a href="#" ><img src="images/hdoc2.png" style="margin-right:10px; margin-left:5px;"></a>
-                        <a class="navbar-brand" href="#">HelloDoc</a>
+                        <a class="navbar-brand" href="#">EAbooking</a>
                     </div>
                       </nav>
 
@@ -127,22 +127,30 @@
                     </select>
                     </div>
                     <textarea  name ="services"class="form-control" rows="5" id="comment"
-                     placeholder="The doctor talks about himself and the services he provides " required
+                     placeholder="The university doctor graduated from - Years of Experience -treatment costs" required
                      
-                     ></textarea> 
+                     >{{old('services')}}</textarea> 
                      <span class="text-danger">@error('services'){{$message}} @enderror
-                    </span>         
+                    </span>  
+                           
                     <textarea  name ="addressclnic"class="form-control" rows="5" id="comment"
                      placeholder="clininc address " required
                      
-                     ></textarea>      
+                     
+                     >{{old('addressclnic')}}</textarea>      
                    
+                     
+                    <textarea  name ="insurancecompanies"class="form-control" rows="5" id="comment"
+                     placeholder="insurancecompanies " required
+                     
+                     ></textarea> 
                      <span class="text-danger">@error('clinicid'){{$message}} @enderror
                     </span>
                      <input type="text" name="clinicid" placeholder="clinic id"
                      required
+                     value="{{old('clinicid')}}"
                      />
-                   
+                    
                      <label for="img">Select image:</label>
                     <input type="file" name="image" placeholder="image"
                      />
@@ -152,6 +160,8 @@
                     value="{{old('email')}}"
                      />
                     <input type="password" name="pswd" placeholder="Password" required />
+                    <span class="text-danger">@error('pswd'){{$message}} @enderror
+                        </span>
                     <input type="password" name="cpswd" placeholder="confirmpassword" required />
                         <span class="text-danger">@error('cpswd'){{$message}} @enderror
                         </span>
@@ -160,7 +170,7 @@
                     <table>
                     <tr>
                     <td>
-                    <input type="checkbox" name="Association" value="true" style="display:inline;">
+                    <input type="checkbox" name="Association" value="true" style="display:inline;"required >
                     <label for="gender" >I am a member of the Dental Association</label>   
                     </td>
                     </tr>

@@ -19,7 +19,8 @@ class PatientController extends Controller
     $request->validate([
         'fname'=>'required|unique:patients' ,
         'lname'=>'required|regex:/^[a-zA-Z ]+$/',
-        'telephonenumbers'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/|digits:10',
+        'diseases'=>'required',
+        'telephonenumbers'=>'required|regex:/(09)[0-9]{8}/|digits:10',
         'email'=>'required|email',
         'password'=>'required|min:5|max:12' ,  
         'pswd'=>'required|same:password' 
@@ -29,6 +30,7 @@ class PatientController extends Controller
     $patient->fname = $request->fname;
     $patient->lname = $request->lname;
     $patient->telephonenumbers = $request->telephonenumbers;
+    $patient->diseases=$request->diseases;
     if (isset($request->image)) {
            
         $imagename=  $patient->fname. "." . $request->image->getClientOriginalExtension();
@@ -85,8 +87,13 @@ if($res){
   }
 public function changpassword($id)
 {
-    
-return view ('/patientpages/changepassword',compact ('id'));
+    if(Session::has('loginId'.$id))
+    {
+        return view ('/patientpages/changepassword',compact ('id'));
+    }
+    else{
+        return redirect('/patientsingin'); 
+    }
 }   
 public function storepassword( Request $request, $id){
     $request->validate([
@@ -107,25 +114,51 @@ public function storepassword( Request $request, $id){
     }
 }
 public function profile($id){
-       $patient = Patient :: where ('id','=',$id)->first();
-       return view ('/patientpages/profile' , compact('patient'));
+    if(Session::has('loginId'.$id))
+    {
+        $patient = Patient :: where ('id','=',$id)->first();
+        return view ('/patientpages/profile' , compact('patient'));
+    }
+    else{
+        return redirect('/patientsingin');
+    }
+    
    }
    public function edite($id){
-    $patient = Patient :: where ('id','=',$id)->first();
-       return view ('/patientpages/editeprofile', compact('patient'));
+       if(Session::has('loginId'.$id))
+       {
+        $patient = Patient :: where ('id','=',$id)->first();
+        return view ('/patientpages/editeprofile', compact('patient'));
+       }
+       else{
+        return redirect('/patientsingin');
+       }
+    
    }
    public function find($id){
-       $patient = Patient :: where ('id','=',$id)->first();
-       return view ('/patientpages/filtering',compact('patient'));
-   }
-//    public function filtering(){
-//        return view ('/patientpages/filteringresult');
-//    }
-   public function booking($idpatient,$iddocotr){
-       $workingdays= Workignday :: where ('doctorid','=',$iddocotr)->get();
+       if(Session::has('loginId'.$id))
+       {
+        $patient = Patient :: where ('id','=',$id)->first();
+        return view ('/patientpages/filtering',compact('patient'));
+       }
+       else{
+        return redirect('/patientsingin');
+       }
        
-       $patient =  Patient::where('id','=',$idpatient)->first();
-       return view ('/patientpages/bookingform', compact('patient','workingdays','iddocotr'));
+   }
+
+   public function booking($idpatient,$iddocotr){
+       if(Session::has('loginId'.$idpatient))
+       {
+        $workingdays= Workignday :: where ('doctorid','=',$iddocotr)->get();
+       
+        $patient =  Patient::where('id','=',$idpatient)->first();
+        return view ('/patientpages/bookingform', compact('patient','workingdays','iddocotr'));
+       }
+       else {
+        return redirect('/patientsingin'); 
+       }
+   
    }
    public function store(Request $request , $idpatient,   $iddoctor){
 $appoinmnet = new Appoinment();
@@ -145,31 +178,49 @@ return redirect('yourrequest/'.$idpatient);
     //    {
     //        $requests = Appoinment :: where ('appoinmentstatus','=','non')->get();
     //    }
-    //    $patient = Appoinment :: where ('pateintid','=',$id)->first();
+       $patient = Patient :: where ('id','=',$id)->first();
        
        $docotrs =Doctor ::all();
-       
-       return view ('/patientpages/request', compact('id','temprequests','docotrs'));
-
-  
+       if(Session('loginId'.$patient->id))
+       {
+        return view ('/patientpages/request', compact('patient','id','temprequests','docotrs'));
+       }
+       else {
+        return redirect('/patientsingin');   
+       }
    }
-
-
 public function responce($id){
-$responces = Appoinment :: where ('pateintid','=',$id)->get(); 
- $docotrs = Doctor::all();
-return view ('/patientpages/responce', compact('responces','docotrs','id'));
+    
+ $patient = Patient :: where ('id','=',$id)->first();  
+ if(Session::has('loginId'.$patient->id))
+ {
+    $responces = Appoinment :: where ('pateintid','=',$id)->get(); 
+    $docotrs = Doctor::all();
+   return view ('/patientpages/responce', compact('patient','responces','docotrs','id'));
+ }
+ else {
+    return redirect('/patientsingin'); 
+ }
+
 
 }
 public function filtering($id , Request $request)
 {
-$docotrs = Doctor :: where ('spicilization','=',$request->spicilization)->get();
-$patient = Patient :: where ('id','=',$id)->first();
-return   view ('/patientpages/filteringresult', compact('docotrs','patient'));
+    if(Session::has('loginId'.$id))
+    {
+        $docotrs = Doctor :: where ('spicilization','=',$request->spicilization)->get();
+        $patient = Patient :: where ('id','=',$id)->first();
+        return   view ('/patientpages/filteringresult', compact('docotrs','patient'));
+    }
+    else{
+        return redirect('/patientsingin');    
+    }
+
 }
 public function editing($id, Request $request ){
     $patient = Patient :: where ('id','=',$id)->first();
     //$patient->description= $request->description; here we should it to the data base
+    $patient->diseases=$request->diseases;
     $patient->telephonenumbers=$request->phonenumber;
     if (isset($request->image)) {
            
@@ -187,9 +238,16 @@ if($res)
 // else return error massage
 }
 public function viewdoctorprofile($idpateint , $iddoctor){
-    $doctor = Doctor :: where ('id','=',$iddoctor)->first();
-    $patient= Patient :: where ('id','=',$idpateint)->first();
-return view ('/patientpages/doctorprofile',compact('doctor','patient'));
+    if(Session::has('loginId'.$idpateint))
+    {
+        $doctor = Doctor :: where ('id','=',$iddoctor)->first();
+        $patient= Patient :: where ('id','=',$idpateint)->first();
+    return view ('/patientpages/doctorprofile',compact('doctor','patient'));
+    }
+    else {
+        return redirect('/patientsingin');    
+    }
+
 }
 
 }

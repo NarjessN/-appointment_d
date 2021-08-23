@@ -28,6 +28,7 @@ class DoctorController extends Controller
             'spicilization'=>'required',
             'services'=>'required',
             'clinicid'=>'required|min:2|max:3|regex:/^[0-9]+$/|unique:doctors',
+            'insurancecompanies'=>'required',
             'gender'=>'required',
             'birth'=>'required',
             'email'=>'required|email',
@@ -41,6 +42,7 @@ class DoctorController extends Controller
          $doctor->spicilization= $request->spicilization;
          $doctor->description = $request->services;
          $doctor->clinicid=$request->clinicid;
+         $doctor->insurancecompanies=$request->insurancecompanies;
        
         if (isset($request->image)) {
            
@@ -110,7 +112,7 @@ public function storepassword(Request $request , $id){
         return view('doctorpages/doctorprofile'  , compact ('doctor'));
         }
         else {
-            return redirect('/doctorsingup');
+            return redirect('/doctorsingin');
         }
     }
     public function editeprofile(  $id  , Request $request  ){
@@ -256,9 +258,17 @@ public function  getschedule($id)
 }
  public function editeworkingday($idworkingday )
 {
+    
     $workingday=Workignday::where ('id','=',$idworkingday)->first();
-    $doctor = Doctor ::where ('id','=',$workingday->doctorid)->first();
-    return view ('/doctorpages/editeschedule', compact('workingday', 'doctor' ));
+    if(Session::has('loginId'.$workingday->doctorid))
+    {
+        $doctor = Doctor ::where ('id','=',$workingday->doctorid)->first();
+        return view ('/doctorpages/editeschedule', compact('workingday', 'doctor' ));
+    }
+    else{
+        return  redirect('/doctorsingin');
+    }
+ 
 }
  public function storeworkingday($idworkingday , Request $request )
  {
@@ -342,10 +352,11 @@ public function inbox($id){
     }
      
     }
-    public function appoinment($requestid  ){
-        if(Session::has('loginId'.$id))
+    public function appoinment($requestid){
+        $request = Appoinment :: where ('id','=',$requestid)->first(); 
+        if(Session::has('loginId'.$request->doctorid))
         {
-            $request = Appoinment :: where ('id','=',$requestid)->first();     
+               
             $patient= Patient::where ('id' ,'=',$request->pateintid)->first();
             $doctor= Doctor::where ('id' ,'=',$request->doctorid)->first();
             return view ('/doctorpages/setappoinmnet',compact('patient','request','doctor'));
@@ -359,6 +370,7 @@ public function inbox($id){
        $appoinment= Appoinment:: where ('id','=',$id)->first();
        $appoinment->day=$request->day;
        $appoinment->time=$request->time;
+       $appoinment->doctornote=$request->notes;
        $appoinment->appoinmentstatus=$request->appointment;
        $appoinment->save();
        $doctor= Doctor::where ('id','=',$doctorid)->first();

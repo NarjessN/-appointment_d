@@ -45,16 +45,7 @@
                         <h3> Note : {{$workingday->note}} </h3>
                        <br>
                        @endforeach
-                       <!-- <br>
-                        <h2> 10:00 - 12:00</h2>
-                        <h2> sunday - monday - tusday</h2>
-                        <h3> Note : somthing is happing </h3>
-                       <br> -->
-                       <!-- <br>
-                        <h2> 10:00 - 12:00</h2>
-                        <h2> sunday - monday - tusday</h2>
-                        <h3> Note : somthing is happing </h3>
-                       <br> -->
+                      
                     </div>
                 </div>
                 <div class="col-sm-5">
@@ -66,64 +57,46 @@
                         <form  action ="/storebooking/{{$patient->id}}/{{$iddocotr}}" method="post">
                         @csrf
                             <div class="row form-row">
-                              <input type="text"  class="form-control"
-                              value="{{$patient->fname}}"
-                              name="fname"
-                              
-                              >
-                            </div>
-                            <div class="row form-row">
-                              <input type="text" 
-                              value="{{$patient->telephonenumbers}}"
-                              name="telephonenumbers"
-                               class="form-control">
-                            </div>
-                             <!-- <div class="row form-row">
-                              <input type="text" placeholder="Enter Email Adreess" class="form-control">
-                            </div> -->
-                           <!-- <div class="row form-row">
-                              <input id="dat" type="text" placeholder="Appointment Date" class="form-control">
-                            </div> -->
+                            <div >
+                            Patient Name: {{$patient->fname}} - {{$patient->lname}} <br>
+                      
+													
+                          </div>
+                              </div>
+                              <div class="row form-row">
+                            <div >
+                            
+                            Contact Number: {{$patient->telephonenumbers}} <br>
+                          </div>
+                              </div>
+                              <div class="row form-row">
+                            <div >
+                            
+                            Chronic diseases: {{$patient->diseases}} <br>
+                          </div>
+                              </div>
                                <div class="row form-row">
-                              <textarea type="text" placeholder="description" class="form-control"
-                              name="description"
-                              >
-                                </textarea>
+                   
+  <textarea name="description" class="form-control" rows="5" id="comment"
+  placeholder="describe your satuation" required
+  >{{old('description')}}</textarea>
                             </div>
                             
-                            <h6> Apoinment date</h6>
+                            
 
                              <div class="row form-row">
                                 <div class="col-sm-6">
                             
-                            <!-- <label for="appt">Start time  a time:</label>
-                                <input type="time" 
-                                id="time"
-                                 name="time"  
-                                class="form-control"
-                                placeholder="start time"
-                                >
-                                </div> -->
-                                <!-- <div class="col-sm-6">
-                                <label for="appt">End time :</label>
-                                <input type="time"
-                                 id="time"
-                                  name="time"  placehlder = "end time" class="form-control">
-                                </div> -->
+                           
                             </div>
-                             <!-- <div class="row form-row">
-                                <div class="col-sm-6">
-                                   <input type="text" placeholder="Enter State" class="form-control">
-                                </div> -->
-                                <!-- <div class="col-sm-6">
-                                   <input type="text" placeholder="Postal Code" class="form-control">
-                                </div>
-                            </div> -->
+                          
                             <br>
                              <div class="row form-row">
                              <label for="appt">Appoinmnet date :</label>
-                              <input id="dat" type="date" placeholder="Appointment Date" class="form-control"
+                              <input id="dat" type="date" 
+                              placeholder="Appointment Date" class="form-control"
                               name="day"
+                              required
                               >
                             </div>
                                 <br>

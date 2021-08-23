@@ -37,7 +37,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/patientprofile">Patient Name</a>
+                    <a class="navbar-brand" href="/patientprofile/{{$patient->id}}">welcome patient :{{$patient->fname}}</a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
@@ -46,19 +46,25 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>  <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href=/finddoctor><i class="fa fa-fw fa-edit"></i>  booking</a>
+                                <a href="/finddoctor/{{$patient->id}}"><i class="fa fa-fw fa-edit"></i>  booking</a>
                             </li>
                             <li>
-                                <a href="/responce"><i class="fa fa-fw fa-envelope"></i> inbox</a>
+                                <a href="/patientinbox/{{$patient->id}}"><i class="fa fa-fw fa-envelope"></i> inbox</a>
                             </li>
                             <li>
-                                <a href="/request"><i class="fa fa-fw fa-envelope"></i> request</a>
+                                <a href="/yourrequest/{{$patient->id}}"><i class="fa fa-fw fa-envelope"></i> your request</a>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href=""><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                                <a href="/changpassword/{{$patient->id}}"><i class="glyphicon glyphicon-cog"></i> Chang Password </a>
+                            </li>
+                            <li>
+                                <a href="/patientlogout/{{$patient->id}}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                             </li>
                         </ul>
+                    </li>
+                </ul>
+              
                     </li>
                 </ul>             
             </nav>
@@ -93,11 +99,12 @@
                             <tbody>
                        
                                  <tr>
-                                    <td>description </td>
+                                    <td>Chronic diseases </td>
                                     <td>
-                                    <textarea name ="description" >
-                                    still working on it 
+                                    <textarea name ="diseases" >
+                                    {{$patient->diseases}}
                                     </textarea>
+                                   
                                     </td>
                                 </tr> 
                                 <tr>
