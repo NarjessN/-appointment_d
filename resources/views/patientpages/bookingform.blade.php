@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="{{asset('asset_bookingform/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('asset_bookingform/css/datepicker.css')}}">
     <link rel="stylesheet" href="{{asset('asset_bookingform/css/style.css')}}">
+    <title>Booking Form   </title>
+        <link rel="shortcut icon" href="{{asset('images/hdoc2.png')}}">
   </head>
 
     <body>

@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HelloDoc</title>
+    <title>Change Password  </title>
+        <link rel="shortcut icon" href="{{asset('images/hdoc2.png')}}">
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="{{asset('fonts/material-icon/css/material-design-iconic-font.min.css')}}">
@@ -54,8 +55,8 @@
     <div class="main">
             <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="margin-bottom:0px; background-color: #1ea160">
                     <div style="margin-left: 120px;">
-                        <a href="/patdash" class="navbar-left"><img src="images/hdoc2.png" style="margin-right:10px; margin-left:5px;"></a>
-                        <a class="navbar-brand" href="/patash">HelloDoc</a>
+                        <!-- <a href="/patdash" class="navbar-left"><img src="images/hdoc2.png" style="margin-right:10px; margin-left:5px;"></a> -->
+                        <a class="navbar-brand" href="/patash">EAbooking</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                           <span class="navbar-toggler-icon"></span>
                         </button>

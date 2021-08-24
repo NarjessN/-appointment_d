@@ -8,6 +8,7 @@
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 		
 		<title>Make Appoinment</title>
+		<link rel="shortcut icon" href="{{asset('images/hdoc2.png')}}">
 		<link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
 		<link href="{{asset('assets/css/default/style.css')}}" rel="stylesheet">
 		<link href="{{asset('assets/css/default/blocks.css')}}" rcel="stylesheet">

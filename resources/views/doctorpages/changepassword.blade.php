@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>changepassword</title>
+    <link rel="shortcut icon" href="{{asset('images/hdoc2.png')}}">
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="{{asset('fonts/material-icon/css/material-design-iconic-font.min.css')}}">
@@ -58,8 +59,8 @@
     <div class="main">
             <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
                     <div style="margin-left:120px;">
-                        <a href="#" ><img src="images/hdoc2.png" style="margin-right:10px; margin-left:5px;"></a>
-                        <a class="navbar-brand" href="/">HelloDoc</a>
+                        <!-- <a href="#" ><img src="images/hdoc2.png" style="margin-right:10px; margin-left:5px;"></a> -->
+                        <a class="navbar-brand" href="/">EAbooking</a>
                     </div>
                       </nav>
 

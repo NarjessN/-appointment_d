@@ -12,6 +12,18 @@
     <link rel="stylesheet" href="css/app.css">
     <style>
 
+body{
+/* The image used */
+background-image: url("images/pateitn.jpg");
+
+/* Full height */
+height: 100%;
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
     form * {
         margin-bottom:10px;
     }

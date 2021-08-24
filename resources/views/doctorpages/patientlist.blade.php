@@ -7,6 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <title>Patient List  </title>
+        <link rel="shortcut icon" href="{{asset('images/hdoc2.png')}}">
         <!-- Bootstrap Core CSS -->
         <link href="{{asset('doctor/assets/css/bootstrap.css')}}" rel="stylesheet">
         <link href="{{asset('doctor/assets/css/material.css')}}" rel="stylesheet">
@@ -31,6 +32,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         </button> -->
+        <div class="navbar-brand" id="hellodoc"> EAbooking</div>
         <a class="navbar-brand" href="/doctorprofile/{{$doctor->id}}">Welcome Dr   {{$doctor->fname}} </a>
     </div>
     <!-- Top Menu Items -->

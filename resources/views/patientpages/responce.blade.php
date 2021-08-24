@@ -5,7 +5,8 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-		<title>Make Appoinment</title>
+		<title>Responce Page   </title>
+        <link rel="shortcut icon" href="{{asset('images/hdoc2.png')}}">
 		<link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
 		<!-- <link href="asset_filtering/css/style.css" rel="stylesheet"> -->
 		<link href="{{asset('assets/css/material.css')}}" rel="stylesheet">
@@ -24,12 +25,7 @@
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    </button>
+				<div class="navbar-brand" id="hellodoc"> EAbooking</div>
 					<a class="navbar-brand" href="/patientprofile/{{$patient->id}}">  welcome patient: {{$patient->fname}} </a>
                 </div>
                

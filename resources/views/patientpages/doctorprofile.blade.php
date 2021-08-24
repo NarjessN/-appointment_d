@@ -7,7 +7,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Patient Dashboard</title>
+        <title>Doctor Profile  </title>
+        <link rel="shortcut icon" href="{{asset('images/hdoc2.png')}}">
         <!-- Bootstrap Core CSS -->
         <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
         
@@ -31,7 +32,7 @@
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-          
+                <div class="navbar-brand" id="hellodoc"> EAbooking</div>
                     <a class="navbar-brand" href="/patientprofile/{{$patient->id}}">welcome patient :{{$patient->fname}} </a>
                 </div>
                 <!-- Top Menu Items -->

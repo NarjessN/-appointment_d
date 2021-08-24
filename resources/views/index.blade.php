@@ -14,9 +14,24 @@
     padding-top: 30px;
     margin-bottom: 30px;
 }
+html{
+
+   /* The image used */
+   background-image: url("images/dentic.jpg");
+
+/* Full height */
+height: 100%;
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
 
 body {
     font-family: sans-serif;
+
+
 }
 
 .home {
@@ -26,6 +41,7 @@ body {
     padding-top: 70px;
     color: white;
     text-align: center;
+    
 }
 
 #cntr {
@@ -101,14 +117,13 @@ a {
             <div class="toptitle" id="welcome">Welcome To  </div>
             <div class="toptitle"><img src="images/hdoc2.png" alt="HelloDoc"></div>
             <div class="toptitle" id="hellodoc"> EAbooking</div>
+
         </div>
-        <!-- <div>
-        Our team at LocalMed started off with an idea of how 
+        <!-- <div  >
+        Our team at EAbooking started off with an idea of how 
         to make an old process of medical scheduling be easy 
         and enjoyable for both patients and dentists. 
-        We are proud of what we have built so far and continue to push ourselves to 
-        build the best and most forward thinking 
-        scheduling and communications software on the market today.
+       
         </div> -->
         <div id="cntr">
             <div id="patlog" class="home">
@@ -121,10 +136,10 @@ a {
 
             <div id="doclog" class="home">
                 <img src="images/pra.png" alt="Practice">
-                <h3 >I'm a practice</h3>
+                <h3 >I'm a Doctor</h3>
                 <h2>Connect to your patients</h2>
                 <h2>and build loyalty</h2>
-                <a href= "/doctorsingup"class="hbtn">Learn More</a>
+                <a href= "/doctorsingup"class="hbtn">Join our system</a>
             </div>
       
         </div>

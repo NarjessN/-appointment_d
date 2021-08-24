@@ -6,6 +6,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <title>Editeschedule  </title>
+        <link rel="shortcut icon" href="{{asset('images/hdoc2.png')}}">
         <!-- Bootstrap Core CSS -->
         <link href="{{asset('doctor/assets/css/bootstrap.css')}}" rel="stylesheet">
         <link href="{{asset('doctor/assets/css/material.css')}}" rel="stylesheet">

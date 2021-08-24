@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Patient Dashboard</title>
+        <title>Filtering Result </title>
         <link rel="shortcut icon" href="{{asset('images/hdoc2.png')}}">
         <!-- -->
         <link rel="stylesheet" href="{{asset('asset_filtering/css/fontawsom-all.min.css')}}">
@@ -38,14 +38,36 @@
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    </button>
+                   
+                    <div class="navbar-brand" id="hellodoc"> EAbooking</div>
                     <a class="navbar-brand" href="/patientprofile/{{$patient->id}}">welcome patient :{{$patient->fname}} </a>
                 </div>
+                 <!-- Top Menu Items -->
+                 <ul class="nav navbar-right top-nav">
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>  <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/finddoctor/{{$patient->id}}"><i class="fa fa-fw fa-edit"></i>  booking</a>
+                            </li>
+                            <li>
+                                <a href="/patientinbox/{{$patient->id}}"><i class="fa fa-fw fa-envelope"></i> inbox</a>
+                            </li>
+                            <li>
+                                <a href="/yourrequest/{{$patient->id}}"><i class="fa fa-fw fa-envelope"></i> your request</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="/changpassword/{{$patient->id}}"><i class="glyphicon glyphicon-cog"></i> Chang Password </a>
+                            </li>
+                            <li>
+                                <a href="/patientlogout/{{$patient->id}}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+              
                
             </nav>
             <div id="page-wrapper">
