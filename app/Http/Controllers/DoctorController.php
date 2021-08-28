@@ -135,6 +135,7 @@ public function storepassword(Request $request , $id){
      $request->image->move('upload',$imagename);
      } 
     $doctor->email= $request->email;
+    $doctor->insurancecompanies= $request->insurancecompanies;
     $doctor->save();
     return redirect('doctorprofile/'.$doctor->id);
     }

@@ -113,17 +113,20 @@
                          <option disabled selected value> 
                          -- select an spicilization -- </option>
                         <option
-                        value="Endodontictreatment"
-                       >Endodontictreatment</option>
-                        <option
-                        value="bridges"
-                         >bridges</option>
-                        <option
                         value="jawsurgery"
-                        >jawsurgery</option>
+                       >jaw surgery</option>
                         <option
-                        value="orthodontics"
-                        >orthodontics</option>
+                        value="orthodontices"
+                         >orthodontices</option>
+                        <option
+                        value="dentalimplant"
+                        >dentalimplant</option>
+                        <option
+                        value="prosthodontics"
+                        >prosthodontics</option>
+                        <option
+                        value="pediatricdentistry"
+                        >pediatricdentistry</option>
                     </select>
                     </div>
                     <textarea  name ="services"class="form-control" rows="5" id="comment"

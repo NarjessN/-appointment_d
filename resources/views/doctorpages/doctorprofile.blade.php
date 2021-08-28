@@ -178,6 +178,12 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td>insurance companies</td>
+                                <td>
+                                <h6>{{$doctor->insurancecompanies}}</h6>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td>email</td>
                                 <td>
                                 {{$doctor->email}}
@@ -250,11 +256,19 @@
                                     <td><input class="form-control" name="image"   type ="file" value ="{{$doctor->image}}" /></td>
                                 </tr>
                                 <tr>
+                                    <td>  insurance companies</td>
+                                    <td><textarea
+                                    required
+                                    type="text" class="form-control" name="insurancecompanies" value="" >{{$doctor->  insurancecompanies}}</textarea></td>
+                                </tr>
+                                <tr>
                                     <td>Email</td>
                                     <td><input class="form-control" name="email"
                                     required
                                       value="{{$doctor->email}}" /></td>
                                 </tr>
+                              
+                                
                              
                                 <tr>
                            

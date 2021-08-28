@@ -98,27 +98,21 @@ background-size: cover;
                         name="spicilization"
                         
                          >
-                        <option
-                        
-                       
-                        value="Endodontictreatment"
-                       
-                       >Endodontictreatment</option>
-                        <option
-                        value="bridges"
-                       
-                        
-                         >bridges</option>
-                        <option
+                        <option  
                         value="jawsurgery"
-                      
-                        
-                        >jawsurgery</option>
+                       >jawsurgery</option>
                         <option
-                        value="orthodontics"
-                       
-                       
-                        >orthodontics</option>
+                        value="orthodontices"
+                         >orthodontices</option>
+                        <option
+                        value="dentalimplant"
+                        >dentalimplant</option>
+                        <option
+                        value="prosthodontics"
+                        >prosthodontics</option>
+                        <option
+                        value="pediatricdentistry"
+                        >pediatricdentistry</option>
                     </select>
                 
                 <div class="input-group-btn">

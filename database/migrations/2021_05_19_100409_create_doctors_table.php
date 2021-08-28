@@ -20,7 +20,7 @@ class CreateDoctorsTable extends Migration
             $table->bigInteger('clinicid')->nulllable()->unique();
             $table->text('addressclnic')->nulllable();
             $table->text('description')->nulllable();
-            $table->enum('spicilization',['Endodontictreatment','bridges','jawsurgery','orthodontics'])->nulllable();
+            $table->enum('spicilization',['jawsurgery','orthodontices','dentalimplant','prosthodontics','pediatricdentistry'])->nulllable();
             $table->DateTime('birth')->nulllable();
             $table->string('image')->nulllable();
             $table->enum('gender',['FM','M'])->nulllable();
