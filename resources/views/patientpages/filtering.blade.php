@@ -102,17 +102,17 @@ background-size: cover;
                         value="jawsurgery"
                        >jawsurgery</option>
                         <option
-                        value="orthodontices"
-                         >orthodontices</option>
+                        value="implantologist"
+                         >implantologist</option>
                         <option
-                        value="dentalimplant"
-                        >dentalimplant</option>
+                        value="orthodontist"
+                        >orthodontist</option>
+                        <option
+                        value="pediatricdentist"
+                        >pediatricdentist</option>
                         <option
                         value="prosthodontics"
                         >prosthodontics</option>
-                        <option
-                        value="pediatricdentistry"
-                        >pediatricdentistry</option>
                     </select>
                 
                 <div class="input-group-btn">
