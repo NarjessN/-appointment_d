@@ -34,7 +34,7 @@ class DoctorController extends Controller
             'email'=>'required|email',
             'pswd'=>'required|min:5|max:12' ,  
             'cpswd'=>'required|same:pswd' ,
-            ''
+            'image'=>'required | mimes:jpeg ,png , jpg'
         ]);
         $doctor = new Doctor ();        
          $doctor->fname = $request->fname;
