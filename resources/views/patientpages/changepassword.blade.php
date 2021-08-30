@@ -17,6 +17,19 @@
 
 
     <style>
+
+body{
+/* The image used */
+background-image: url("{{asset('images/dental-treatment.jpg')}}");
+
+/* Full height */
+height: 100%;
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
         .container {
         padding-bottom:0px;
         margin-top: 7px;

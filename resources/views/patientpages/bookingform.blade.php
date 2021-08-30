@@ -22,8 +22,8 @@
                         <br>
                         <h2> {{$workingday->startime}} - {{$workingday->endtime}}</h2>
                         <h2>
-                        @if($workingday->SANDAY==1)
-                        SANDAY-
+                        @if($workingday->SUNDAY==1)
+                        SUNDAY-
                         @endif
                         @if($workingday->MONDAY ==1)
                         MONDAY-

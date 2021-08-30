@@ -52,7 +52,7 @@
                                 <a href="/finddoctor/{{$patient->id}}"><i class="fa fa-fw fa-edit"></i>  booking</a>
                             </li>
                             <li>
-                                <a href="/patientinbox/{{$patient->id}}"><i class="fa fa-fw fa-envelope"></i> inbox</a>
+                                <a href="/patientinbox/{{$patient->id}}"><i class="fa fa-fw fa-envelope"></i> notifications</a>
                             </li>
                             <li>
                                 <a href="/yourrequest/{{$patient->id}}"><i class="fa fa-fw fa-envelope"></i> your request</a>
@@ -100,7 +100,7 @@
                             <img class="teammempic" alt="" class="responsive" src="{{asset('upload/'.$doctor->image)}}">
                         </div>
                         <div class="detfs">
-                            <p>{{$doctor->fname}} {{$doctor->lname}} <i> - {{$doctor->spicilization}}</i></p>
+                            <p>{{$doctor->fname}} {{$doctor->lname}} <i> </i></p>
                             <a href="/bookingform/{{$patient->id}}/{{$doctor->id}}"  type="button" class="btn btn-primary"
                             >
                             booking

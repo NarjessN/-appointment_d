@@ -14,8 +14,22 @@
     <link rel="stylesheet" href="css/patlogin.css">
     <link rel="stylesheet" href="css/app.css">
 
-
+  
     <style>
+
+body{
+/* The image used */
+background-image: url("images/dental-treatment.jpg");
+
+/* Full height */
+height: 100%;
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
         .container {
         padding-bottom:0px;
         margin-top: 7px;
@@ -55,7 +69,7 @@
             <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="margin-bottom:0px; background-color: #1ea160">
                     <div style="margin-left: 120px;">
                         <a href="/patdash" class="navbar-left"><img src="images/hdoc2.png" style="margin-right:10px; margin-left:5px;"></a>
-                        <a class="navbar-brand" href="/patash">EAbooking</a>
+                        <a class="navbar-brand" href="/">EAbooking</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                           <span class="navbar-toggler-icon"></span>
                         </button>

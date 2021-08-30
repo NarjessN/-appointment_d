@@ -19,7 +19,7 @@ class CreateWorkigndaysTable extends Migration
             $table->string('endtime')->nulllable();
             // $table->enum('workingday',['SANDAY','MONDAY','TUESDAY','WENESDAY',
             // 'THURSDAY','FRIDAY','SATURDAY'])->nulllable();
-            $table->boolean('SANDAY')->nulllable()->default(0);
+            $table->boolean('SUNDAY')->nulllable()->default(0);
             $table->boolean('MONDAY')->nulllable();
             $table->boolean('TUESDAY')->nulllable();
             $table->boolean('WENESDAY')->nulllable();

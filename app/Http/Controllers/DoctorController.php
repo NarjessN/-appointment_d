@@ -33,7 +33,8 @@ class DoctorController extends Controller
             'birth'=>'required',
             'email'=>'required|email',
             'pswd'=>'required|min:5|max:12' ,  
-            'cpswd'=>'required|same:pswd' 
+            'cpswd'=>'required|same:pswd' ,
+            ''
         ]);
         $doctor = new Doctor ();        
          $doctor->fname = $request->fname;
@@ -187,12 +188,12 @@ $newworkigday->startime=$request->starttime;
 $newworkigday->endtime = $request->endtime;
 $newworkigday->note = $request->note;
 // we should working on the make note as null value 
-if($request->has('SANDAY')) {
-    $newworkigday->SANDAY=$request->SANDAY;
+if($request->has('SUNDAY')) {
+    $newworkigday->SUNDAY=$request->SUNDAY;
 
 }
 else{
-    $newworkigday->SANDAY=0;  
+    $newworkigday->SUNDAY=0;  
 }
 if($request->has('MONDAY')) {
     $newworkigday->MONDAY=$request->MONDAY;
@@ -280,12 +281,12 @@ $workingday->startime=$request->starttime;
 $workingday->endtime = $request->endtime;
 $workingday->note = $request->note;
 
-if($request->has('SANDAY')) {
-    $workingday->SANDAY=$request->SANDAY;
+if($request->has('SUNDAY')) {
+    $workingday->SUNDAY=$request->SUNDAY;
 
 }
 else{
-    $workingday->SANDAY=0;  
+    $workingday->SUNDAY=0;  
 }
 if($request->has('MONDAY')) {
     $workingday->MONDAY=$request->MONDAY;
@@ -392,9 +393,11 @@ public function inbox($id){
     public function patientlist($id){
         if(Session::has('loginId'.$id))
         {
+            
             $doctor= Doctor::find($id);
-            $AcceptedRequests= Appoinment :: where ('id','=',$id)->get();
+            $AcceptedRequests= Appoinment :: where ('doctorid','=',$id)->get();
             $patients = Patient :: all();
+           
             return view('/doctorpages/patientlist', compact('AcceptedRequests','patients','doctor'));
     }
     else {

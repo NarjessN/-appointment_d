@@ -38,7 +38,7 @@
                                 <a href="/finddoctor/{{$patient->id}}"><i class="fa fa-fw fa-edit"></i>  booking</a>
                             </li>
                             <li>
-                                <a href="/patientinbox/{{$patient->id}}"><i class="fa fa-fw fa-envelope"></i> inbox</a>
+                                <a href="/patientinbox/{{$patient->id}}"><i class="fa fa-fw fa-envelope"></i> notifications</a>
                             </li>
                             <li>
                                 <a href="/yourrequest/{{$patient->id}}"><i class="fa fa-fw fa-envelope"></i> your request</a>

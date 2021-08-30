@@ -49,7 +49,7 @@
             <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
                     <div style="margin-left:120px;">
                         <a href="#" ><img src="images/hdoc2.png" style="margin-right:10px; margin-left:5px;"></a>
-                        <a class="navbar-brand" href="#">EAbooking</a>
+                        <a class="navbar-brand" href="/">EAbooking</a>
                     </div>
                       </nav>
 
@@ -155,7 +155,9 @@
                      />
                     
                      <label for="img">Select image:</label>
-                    <input type="file" name="image" placeholder="image"
+                    <input type="file" 
+                    required
+                    name="image" placeholder="image"
                      />
                      <span class="text-danger">@error('image'){{$message}} @enderror
                     </span>

@@ -124,9 +124,9 @@
                                   <label class="checkbox-inline"
                                   
                                   >
-                                <input type="checkbox" name ="SANDAY" value="1"
+                                <input type="checkbox" name ="SUNDAY" value="1"
                             
-                                >SANDAY
+                                >SUNDAY
                                 </label>
                                 <label class="checkbox-inline">
                                 <input type="checkbox" name ="MONDAY" value="1">MONDAY
@@ -262,8 +262,8 @@
                                    <td>{{$workingday->endtime}}</td>
                                    
                                    <td>
-                                   @if($workingday->SANDAY =='1')
-                                   SANDAY-
+                                   @if($workingday->SUNDAY =='1')
+                                   SUNDAY-
                                    @endif
                                    @if($workingday->MONDAY =='1')
                                    MONDAY-

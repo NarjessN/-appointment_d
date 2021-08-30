@@ -119,11 +119,11 @@
                                   
                                   <label class="checkbox-inline">
                                  
-                                <input type="checkbox" name ="SANDAY" value="1"
-                                @if($workingday->SANDAY =='1')
+                                <input type="checkbox" name ="SUNDAY" value="1"
+                                @if($workingday->SUNDAY =='1')
                                 checked 
                                 @endif
-                                >SANDAY
+                                >SUNDAY
                                 </label>
                                 <label class="checkbox-inline">
                                 <input type="checkbox" name ="MONDAY" value="1"

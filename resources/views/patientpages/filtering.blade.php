@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
+     
         <title>Filtering Page </title>
         <link rel="shortcut icon" href="{{asset('images/hdoc2.png')}}">
         <!-- Bootstrap Core CSS -->
@@ -19,20 +20,7 @@
         <link href="{{asset('assets/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
     
     </head>
-    <style>
-       body{
-
-background-image: url("");
-
-/* Full height */
-height: 100%;
-
-/* Center and scale the image nicely */
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
-}
-    </style>
+  
  
     <body>
         <div class="">
@@ -55,7 +43,7 @@ background-size: cover;
                                 <a href="/finddoctor/{{$patient->id}}"><i class="fa fa-fw fa-edit"></i>  booking</a>
                             </li>
                             <li>
-                                <a href="/patientinbox/{{$patient->id}}"><i class="fa fa-fw fa-envelope"></i> inbox</a>
+                                <a href="/patientinbox/{{$patient->id}}"><i class="fa fa-fw fa-envelope"></i> notifications</a>
                             </li>
                             <li>
                                 <a href="/yourrequest/{{$patient->id}}"><i class="fa fa-fw fa-envelope"></i> your request</a>

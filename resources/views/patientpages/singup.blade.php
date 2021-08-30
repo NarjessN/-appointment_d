@@ -14,7 +14,7 @@
 
 body{
 /* The image used */
-background-image: url("images/pateitn.jpg");
+background-image: url("images/dental-treatment.jpg");
 
 /* Full height */
 height: 100%;
