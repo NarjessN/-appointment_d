@@ -218,6 +218,11 @@ public function filtering($id , Request $request)
 
 }
 public function editing($id, Request $request ){
+    $request->validate([
+
+        'phonenumber'=>'required|regex:/(09)[0-9]{8}/|digits:10',
+        'diseases'=> 'required'
+    ]); 
     $patient = Patient :: where ('id','=',$id)->first();
     //$patient->description= $request->description; here we should it to the data base
     $patient->diseases=$request->diseases;

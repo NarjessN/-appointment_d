@@ -92,14 +92,20 @@
                             <tbody>
                        
                                  <tr>
+                                 <span class="text-danger">@error('diseases'){{$message}} @enderror
+                    </span>
                                     <td>Chronic diseases </td>
                                     <td>
-                                    <textarea name ="diseases" >
+                                    <textarea 
+                                    
+                                     name ="diseases" >
                                     {{$patient->diseases}}
                                     </textarea>
                                    
                                     </td>
                                 </tr> 
+                                <span class="text-danger">@error('phonenumber'){{$message}} @enderror
+                    </span>
                                 <tr>
                                     <td>phone number </td>
                                     <td><input 

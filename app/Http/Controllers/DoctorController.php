@@ -34,7 +34,7 @@ class DoctorController extends Controller
             'email'=>'required|email',
             'pswd'=>'required|min:5|max:12' ,  
             'cpswd'=>'required|same:pswd' ,
-            'image'=>'required | mimes:jpeg ,png , jpg'
+            // 'image'=>'required | mimes:jpeg ,png , jpg'
         ]);
         $doctor = new Doctor ();        
          $doctor->fname = $request->fname;
@@ -124,6 +124,7 @@ public function storepassword(Request $request , $id){
         'email'=>'email',
          
     ]);
+    
     $doctor=Doctor::find($id);
     $doctor->fname=$request->FirstName;
     $doctor->lname=$request->LastName;
